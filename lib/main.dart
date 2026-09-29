@@ -1,47 +1,49 @@
 import 'dart:math' as math;
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const SecuriGoApp());
 }
 
 // =========================================================================
-// DESIGN SYSTEM & THEMING
+// DESIGN SYSTEM & THEMING — Deep Blue
 // =========================================================================
 
 class CyberColors {
-  static const Color background = Color(0xFF0B0D17);
-  static const Color surface = Color(0xFF16192B);
-  static const Color surfaceLight = Color(0xFF22263F);
-  static const Color primary = Color(0xFF00F2FE); // Neon Cyan
-  static const Color secondary = Color(0xFF9B5DE5); // Electric Purple
-  static const Color accentGreen = Color(0xFF00E676); // Emerald Neon Green
-  static const Color accentRed = Color(0xFFFF1744); // Ruby Neon Red
-  static const Color accentYellow = Color(0xFFFFD600); // Amber Yellow
-  static const Color border = Color(0xFF2C314E);
-  static const Color textPrimary = Color(0xFFFFFFFF);
-  static const Color textSecondary = Color(0xFF8F9CAE);
+  // Deep Blue Palette
+  static const Color background = Color(0xFF0A1628);
+  static const Color surface = Color(0xFF122043);
+  static const Color surfaceLight = Color(0xFF1A2D5A);
+  static const Color surfaceCard = Color(0xFF15244D);
+
+  // Accent Colors
+  static const Color primary = Color(0xFF4A90E2);       // Bright Blue
+  static const Color primaryLight = Color(0xFF6DB3F8);   // Light Blue
+  static const Color secondary = Color(0xFF7C5CFC);      // Soft Purple
+  static const Color accentGreen = Color(0xFF2ECC71);    // Fresh Green
+  static const Color accentRed = Color(0xFFE74C3C);      // Soft Red
+  static const Color accentYellow = Color(0xFFF39C12);   // Warm Amber
+  static const Color accentOrange = Color(0xFFE67E22);   // Orange
+
+  // Text & Border
+  static const Color textPrimary = Color(0xFFE8EDF5);
+  static const Color textSecondary = Color(0xFF8BA3C7);
+  static const Color textMuted = Color(0xFF5A7499);
+  static const Color border = Color(0xFF1E3A6E);
+  static const Color borderLight = Color(0xFF2A4A80);
+
+  // Navbar
+  static const Color navbarBg = Color(0xCC0F1D38);       // Semi-transparent
+  static const Color navbarActive = Color(0xFF4A90E2);
+  static const Color navbarInactive = Color(0xFF5A7499);
 }
 
 class CyberTheme {
-  static ThemeData get darkTheme {
-    return ThemeData.dark().copyWith(
-      scaffoldBackgroundColor: CyberColors.background,
-      colorScheme: const ColorScheme.dark(
-        primary: CyberColors.primary,
-        secondary: CyberColors.secondary,
-        surface: CyberColors.surface,
-        error: CyberColors.accentRed,
-      ),
-      cardTheme: CardThemeData(
-        color: CyberColors.surface,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24),
-          side: const BorderSide(color: CyberColors.border, width: 1.5),
-        ),
-        elevation: 8,
-      ),
-      textTheme: const TextTheme(
+  static TextTheme get _nunitoTextTheme {
+    return GoogleFonts.nunitoTextTheme(
+      const TextTheme(
         headlineLarge: TextStyle(
           fontSize: 32,
           fontWeight: FontWeight.w800,
@@ -73,6 +75,27 @@ class CyberTheme {
       ),
     );
   }
+
+  static ThemeData get darkTheme {
+    return ThemeData.dark().copyWith(
+      scaffoldBackgroundColor: CyberColors.background,
+      colorScheme: const ColorScheme.dark(
+        primary: CyberColors.primary,
+        secondary: CyberColors.secondary,
+        surface: CyberColors.surface,
+        error: CyberColors.accentRed,
+      ),
+      cardTheme: CardThemeData(
+        color: CyberColors.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: const BorderSide(color: CyberColors.border, width: 1),
+        ),
+        elevation: 0,
+      ),
+      textTheme: _nunitoTextTheme,
+    );
+  }
 }
 
 // =========================================================================
@@ -88,6 +111,7 @@ class CyberLevel {
   final IconData icon;
   final Color color;
   LevelStatus status;
+  double progress; // 0.0 to 1.0
 
   CyberLevel({
     required this.id,
@@ -96,6 +120,7 @@ class CyberLevel {
     required this.icon,
     required this.color,
     required this.status,
+    this.progress = 0.0,
   });
 }
 
@@ -121,11 +146,12 @@ class QuizQuestion {
 
 class AppState extends ChangeNotifier {
   // User profile
-  String username = "SiberNaut-01";
+  String username = "SecuriGo";
   int dailyXp = 40;
   final int dailyGoalXp = 100;
   int streakDays = 3;
-  int totalXp = 450;
+  int totalXp = 1260;
+  int level = 5;
 
   // Levels
   final List<CyberLevel> levels = [
@@ -134,32 +160,36 @@ class AppState extends ChangeNotifier {
       title: "Deteksi Phishing",
       subtitle: "Kenali email palsu berbahaya",
       icon: Icons.alternate_email_rounded,
-      color: CyberColors.primary,
-      status: LevelStatus.unlocked,
+      color: CyberColors.accentGreen,
+      status: LevelStatus.completed,
+      progress: 1.0,
     ),
     CyberLevel(
       id: 2,
       title: "Password Mastery",
       subtitle: "Buat kata sandi anti retas",
       icon: Icons.vpn_key_rounded,
-      color: CyberColors.secondary,
-      status: LevelStatus.locked,
+      color: CyberColors.accentOrange,
+      status: LevelStatus.unlocked,
+      progress: 0.75,
     ),
     CyberLevel(
       id: 3,
       title: "Social Engineering",
       subtitle: "Waspada manipulasi psikologis",
       icon: Icons.people_outline_rounded,
-      color: CyberColors.accentYellow,
+      color: CyberColors.secondary,
       status: LevelStatus.locked,
+      progress: 0.0,
     ),
     CyberLevel(
       id: 4,
       title: "Keamanan Perangkat",
       subtitle: "Proteksi gadget dari malware",
       icon: Icons.phonelink_lock_rounded,
-      color: CyberColors.accentGreen,
+      color: CyberColors.primary,
       status: LevelStatus.locked,
+      progress: 0.0,
     ),
   ];
 
@@ -258,9 +288,10 @@ class AppState extends ChangeNotifier {
       totalXp += sessionXpEarned;
 
       // Unlock next level as demo progression
-      if (activeLevel != null && activeLevel!.id == 1) {
-        levels[0].status = LevelStatus.completed;
-        levels[1].status = LevelStatus.unlocked;
+      if (activeLevel != null && activeLevel!.id == 2) {
+        levels[1].status = LevelStatus.completed;
+        levels[1].progress = 1.0;
+        levels[2].status = LevelStatus.unlocked;
       }
     }
     notifyListeners();
@@ -280,10 +311,14 @@ class AppState extends ChangeNotifier {
 
   void resetProgress() {
     dailyXp = 40;
-    totalXp = 450;
-    levels[0].status = LevelStatus.unlocked;
-    for (int i = 1; i < levels.length; i++) {
+    totalXp = 1260;
+    levels[0].status = LevelStatus.completed;
+    levels[0].progress = 1.0;
+    levels[1].status = LevelStatus.unlocked;
+    levels[1].progress = 0.75;
+    for (int i = 2; i < levels.length; i++) {
       levels[i].status = LevelStatus.locked;
+      levels[i].progress = 0.0;
     }
     notifyListeners();
   }
@@ -344,8 +379,8 @@ class GridPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = CyberColors.primary.withOpacity(0.08)
-      ..strokeWidth = 1.0;
+      ..color = CyberColors.primary.withOpacity(0.04)
+      ..strokeWidth = 0.5;
 
     double step = 32;
     for (double i = 0; i < size.width; i += step) {
@@ -399,7 +434,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       if (mounted) {
         Navigator.of(context).pushReplacement(
           PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) => const ResponsiveLayoutWrapper(child: HomeScreen()),
+            pageBuilder: (context, animation, secondaryAnimation) => const MainShell(),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               return FadeTransition(opacity: animation, child: child);
             },
@@ -423,14 +458,14 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       body: Stack(
         alignment: Alignment.center,
         children: [
-          // Cyber tech grid
+          // Subtle grid
           Positioned.fill(
             child: CustomPaint(
               painter: GridPainter(),
             ),
           ),
 
-          // Central Glowing Logo and Title
+          // Central Logo
           Center(
             child: AnimatedBuilder(
               animation: _controller,
@@ -442,33 +477,38 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        // Shield Icon Container with Neon Glow
                         Container(
                           width: 110,
                           height: 110,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: CyberColors.primary.withOpacity(0.1),
-                            border: Border.all(color: CyberColors.primary, width: 2.5),
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                CyberColors.primary.withOpacity(0.15),
+                                CyberColors.secondary.withOpacity(0.1),
+                              ],
+                            ),
+                            border: Border.all(color: CyberColors.primary.withOpacity(0.6), width: 2.5),
                             boxShadow: [
                               BoxShadow(
-                                color: CyberColors.primary.withOpacity(0.2),
-                                blurRadius: 24,
+                                color: CyberColors.primary.withOpacity(0.15),
+                                blurRadius: 30,
                                 spreadRadius: 4,
                               )
                             ],
                           ),
                           child: const Icon(
                             Icons.security_rounded,
-                            color: CyberColors.primary,
+                            color: CyberColors.primaryLight,
                             size: 56,
                           ),
                         ),
                         const SizedBox(height: 24),
-                        // Title (no emojis)
-                        const Text(
+                        Text(
                           "SecuriGo",
-                          style: TextStyle(
+                          style: GoogleFonts.nunito(
                             fontSize: 38,
                             fontWeight: FontWeight.w800,
                             color: Colors.white,
@@ -476,10 +516,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                           ),
                         ),
                         const SizedBox(height: 8),
-                        // Subtitle
-                        const Text(
+                        Text(
                           "Learn Security, Stay Safe",
-                          style: TextStyle(
+                          style: GoogleFonts.nunito(
                             fontSize: 14,
                             color: CyberColors.textSecondary,
                             letterSpacing: 0.5,
@@ -493,7 +532,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             ),
           ),
 
-          // Lower Loading indicator
+          // Loading indicator
           Positioned(
             bottom: 80,
             child: Column(
@@ -510,9 +549,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   ),
                 ),
                 const SizedBox(height: 14),
-                const Text(
+                Text(
                   "Memuat Modul Belajar...",
-                  style: TextStyle(
+                  style: GoogleFonts.nunito(
                     color: CyberColors.textSecondary,
                     fontSize: 12,
                     letterSpacing: 0.5,
@@ -540,10 +579,214 @@ class ResponsiveLayoutWrapper extends StatelessWidget {
           constraints: const BoxConstraints(maxWidth: 480),
           decoration: const BoxDecoration(
             border: Border.symmetric(
-              vertical: BorderSide(color: CyberColors.border, width: 1.5),
+              vertical: BorderSide(color: CyberColors.border, width: 1),
             ),
           ),
           child: child,
+        ),
+      ),
+    );
+  }
+}
+
+// =========================================================================
+// MAIN SHELL WITH GLASSMORPHISM BOTTOM NAVBAR
+// =========================================================================
+
+class MainShell extends StatefulWidget {
+  const MainShell({super.key});
+
+  @override
+  State<MainShell> createState() => _MainShellState();
+}
+
+class _MainShellState extends State<MainShell> {
+  int _currentIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveLayoutWrapper(
+      child: Scaffold(
+        backgroundColor: CyberColors.background,
+        extendBody: true,
+        body: IndexedStack(
+          index: _currentIndex,
+          children: const [
+            HomeScreen(),
+            PracticeScreen(),
+            LeaderboardScreen(),
+            ProfileScreen(),
+          ],
+        ),
+        bottomNavigationBar: GlassNavBar(
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+        ),
+      ),
+    );
+  }
+}
+
+// =========================================================================
+// GLASSMORPHISM BOTTOM NAVBAR
+// =========================================================================
+
+class GlassNavBar extends StatelessWidget {
+  final int currentIndex;
+  final Function(int) onTap;
+
+  const GlassNavBar({
+    super.key,
+    required this.currentIndex,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final items = [
+      _NavItem(Icons.school_rounded, "Learn"),
+      _NavItem(Icons.fitness_center_rounded, "Practice"),
+      _NavItem(Icons.emoji_events_rounded, "Leaderboard"),
+      _NavItem(Icons.person_rounded, "Profile"),
+    ];
+
+    return Container(
+      margin: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(28),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+          child: Container(
+            height: 70,
+            decoration: BoxDecoration(
+              color: CyberColors.surface.withOpacity(0.85),
+              borderRadius: BorderRadius.circular(28),
+              border: Border.all(
+                color: CyberColors.borderLight.withOpacity(0.4),
+                width: 1,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  blurRadius: 20,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: List.generate(items.length, (index) {
+                return _GlassNavItem(
+                  icon: items[index].icon,
+                  label: items[index].label,
+                  isActive: currentIndex == index,
+                  onTap: () => onTap(index),
+                );
+              }),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _NavItem {
+  final IconData icon;
+  final String label;
+
+  _NavItem(this.icon, this.label);
+}
+
+class _GlassNavItem extends StatefulWidget {
+  final IconData icon;
+  final String label;
+  final bool isActive;
+  final VoidCallback onTap;
+
+  const _GlassNavItem({
+    required this.icon,
+    required this.label,
+    required this.isActive,
+    required this.onTap,
+  });
+
+  @override
+  State<_GlassNavItem> createState() => _GlassNavItemState();
+}
+
+class _GlassNavItemState extends State<_GlassNavItem> with SingleTickerProviderStateMixin {
+  bool _isHovered = false;
+  late AnimationController _scaleController;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _scaleController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 150),
+    );
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 1.12).animate(
+      CurvedAnimation(parent: _scaleController, curve: Curves.easeOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _scaleController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final color = widget.isActive
+        ? CyberColors.navbarActive
+        : (_isHovered ? CyberColors.primaryLight : CyberColors.navbarInactive);
+
+    return MouseRegion(
+      onEnter: (_) {
+        setState(() => _isHovered = true);
+        _scaleController.forward();
+      },
+      onExit: (_) {
+        setState(() => _isHovered = false);
+        _scaleController.reverse();
+      },
+      child: GestureDetector(
+        onTap: widget.onTap,
+        behavior: HitTestBehavior.opaque,
+        child: ScaleTransition(
+          scale: _scaleAnimation,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: (widget.isActive || _isHovered)
+                  ? CyberColors.primary.withOpacity(widget.isActive ? 0.15 : 0.08)
+                  : Colors.transparent,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(widget.icon, color: color, size: 24),
+                const SizedBox(height: 4),
+                Text(
+                  widget.label,
+                  style: GoogleFonts.nunito(
+                    fontSize: 10,
+                    fontWeight: widget.isActive ? FontWeight.w800 : FontWeight.w600,
+                    color: color,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -642,18 +885,18 @@ class _CyberButtonState extends State<CyberButton> with SingleTickerProviderStat
                 if (widget.icon != null) ...[
                   Icon(
                     widget.icon,
-                    color: widget.isOutline ? widget.glowColor : Colors.black87,
+                    color: widget.isOutline ? widget.glowColor : Colors.white,
                     size: 22,
                   ),
                   const SizedBox(width: 8),
                 ],
                 Text(
                   widget.text,
-                  style: TextStyle(
+                  style: GoogleFonts.nunito(
                     fontSize: 16,
                     fontWeight: FontWeight.w800,
-                    color: widget.isOutline ? widget.glowColor : Colors.black87,
-                    letterSpacing: 1.0,
+                    color: widget.isOutline ? widget.glowColor : Colors.white,
+                    letterSpacing: 0.5,
                   ),
                 ),
               ],
@@ -665,8 +908,56 @@ class _CyberButtonState extends State<CyberButton> with SingleTickerProviderStat
   }
 }
 
+// Circular Progress Widget (like in the reference image)
+class CircularProgressWidget extends StatelessWidget {
+  final double progress;
+  final Color color;
+  final double size;
+  final double strokeWidth;
+
+  const CircularProgressWidget({
+    super.key,
+    required this.progress,
+    required this.color,
+    this.size = 44,
+    this.strokeWidth = 4,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: size,
+      height: size,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          SizedBox(
+            width: size,
+            height: size,
+            child: CircularProgressIndicator(
+              value: progress,
+              strokeWidth: strokeWidth,
+              backgroundColor: CyberColors.border.withOpacity(0.3),
+              valueColor: AlwaysStoppedAnimation<Color>(color),
+              strokeCap: StrokeCap.round,
+            ),
+          ),
+          Text(
+            "${(progress * 100).toInt()}%",
+            style: GoogleFonts.nunito(
+              fontSize: size * 0.26,
+              fontWeight: FontWeight.w800,
+              color: color,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 // =========================================================================
-// SCREEN 1: HOME SCREEN
+// SCREEN 1: HOME SCREEN (Matching Reference Image)
 // =========================================================================
 
 class HomeScreen extends StatefulWidget {
@@ -699,92 +990,89 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     final state = AppStateProvider.of(context);
 
     return Scaffold(
+      backgroundColor: CyberColors.background,
       body: SafeArea(
-        child: CustomScrollView(
+        child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
-          slivers: [
-            // PROFILE & STATUS HEADER
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+          padding: const EdgeInsets.only(bottom: 100), // Extra bottom padding for navbar
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // ======= HEADER SECTION =======
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 20, 24, 0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Profile Bar
+                    // Title Row with avatar badge
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          child: Row(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // Avatar with clean Material design icon instead of emoji
-                              Container(
-                                width: 50,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  gradient: const LinearGradient(
-                                    colors: [CyberColors.primary, CyberColors.secondary],
-                                  ),
-                                  border: Border.all(color: CyberColors.border, width: 2),
-                                ),
-                                child: const Center(
-                                  child: Icon(
-                                    Icons.person_rounded,
-                                    color: Colors.white,
-                                    size: 26,
-                                  ),
+                              Text(
+                                "Learn Security",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.w800,
+                                  color: CyberColors.textPrimary,
+                                  height: 1.2,
                                 ),
                               ),
-                              const SizedBox(width: 12),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      state.username,
-                                      style: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 0.5,
-                                      ),
-                                      overflow: TextOverflow.ellipsis,
+                              const SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.all(4),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      border: Border.all(color: CyberColors.borderLight, width: 1.5),
                                     ),
-                                    const Text(
-                                      "Keamanan Siber Pemula",
-                                      style: TextStyle(
-                                        color: CyberColors.textSecondary,
-                                        fontSize: 12,
-                                      ),
-                                      overflow: TextOverflow.ellipsis,
+                                    child: const Icon(Icons.security_rounded, color: CyberColors.primary, size: 16),
+                                  ),
+                                  const SizedBox(width: 6),
+                                  Container(
+                                    padding: const EdgeInsets.all(4),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      border: Border.all(color: CyberColors.borderLight, width: 1.5),
                                     ),
-                                  ],
+                                    child: const Icon(Icons.shield_rounded, color: CyberColors.secondary, size: 16),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 6),
+                              Text(
+                                "Level ${state.level} · ${state.totalXp} XP",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 13,
+                                  color: CyberColors.textSecondary,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        // Streak Indicator with local fire icon instead of emoji
+                        // Streak badge
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                           decoration: BoxDecoration(
                             color: CyberColors.surface,
                             borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: CyberColors.accentYellow.withOpacity(0.3)),
+                            border: Border.all(color: CyberColors.primary.withOpacity(0.3)),
                           ),
                           child: Row(
                             children: [
-                              const Icon(
-                                Icons.local_fire_department_rounded,
-                                color: CyberColors.accentYellow,
-                                size: 20,
-                              ),
+                              const Icon(Icons.security_rounded, color: CyberColors.primary, size: 18),
                               const SizedBox(width: 6),
                               Text(
-                                "${state.streakDays} Hari",
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: CyberColors.accentYellow,
+                                "${state.streakDays}",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w800,
+                                  color: CyberColors.primary,
                                 ),
                               ),
                             ],
@@ -792,217 +1080,284 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                         ),
                       ],
                     ),
-                    const SizedBox(height: 24),
+                  ],
+                ),
+              ),
 
-                    // DAILY PROGRESS CARD
-                    Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Row(
+              const SizedBox(height: 24),
+
+              // ======= STATS ROW (Streak, XP, Level) =======
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Row(
+                  children: [
+                    _StatCard(
+                      icon: Icons.local_fire_department_rounded,
+                      iconColor: CyberColors.accentOrange,
+                      value: "${state.streakDays}",
+                      label: "Streak",
+                    ),
+                    const SizedBox(width: 12),
+                    _StatCard(
+                      icon: Icons.bolt_rounded,
+                      iconColor: CyberColors.accentYellow,
+                      value: "${state.totalXp}",
+                      label: "XP",
+                    ),
+                    const SizedBox(width: 12),
+                    _StatCard(
+                      icon: Icons.emoji_events_rounded,
+                      iconColor: CyberColors.secondary,
+                      value: "${state.level}",
+                      label: "Level",
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              // ======= DAILY GOAL & COURSE PROGRESS =======
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: CyberColors.surface,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: CyberColors.border, width: 1),
+                  ),
+                  child: Column(
+                    children: [
+                      // Daily Goal
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Daily Goal",
+                            style: GoogleFonts.nunito(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w800,
+                              color: CyberColors.textPrimary,
+                            ),
+                          ),
+                          Text(
+                            "${state.dailyXp}/${state.dailyGoalXp} min",
+                            style: GoogleFonts.nunito(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                              color: CyberColors.accentGreen,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      _ProgressBar(
+                        progress: state.dailyXp / state.dailyGoalXp,
+                        color: CyberColors.accentGreen,
+                        backgroundColor: CyberColors.accentGreen.withOpacity(0.12),
+                      ),
+                      const SizedBox(height: 18),
+                      // Course Progress
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Course Progress",
+                            style: GoogleFonts.nunito(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w800,
+                              color: CyberColors.textPrimary,
+                            ),
+                          ),
+                          Text(
+                            "40%",
+                            style: GoogleFonts.nunito(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                              color: CyberColors.primary,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      _ProgressBar(
+                        progress: 0.4,
+                        color: CyberColors.primary,
+                        backgroundColor: CyberColors.primary.withOpacity(0.12),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              // ======= START LESSON BUTTON =======
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: _StartLessonButton(
+                  onPressed: () {
+                    // Find first unlocked (non-completed) level
+                    CyberLevel? target;
+                    for (var level in state.levels) {
+                      if (level.status == LevelStatus.unlocked) {
+                        target = level;
+                        break;
+                      }
+                    }
+                    if (target != null) {
+                      state.startLesson(target);
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const ResponsiveLayoutWrapper(
+                            child: LessonScreen(),
+                          ),
+                        ),
+                      );
+                    }
+                  },
+                ),
+              ),
+
+              const SizedBox(height: 28),
+
+              // ======= YOUR PATH SECTION =======
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Text(
+                  "Your Path",
+                  style: GoogleFonts.nunito(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w800,
+                    color: CyberColors.textPrimary,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 14),
+
+              // Path lesson cards
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Column(
+                  children: state.levels.map((level) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: _PathCard(
+                        level: level,
+                        onTap: () {
+                          if (level.status != LevelStatus.locked) {
+                            state.startLesson(level);
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const ResponsiveLayoutWrapper(
+                                  child: LessonScreen(),
+                                ),
+                              ),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                backgroundColor: CyberColors.surfaceLight,
+                                content: Row(
                                   children: [
-                                    Icon(
-                                      Icons.insights_rounded,
-                                      color: CyberColors.primary,
-                                      size: 20,
-                                    ),
-                                    SizedBox(width: 8),
-                                    Text(
-                                      "Misi Harian",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
+                                    const Icon(Icons.lock_outline, color: CyberColors.secondary),
+                                    const SizedBox(width: 10),
+                                    Expanded(
+                                      child: Text(
+                                        "Selesaikan level sebelumnya untuk membuka '${level.title}'!",
+                                        style: GoogleFonts.nunito(color: Colors.white),
                                       ),
                                     ),
                                   ],
                                 ),
-                                Text(
-                                  "${state.dailyXp}/${state.dailyGoalXp} XP",
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: CyberColors.primary,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 12),
-                            // XP Progress Bar
-                            Stack(
-                              children: [
-                                Container(
-                                  height: 16,
-                                  decoration: BoxDecoration(
-                                    color: CyberColors.background,
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                ),
-                                TweenAnimationBuilder<double>(
-                                  duration: const Duration(milliseconds: 800),
-                                  curve: Curves.easeOutCubic,
-                                  tween: Tween<double>(
-                                    begin: 0,
-                                    end: math.min(1.0, state.dailyXp / state.dailyGoalXp),
-                                  ),
-                                  builder: (context, value, child) {
-                                    return Container(
-                                      height: 16,
-                                      width: (MediaQuery.of(context).size.width - 80) * value,
-                                      decoration: BoxDecoration(
-                                        gradient: const LinearGradient(
-                                          colors: [CyberColors.primary, CyberColors.secondary],
-                                        ),
-                                        borderRadius: BorderRadius.circular(8),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: CyberColors.primary.withOpacity(0.3),
-                                            blurRadius: 8,
-                                            offset: const Offset(0, 2),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 12),
-                            const Text(
-                              "Kumpulkan 60 XP lagi untuk mempertahankan streak!",
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: CyberColors.textSecondary,
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-
-            // SUBTITLE MAP SECTION
-            const SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 16.0),
-                child: Center(
-                  child: Text(
-                    "PETA MISI KEAMANAN",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 2.0,
-                      color: CyberColors.textSecondary,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
-            // LEVEL PATHWAY MAP
-            SliverToBoxAdapter(
-              child: Container(
-                padding: const EdgeInsets.only(bottom: 60),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    // Dynamic connecting line behind nodes
-                    Positioned(
-                      top: 40,
-                      bottom: 40,
-                      child: CustomPaint(
-                        size: Size(160, 480),
-                        painter: PathLinePainter(levelsCount: state.levels.length),
-                      ),
-                    ),
-
-                    // Level circular buttons
-                    Column(
-                      children: List.generate(state.levels.length, (index) {
-                        final level = state.levels[index];
-                        final alignIndex = index % 3;
-                        Alignment nodeAlignment = Alignment.center;
-
-                        if (alignIndex == 0) {
-                          nodeAlignment = const Alignment(-0.4, 0);
-                        } else if (alignIndex == 1) {
-                          nodeAlignment = const Alignment(0.4, 0);
-                        } else {
-                          nodeAlignment = Alignment.center;
-                        }
-
-                        return Container(
-                          margin: const EdgeInsets.symmetric(vertical: 24),
-                          width: double.infinity,
-                          child: Align(
-                            alignment: nodeAlignment,
-                            child: LevelNodeWidget(
-                              level: level,
-                              pulseController: _pulseController,
-                              onPressed: () {
-                                if (level.status != LevelStatus.locked) {
-                                  state.startLesson(level);
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) => const ResponsiveLayoutWrapper(
-                                        child: LessonScreen(),
-                                      ),
-                                    ),
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      backgroundColor: CyberColors.surfaceLight,
-                                      content: Row(
-                                        children: [
-                                          const Icon(Icons.lock_outline, color: CyberColors.secondary),
-                                          const SizedBox(width: 10),
-                                          Text(
-                                            "Selesaikan level sebelumnya untuk membuka '${level.title}'!",
-                                            style: const TextStyle(color: Colors.white),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                }
-                              },
-                            ),
-                          ),
-                        );
-                      }),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-
-            // RESET BUTTON FOR DEMO REPLAY
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: TextButton.icon(
-                  onPressed: () {
-                    state.resetProgress();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Progres disetel ulang untuk simulasi demo!"),
+                            );
+                          }
+                        },
                       ),
                     );
-                  },
-                  icon: const Icon(Icons.refresh, color: CyberColors.textSecondary, size: 16),
-                  label: const Text(
-                    "Setel Ulang Progres Demo",
-                    style: TextStyle(color: CyberColors.textSecondary, fontSize: 12),
+                  }).toList(),
+                ),
+              ),
+
+              // Reset button
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: TextButton.icon(
+                    onPressed: () {
+                      AppStateProvider.of(context).resetProgress();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            "Progres disetel ulang untuk simulasi demo!",
+                            style: GoogleFonts.nunito(),
+                          ),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.refresh, color: CyberColors.textMuted, size: 16),
+                    label: Text(
+                      "Setel Ulang Progres Demo",
+                      style: GoogleFonts.nunito(color: CyberColors.textMuted, fontSize: 12),
+                    ),
                   ),
                 ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ======= HOME SCREEN SUBWIDGETS =======
+
+class _StatCard extends StatelessWidget {
+  final IconData icon;
+  final Color iconColor;
+  final String value;
+  final String label;
+
+  const _StatCard({
+    required this.icon,
+    required this.iconColor,
+    required this.value,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        decoration: BoxDecoration(
+          color: CyberColors.surface,
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(color: CyberColors.border, width: 1),
+        ),
+        child: Column(
+          children: [
+            Icon(icon, color: iconColor, size: 26),
+            const SizedBox(height: 8),
+            Text(
+              value,
+              style: GoogleFonts.nunito(
+                fontSize: 22,
+                fontWeight: FontWeight.w800,
+                color: CyberColors.textPrimary,
+              ),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              label,
+              style: GoogleFonts.nunito(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: CyberColors.textSecondary,
               ),
             ),
           ],
@@ -1012,174 +1367,384 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   }
 }
 
-// Background path lines painter
-class PathLinePainter extends CustomPainter {
-  final int levelsCount;
+class _ProgressBar extends StatelessWidget {
+  final double progress;
+  final Color color;
+  final Color backgroundColor;
 
-  PathLinePainter({required this.levelsCount});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = CyberColors.border
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 6.0
-      ..strokeCap = StrokeCap.round;
-
-    final glowPaint = Paint()
-      ..color = CyberColors.secondary.withOpacity(0.2)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 14.0
-      ..strokeCap = StrokeCap.round;
-
-    final path = Path();
-    double startX = size.width / 2;
-    double startY = 40.0;
-    path.moveTo(startX, startY);
-
-    List<Offset> points = [];
-    points.add(Offset(startX - 50, 40));
-    points.add(Offset(startX + 50, 160));
-    points.add(Offset(startX, 280));
-    points.add(Offset(startX - 50, 400));
-
-    path.moveTo(points[0].dx, points[0].dy);
-    for (int i = 1; i < points.length; i++) {
-      double xc = (points[i - 1].dx + points[i].dx) / 2;
-      double yc = (points[i - 1].dy + points[i].dy) / 2;
-      path.quadraticBezierTo(points[i - 1].dx, points[i - 1].dy, xc, yc);
-    }
-    path.lineTo(points.last.dx, points.last.dy);
-
-    canvas.drawPath(path, glowPaint);
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}
-
-// Interactive circular Node
-class LevelNodeWidget extends StatelessWidget {
-  final CyberLevel level;
-  final AnimationController pulseController;
-  final VoidCallback onPressed;
-
-  const LevelNodeWidget({
-    super.key,
-    required this.level,
-    required this.pulseController,
-    required this.onPressed,
+  const _ProgressBar({
+    required this.progress,
+    required this.color,
+    required this.backgroundColor,
   });
 
   @override
   Widget build(BuildContext context) {
-    final bool isLocked = level.status == LevelStatus.locked;
-    final bool isCompleted = level.status == LevelStatus.completed;
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        // Level Circle Button
-        AnimatedBuilder(
-          animation: pulseController,
-          builder: (context, child) {
-            double glowScale = 1.0 + (pulseController.value * 0.15);
-            return Stack(
-              alignment: Alignment.center,
-              children: [
-                // Pulse Ring (Only for unlocked, non-completed level)
-                if (!isLocked && !isCompleted)
-                  Container(
-                    width: 80 * glowScale,
-                    height: 80 * glowScale,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: level.color.withOpacity(0.15),
-                      border: Border.all(
-                        color: level.color.withOpacity(0.3),
-                        width: 2.0,
-                      ),
-                    ),
-                  ),
-
-                // Main Circle Node
-                GestureDetector(
-                  onTap: onPressed,
-                  child: Container(
-                    width: 70,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: isLocked
-                          ? const LinearGradient(colors: [Color(0xFF2C314E), Color(0xFF1E2235)])
-                          : LinearGradient(
-                              colors: [level.color, level.color.withOpacity(0.7)],
-                            ),
-                      border: Border.all(
-                        color: isLocked
-                            ? CyberColors.border
-                            : (isCompleted ? CyberColors.accentGreen : Colors.white),
-                        width: 3.0,
-                      ),
-                      boxShadow: isLocked
-                          ? []
-                          : [
-                              BoxShadow(
-                                color: level.color.withOpacity(0.4),
-                                blurRadius: 12,
-                                offset: const Offset(0, 4),
-                              )
-                            ],
-                    ),
-                    child: Center(
-                      child: Icon(
-                        isLocked
-                            ? Icons.lock_outline_rounded
-                            : (isCompleted ? Icons.check_circle_outline_rounded : level.icon),
-                        color: isLocked ? CyberColors.textSecondary : Colors.black87,
-                        size: 32,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            );
-          },
-        ),
-        const SizedBox(height: 8),
-        // Level Info label
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+    return TweenAnimationBuilder<double>(
+      duration: const Duration(milliseconds: 800),
+      curve: Curves.easeOutCubic,
+      tween: Tween<double>(begin: 0, end: progress.clamp(0.0, 1.0)),
+      builder: (context, value, child) {
+        return Container(
+          height: 10,
           decoration: BoxDecoration(
-            color: CyberColors.surface,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: CyberColors.border),
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(5),
           ),
-          child: Column(
-            children: [
-              Text(
-                level.title,
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.bold,
-                  color: isLocked ? CyberColors.textSecondary : Colors.white,
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: FractionallySizedBox(
+              widthFactor: value,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: color,
+                  borderRadius: BorderRadius.circular(5),
+                  boxShadow: [
+                    BoxShadow(
+                      color: color.withOpacity(0.4),
+                      blurRadius: 6,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
                 ),
               ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _StartLessonButton extends StatefulWidget {
+  final VoidCallback onPressed;
+
+  const _StartLessonButton({required this.onPressed});
+
+  @override
+  State<_StartLessonButton> createState() => _StartLessonButtonState();
+}
+
+class _StartLessonButtonState extends State<_StartLessonButton> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnim;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 120),
+    );
+    _scaleAnim = Tween<double>(begin: 1.0, end: 0.96).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTapDown: (_) => _controller.forward(),
+      onTapUp: (_) {
+        _controller.reverse();
+        widget.onPressed();
+      },
+      onTapCancel: () => _controller.reverse(),
+      child: AnimatedBuilder(
+        animation: _scaleAnim,
+        builder: (context, child) {
+          return Transform.scale(
+            scale: _scaleAnim.value,
+            child: Container(
+              height: 58,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(18),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color(0xFF27AE60),
+                    Color(0xFF2ECC71),
+                    Color(0xFF27AE60),
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFF2ECC71).withOpacity(0.35),
+                    blurRadius: 16,
+                    offset: const Offset(0, 6),
+                  ),
+                ],
+              ),
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.play_arrow_rounded, color: Colors.white, size: 28),
+                    const SizedBox(width: 8),
+                    Text(
+                      "Start Lesson",
+                      style: GoogleFonts.nunito(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.white,
+                        letterSpacing: 0.5,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _PathCard extends StatelessWidget {
+  final CyberLevel level;
+  final VoidCallback onTap;
+
+  const _PathCard({
+    required this.level,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final isLocked = level.status == LevelStatus.locked;
+    final isCompleted = level.status == LevelStatus.completed;
+
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: CyberColors.surface,
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(
+            color: isLocked ? CyberColors.border : level.color.withOpacity(0.3),
+            width: 1,
+          ),
+        ),
+        child: Row(
+          children: [
+            // Icon
+            Container(
+              width: 48,
+              height: 48,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(14),
+                color: isLocked
+                    ? CyberColors.surfaceLight
+                    : level.color.withOpacity(0.15),
+              ),
+              child: Center(
+                child: Icon(
+                  isLocked ? Icons.lock_outline_rounded : level.icon,
+                  color: isLocked ? CyberColors.textMuted : level.color,
+                  size: 24,
+                ),
+              ),
+            ),
+            const SizedBox(width: 14),
+            // Title & subtitle
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    level.title,
+                    style: GoogleFonts.nunito(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w800,
+                      color: isLocked ? CyberColors.textMuted : CyberColors.textPrimary,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    level.subtitle,
+                    style: GoogleFonts.nunito(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: CyberColors.textSecondary,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // Progress circle
+            if (!isLocked)
+              CircularProgressWidget(
+                progress: level.progress,
+                color: isCompleted ? CyberColors.accentGreen : level.color,
+                size: 42,
+                strokeWidth: 3.5,
+              ),
+            if (isLocked)
+              Icon(
+                Icons.chevron_right_rounded,
+                color: CyberColors.textMuted,
+                size: 24,
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// =========================================================================
+// PLACEHOLDER SCREENS FOR TABS
+// =========================================================================
+
+class PracticeScreen extends StatelessWidget {
+  const PracticeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: CyberColors.background,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 80,
+                height: 80,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: CyberColors.primary.withOpacity(0.1),
+                  border: Border.all(color: CyberColors.primary.withOpacity(0.3), width: 2),
+                ),
+                child: const Icon(Icons.fitness_center_rounded, color: CyberColors.primary, size: 36),
+              ),
+              const SizedBox(height: 20),
               Text(
-                isLocked ? "Terkunci" : (isCompleted ? "Selesai" : "Mulai"),
-                style: TextStyle(
-                  fontSize: 10,
-                  fontWeight: FontWeight.w600,
-                  color: isLocked
-                      ? CyberColors.textSecondary
-                      : (isCompleted ? CyberColors.accentGreen : CyberColors.primary),
+                "Practice",
+                style: GoogleFonts.nunito(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w800,
+                  color: CyberColors.textPrimary,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                "Latihan keamanan siber segera hadir!",
+                style: GoogleFonts.nunito(
+                  fontSize: 14,
+                  color: CyberColors.textSecondary,
                 ),
               ),
             ],
           ),
         ),
-      ],
+      ),
+    );
+  }
+}
+
+class LeaderboardScreen extends StatelessWidget {
+  const LeaderboardScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: CyberColors.background,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 80,
+                height: 80,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: CyberColors.accentYellow.withOpacity(0.1),
+                  border: Border.all(color: CyberColors.accentYellow.withOpacity(0.3), width: 2),
+                ),
+                child: const Icon(Icons.emoji_events_rounded, color: CyberColors.accentYellow, size: 36),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                "Leaderboard",
+                style: GoogleFonts.nunito(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w800,
+                  color: CyberColors.textPrimary,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                "Papan peringkat segera hadir!",
+                style: GoogleFonts.nunito(
+                  fontSize: 14,
+                  color: CyberColors.textSecondary,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppStateProvider.of(context);
+
+    return Scaffold(
+      backgroundColor: CyberColors.background,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 90,
+                height: 90,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: const LinearGradient(
+                    colors: [CyberColors.primary, CyberColors.secondary],
+                  ),
+                ),
+                child: const Icon(Icons.person_rounded, color: Colors.white, size: 44),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                state.username,
+                style: GoogleFonts.nunito(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w800,
+                  color: CyberColors.textPrimary,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                "Level ${state.level} · ${state.totalXp} XP",
+                style: GoogleFonts.nunito(
+                  fontSize: 14,
+                  color: CyberColors.textSecondary,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
@@ -1222,21 +1787,22 @@ class _LessonScreenState extends State<LessonScreen> {
                         builder: (context) => AlertDialog(
                           backgroundColor: CyberColors.surface,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                          title: const Text("Tinggalkan Misi?"),
-                          content: const Text(
+                          title: Text("Tinggalkan Misi?", style: GoogleFonts.nunito(fontWeight: FontWeight.w800)),
+                          content: Text(
                             "Anda akan kehilangan semua progress misi ini jika keluar sekarang.",
+                            style: GoogleFonts.nunito(),
                           ),
                           actions: [
                             TextButton(
                               onPressed: () => Navigator.pop(context),
-                              child: const Text("Batal", style: TextStyle(color: Colors.white)),
+                              child: Text("Batal", style: GoogleFonts.nunito(color: Colors.white, fontWeight: FontWeight.w700)),
                             ),
                             TextButton(
                               onPressed: () {
                                 Navigator.pop(context); // Close dialog
                                 Navigator.pop(context); // Exit lesson screen
                               },
-                              child: const Text("Keluar", style: TextStyle(color: CyberColors.accentRed)),
+                              child: Text("Keluar", style: GoogleFonts.nunito(color: CyberColors.accentRed, fontWeight: FontWeight.w700)),
                             ),
                           ],
                         ),
@@ -1295,9 +1861,9 @@ class _LessonScreenState extends State<LessonScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 10),
-                    const Text(
+                    Text(
                       "Analisis Email di Bawah ini:",
-                      style: TextStyle(
+                      style: GoogleFonts.nunito(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: CyberColors.textSecondary,
@@ -1322,7 +1888,7 @@ class _LessonScreenState extends State<LessonScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          // Windows-like client bar
+                          // Window bar
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                             decoration: const BoxDecoration(
@@ -1343,15 +1909,15 @@ class _LessonScreenState extends State<LessonScreen> {
                                     Container(width: 10, height: 10, decoration: const BoxDecoration(shape: BoxShape.circle, color: Color(0xFF10B981))),
                                   ],
                                 ),
-                                const Expanded(
+                                Expanded(
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(Icons.mail_outline_rounded, color: Colors.black54, size: 14),
-                                      SizedBox(width: 6),
+                                      const Icon(Icons.mail_outline_rounded, color: Colors.black54, size: 14),
+                                      const SizedBox(width: 6),
                                       Text(
                                         "Kotak Masuk - Protokol Aman",
-                                        style: TextStyle(
+                                        style: GoogleFonts.nunito(
                                           color: Colors.black87,
                                           fontSize: 11,
                                           fontWeight: FontWeight.bold,
@@ -1373,7 +1939,7 @@ class _LessonScreenState extends State<LessonScreen> {
                               children: [
                                 Row(
                                   children: [
-                                    const Text("Dari: ", style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 13)),
+                                    Text("Dari: ", style: GoogleFonts.nunito(color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 13)),
                                     Expanded(
                                       child: Container(
                                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -1383,11 +1949,10 @@ class _LessonScreenState extends State<LessonScreen> {
                                         ),
                                         child: Text(
                                           currentQ.sender,
-                                          style: const TextStyle(
-                                            color: Color(0xFF334155),
+                                          style: GoogleFonts.nunito(
+                                            color: const Color(0xFF334155),
                                             fontWeight: FontWeight.bold,
                                             fontSize: 13,
-                                            fontFamily: 'monospace',
                                           ),
                                           overflow: TextOverflow.ellipsis,
                                         ),
@@ -1398,11 +1963,11 @@ class _LessonScreenState extends State<LessonScreen> {
                                 const Divider(height: 16, color: Colors.black12),
                                 Row(
                                   children: [
-                                    const Text("Subjek: ", style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 13)),
+                                    Text("Subjek: ", style: GoogleFonts.nunito(color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 13)),
                                     Expanded(
                                       child: Text(
                                         currentQ.subject,
-                                        style: const TextStyle(
+                                        style: GoogleFonts.nunito(
                                           color: Colors.black87,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 13,
@@ -1428,11 +1993,10 @@ class _LessonScreenState extends State<LessonScreen> {
                               ),
                               child: Text(
                                 currentQ.body,
-                                style: const TextStyle(
+                                style: GoogleFonts.nunito(
                                   color: Colors.black87,
                                   fontSize: 14,
                                   height: 1.5,
-                                  fontFamily: 'system-ui',
                                 ),
                               ),
                             ),
@@ -1523,7 +2087,7 @@ class _LessonScreenState extends State<LessonScreen> {
                     const SizedBox(width: 12),
                     Text(
                       title,
-                      style: TextStyle(
+                      style: GoogleFonts.nunito(
                         fontSize: 22,
                         fontWeight: FontWeight.w800,
                         color: themeColor,
@@ -1534,9 +2098,9 @@ class _LessonScreenState extends State<LessonScreen> {
                 const SizedBox(height: 16),
 
                 // Explanation Block
-                const Text(
+                Text(
                   "Penjelasan Analisis:",
-                  style: TextStyle(
+                  style: GoogleFonts.nunito(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -1545,7 +2109,7 @@ class _LessonScreenState extends State<LessonScreen> {
                 const SizedBox(height: 8),
                 Text(
                   state.currentQuestion.explanation,
-                  style: const TextStyle(
+                  style: GoogleFonts.nunito(
                     fontSize: 13,
                     color: CyberColors.textSecondary,
                     height: 1.45,
@@ -1555,9 +2119,9 @@ class _LessonScreenState extends State<LessonScreen> {
 
                 // Red Flags List (For Phishing emails)
                 if (state.currentQuestion.isPhishing && state.currentQuestion.redFlags.isNotEmpty) ...[
-                  const Text(
+                  Text(
                     "Indikator Ancaman (Red Flags):",
-                    style: TextStyle(
+                    style: GoogleFonts.nunito(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
                       color: CyberColors.accentYellow,
@@ -1572,11 +2136,12 @@ class _LessonScreenState extends State<LessonScreen> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text("🚩 ", style: TextStyle(fontSize: 11)),
+                            const Icon(Icons.flag_rounded, color: CyberColors.accentRed, size: 14),
+                            const SizedBox(width: 6),
                             Expanded(
                               child: Text(
                                 flag,
-                                style: const TextStyle(
+                                style: GoogleFonts.nunito(
                                   fontSize: 12,
                                   color: CyberColors.textSecondary,
                                 ),
@@ -1639,7 +2204,7 @@ class ResultScreen extends StatelessWidget {
             children: [
               const Spacer(),
 
-              // SUCCESS ILLUSTRATION (TROPHY / MEDAL)
+              // SUCCESS ILLUSTRATION
               Center(
                 child: Container(
                   width: 160,
@@ -1653,16 +2218,10 @@ class ResultScreen extends StatelessWidget {
                     ),
                   ),
                   child: Center(
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        // Icon decorations (no emojis)
-                        Icon(
-                          isSuccess ? Icons.stars_rounded : Icons.heart_broken_rounded,
-                          color: isSuccess ? CyberColors.accentYellow : CyberColors.accentRed,
-                          size: 90,
-                        ),
-                      ],
+                    child: Icon(
+                      isSuccess ? Icons.stars_rounded : Icons.heart_broken_rounded,
+                      color: isSuccess ? CyberColors.accentYellow : CyberColors.accentRed,
+                      size: 90,
                     ),
                   ),
                 ),
@@ -1673,7 +2232,7 @@ class ResultScreen extends StatelessWidget {
               Text(
                 isSuccess ? "Misi Selesai!" : "Misi Gagal",
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: GoogleFonts.nunito(
                   fontSize: 28,
                   fontWeight: FontWeight.w800,
                   color: isSuccess ? CyberColors.accentGreen : CyberColors.accentRed,
@@ -1686,7 +2245,7 @@ class ResultScreen extends StatelessWidget {
                     ? "Hebat! Anda berhasil mengenali ancaman siber dengan baik."
                     : "Kehabisan nyawa! Pelajari kembali penjelasan email yang mencurigakan.",
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: GoogleFonts.nunito(
                   color: CyberColors.textSecondary,
                   fontSize: 14,
                 ),
@@ -1694,56 +2253,59 @@ class ResultScreen extends StatelessWidget {
               const SizedBox(height: 40),
 
               // PERFORMANCE STATS CARD
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(24.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      // XP Gained Stat
-                      Column(
-                        children: [
-                          const Text(
-                            "XP DIDAPAT",
-                            style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: CyberColors.textSecondary),
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            children: [
-                              const Icon(Icons.flash_on_rounded, color: CyberColors.accentYellow, size: 20),
-                              const SizedBox(width: 4),
-                              Text(
-                                "+$xpEarned",
-                                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: Colors.white),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-
-                      // Divider Line
-                      Container(width: 1.5, height: 40, color: CyberColors.border),
-
-                      // Score Stat
-                      Column(
-                        children: [
-                          const Text(
-                            "SKOR",
-                            style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: CyberColors.textSecondary),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            "$score / $totalQuestions",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w800,
-                              color: score == totalQuestions ? CyberColors.accentGreen : Colors.white,
+              Container(
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  color: CyberColors.surface,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: CyberColors.border),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    // XP Gained Stat
+                    Column(
+                      children: [
+                        Text(
+                          "XP DIDAPAT",
+                          style: GoogleFonts.nunito(fontSize: 11, fontWeight: FontWeight.bold, color: CyberColors.textSecondary),
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          children: [
+                            const Icon(Icons.flash_on_rounded, color: CyberColors.accentYellow, size: 20),
+                            const SizedBox(width: 4),
+                            Text(
+                              "+$xpEarned",
+                              style: GoogleFonts.nunito(fontSize: 20, fontWeight: FontWeight.w800, color: Colors.white),
                             ),
+                          ],
+                        )
+                      ],
+                    ),
+
+                    // Divider Line
+                    Container(width: 1.5, height: 40, color: CyberColors.border),
+
+                    // Score Stat
+                    Column(
+                      children: [
+                        Text(
+                          "SKOR",
+                          style: GoogleFonts.nunito(fontSize: 11, fontWeight: FontWeight.bold, color: CyberColors.textSecondary),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          "$score / $totalQuestions",
+                          style: GoogleFonts.nunito(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w800,
+                            color: score == totalQuestions ? CyberColors.accentGreen : Colors.white,
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
 
@@ -1756,9 +2318,7 @@ class ResultScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(
-                      builder: (context) => const ResponsiveLayoutWrapper(
-                        child: HomeScreen(),
-                      ),
+                      builder: (context) => const MainShell(),
                     ),
                     (route) => false,
                   );
