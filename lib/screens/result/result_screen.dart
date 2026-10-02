@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/theme/cyber_colors.dart';
@@ -21,8 +21,10 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.cyber;
+
     return Scaffold(
-      backgroundColor: CyberColors.background,
+      backgroundColor: palette.background,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 30.0),
@@ -74,7 +76,7 @@ class ResultScreen extends StatelessWidget {
                     : "Kehabisan nyawa! Pelajari kembali penjelasan email yang mencurigakan.",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.nunito(
-                  color: CyberColors.textSecondary,
+                  color: palette.textSecondary,
                   fontSize: 14,
                 ),
               ),
@@ -84,9 +86,9 @@ class ResultScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: CyberColors.surface,
+                  color: palette.surface,
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: CyberColors.border),
+                  border: Border.all(color: palette.border),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -96,7 +98,7 @@ class ResultScreen extends StatelessWidget {
                       children: [
                         Text(
                           "XP DIDAPAT",
-                          style: GoogleFonts.nunito(fontSize: 11, fontWeight: FontWeight.bold, color: CyberColors.textSecondary),
+                          style: GoogleFonts.nunito(fontSize: 11, fontWeight: FontWeight.bold, color: palette.textSecondary),
                         ),
                         const SizedBox(height: 8),
                         Row(
@@ -105,7 +107,7 @@ class ResultScreen extends StatelessWidget {
                             const SizedBox(width: 4),
                             Text(
                               "+$xpEarned",
-                              style: GoogleFonts.nunito(fontSize: 20, fontWeight: FontWeight.w800, color: Colors.white),
+                              style: GoogleFonts.nunito(fontSize: 20, fontWeight: FontWeight.w800, color: palette.textPrimary),
                             ),
                           ],
                         )
@@ -113,14 +115,14 @@ class ResultScreen extends StatelessWidget {
                     ),
 
                     // Divider Line
-                    Container(width: 1.5, height: 40, color: CyberColors.border),
+                    Container(width: 1.5, height: 40, color: palette.border),
 
                     // Score Stat
                     Column(
                       children: [
                         Text(
                           "SKOR",
-                          style: GoogleFonts.nunito(fontSize: 11, fontWeight: FontWeight.bold, color: CyberColors.textSecondary),
+                          style: GoogleFonts.nunito(fontSize: 11, fontWeight: FontWeight.bold, color: palette.textSecondary),
                         ),
                         const SizedBox(height: 8),
                         Text(
@@ -128,7 +130,7 @@ class ResultScreen extends StatelessWidget {
                           style: GoogleFonts.nunito(
                             fontSize: 20,
                             fontWeight: FontWeight.w800,
-                            color: score == totalQuestions ? CyberColors.accentGreen : Colors.white,
+                            color: score == totalQuestions ? CyberColors.accentGreen : palette.textPrimary,
                           ),
                         ),
                       ],

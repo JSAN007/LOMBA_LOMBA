@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/theme/cyber_colors.dart';
@@ -9,8 +9,10 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.cyber;
+
     return Scaffold(
-      backgroundColor: CyberColors.background,
+      backgroundColor: palette.background,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
@@ -25,7 +27,7 @@ class OnboardingScreen extends StatelessWidget {
                 width: 180,
                 height: 180,
                 decoration: BoxDecoration(
-                  color: CyberColors.primary.withOpacity(0.08),
+                  color: CyberColors.primary.withValues(alpha: 0.08),
                   borderRadius: BorderRadius.circular(90),
                 ),
                 child: Stack(
@@ -35,7 +37,7 @@ class OnboardingScreen extends StatelessWidget {
                     Icon(
                       Icons.shield_outlined,
                       size: 90,
-                      color: CyberColors.primary.withOpacity(0.3),
+                      color: CyberColors.primary.withValues(alpha: 0.3),
                     ),
                     // Laptop
                     Positioned(
@@ -43,7 +45,7 @@ class OnboardingScreen extends StatelessWidget {
                       child: Icon(
                         Icons.laptop_mac_outlined,
                         size: 60,
-                        color: CyberColors.secondary.withOpacity(0.5),
+                        color: CyberColors.secondary.withValues(alpha: 0.5),
                       ),
                     ),
                     // Person
@@ -68,7 +70,7 @@ class OnboardingScreen extends StatelessWidget {
                 style: GoogleFonts.nunito(
                   fontSize: 28,
                   fontWeight: FontWeight.w800,
-                  color: CyberColors.textPrimary,
+                  color: palette.textPrimary,
                   height: 1.2,
                 ),
               ),
@@ -82,7 +84,7 @@ class OnboardingScreen extends StatelessWidget {
                 style: GoogleFonts.nunito(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
-                  color: CyberColors.textSecondary,
+                  color: palette.textSecondary,
                   height: 1.5,
                 ),
               ),
@@ -103,7 +105,7 @@ class OnboardingScreen extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: CyberColors.accentGreen,
-                    foregroundColor: Colors.white,
+                    foregroundColor: palette.onAccent,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),

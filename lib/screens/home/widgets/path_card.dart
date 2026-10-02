@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/theme/cyber_colors.dart';
@@ -17,6 +17,7 @@ class PathCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.cyber;
     final isLocked = level.status == LevelStatus.locked;
     final isCompleted = level.status == LevelStatus.completed;
 
@@ -25,10 +26,10 @@ class PathCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: CyberColors.surface,
+          color: palette.surface,
           borderRadius: BorderRadius.circular(18),
           border: Border.all(
-            color: isLocked ? CyberColors.border : level.color.withValues(alpha: 0.3),
+            color: isLocked ? palette.border : level.color.withValues(alpha: 0.3),
             width: 1,
           ),
         ),
@@ -41,13 +42,13 @@ class PathCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14),
                 color: isLocked
-                    ? CyberColors.surfaceLight
+                    ? palette.surfaceAlt
                     : level.color.withValues(alpha: 0.15),
               ),
               child: Center(
                 child: Icon(
                   isLocked ? Icons.lock_outline_rounded : level.icon,
-                  color: isLocked ? CyberColors.textMuted : level.color,
+                  color: isLocked ? palette.textMuted : level.color,
                   size: 24,
                 ),
               ),
@@ -63,7 +64,7 @@ class PathCard extends StatelessWidget {
                     style: GoogleFonts.nunito(
                       fontSize: 16,
                       fontWeight: FontWeight.w800,
-                      color: isLocked ? CyberColors.textMuted : CyberColors.textPrimary,
+                      color: isLocked ? palette.textMuted : palette.textPrimary,
                     ),
                   ),
                   const SizedBox(height: 2),
@@ -72,7 +73,7 @@ class PathCard extends StatelessWidget {
                     style: GoogleFonts.nunito(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
-                      color: CyberColors.textSecondary,
+                      color: palette.textSecondary,
                     ),
                   ),
                 ],
@@ -89,7 +90,7 @@ class PathCard extends StatelessWidget {
             if (isLocked)
               Icon(
                 Icons.chevron_right_rounded,
-                color: CyberColors.textMuted,
+                color: palette.textMuted,
                 size: 24,
               ),
           ],

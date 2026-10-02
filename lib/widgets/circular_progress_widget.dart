@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../core/theme/cyber_colors.dart';
@@ -20,6 +20,8 @@ class CircularProgressWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.cyber;
+
     return SizedBox(
       width: size,
       height: size,
@@ -32,7 +34,7 @@ class CircularProgressWidget extends StatelessWidget {
             child: CircularProgressIndicator(
               value: progress,
               strokeWidth: strokeWidth,
-              backgroundColor: CyberColors.border.withValues(alpha: 0.3),
+              backgroundColor: palette.border.withValues(alpha: 0.3),
               valueColor: AlwaysStoppedAnimation<Color>(color),
               strokeCap: StrokeCap.round,
             ),

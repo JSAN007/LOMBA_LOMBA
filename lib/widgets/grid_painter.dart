@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
-import '../core/theme/cyber_colors.dart';
-
+/// Subtle graph-paper backdrop used behind the splash logo.
 class GridPainter extends CustomPainter {
+  final Color color;
+
+  const GridPainter({required this.color});
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = CyberColors.primary.withValues(alpha: 0.04)
+      ..color = color
       ..strokeWidth = 0.5;
 
-    double step = 32;
+    const step = 32.0;
     for (double i = 0; i < size.width; i += step) {
       canvas.drawLine(Offset(i, 0), Offset(i, size.height), paint);
     }
@@ -19,5 +22,6 @@ class GridPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant GridPainter oldDelegate) =>
+      oldDelegate.color != color;
 }

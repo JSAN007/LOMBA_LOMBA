@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 import '../core/theme/cyber_colors.dart';
 import '../widgets/glass_nav_bar.dart';
@@ -20,9 +20,11 @@ class _MainShellState extends State<MainShell> {
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.cyber;
+
     return ResponsiveLayoutWrapper(
       child: Scaffold(
-        backgroundColor: CyberColors.background,
+        backgroundColor: palette.background,
         extendBody: true,
         body: IndexedStack(
           index: _currentIndex,

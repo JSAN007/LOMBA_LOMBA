@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/theme/cyber_colors.dart';
 import '../../models/leaderboard_entry.dart';
 
 class LeaderboardListItem extends StatelessWidget {
@@ -17,9 +18,9 @@ class LeaderboardListItem extends StatelessWidget {
 
     final isTop3 = entry.rank <= 3;
     final rankColor = switch (entry.rank) {
-      1 => const Color(0xFFF5D56B),
-      2 => const Color(0xFFC9D6E6),
-      3 => const Color(0xFFE8B08A),
+      1 => CyberColors.rankGold,
+      2 => CyberColors.rankSilver,
+      3 => CyberColors.rankBronze,
       _ => colorScheme.primary,
     };
 

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../core/theme/cyber_colors.dart';
@@ -49,6 +49,8 @@ class _CyberButtonState extends State<CyberButton> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.cyber;
+
     _scale = 1 - _controller.value;
     return GestureDetector(
       onTapDown: (_) => _controller.forward(),
@@ -91,7 +93,7 @@ class _CyberButtonState extends State<CyberButton> with SingleTickerProviderStat
                 if (widget.icon != null) ...[
                   Icon(
                     widget.icon,
-                    color: widget.isOutline ? widget.glowColor : Colors.white,
+                    color: widget.isOutline ? widget.glowColor : palette.onAccent,
                     size: 22,
                   ),
                   const SizedBox(width: 8),
@@ -101,7 +103,7 @@ class _CyberButtonState extends State<CyberButton> with SingleTickerProviderStat
                   style: GoogleFonts.nunito(
                     fontSize: 16,
                     fontWeight: FontWeight.w800,
-                    color: widget.isOutline ? widget.glowColor : Colors.white,
+                    color: widget.isOutline ? widget.glowColor : palette.onAccent,
                     letterSpacing: 0.5,
                   ),
                 ),

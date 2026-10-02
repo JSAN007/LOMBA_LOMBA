@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 import '../core/theme/cyber_colors.dart';
 
@@ -9,13 +9,16 @@ class ResponsiveLayoutWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.cyber;
+
     return Scaffold(
+      backgroundColor: palette.background,
       body: Center(
         child: Container(
           constraints: const BoxConstraints(maxWidth: 480),
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             border: Border.symmetric(
-              vertical: BorderSide(color: CyberColors.border, width: 1),
+              vertical: BorderSide(color: palette.border, width: 1),
             ),
           ),
           child: child,

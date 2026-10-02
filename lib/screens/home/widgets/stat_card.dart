@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/theme/cyber_colors.dart';
@@ -19,13 +19,15 @@ class StatCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.cyber;
+
     return Expanded(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
-          color: CyberColors.surface,
+          color: palette.surface,
           borderRadius: BorderRadius.circular(18),
-          border: Border.all(color: CyberColors.border, width: 1),
+          border: Border.all(color: palette.border, width: 1),
         ),
         child: Column(
           children: [
@@ -36,7 +38,7 @@ class StatCard extends StatelessWidget {
               style: GoogleFonts.nunito(
                 fontSize: 22,
                 fontWeight: FontWeight.w800,
-                color: CyberColors.textPrimary,
+                color: palette.textPrimary,
               ),
             ),
             const SizedBox(height: 2),
@@ -45,7 +47,7 @@ class StatCard extends StatelessWidget {
               style: GoogleFonts.nunito(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
-                color: CyberColors.textSecondary,
+                color: palette.textSecondary,
               ),
             ),
           ],

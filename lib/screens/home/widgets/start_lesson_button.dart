@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../core/theme/cyber_colors.dart';
+
 class StartLessonButton extends StatefulWidget {
   final VoidCallback onPressed;
 
@@ -34,6 +36,8 @@ class _StartLessonButtonState extends State<StartLessonButton> with SingleTicker
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.cyber;
+
     return GestureDetector(
       onTapDown: (_) => _controller.forward(),
       onTapUp: (_) {
@@ -52,9 +56,9 @@ class _StartLessonButtonState extends State<StartLessonButton> with SingleTicker
                 borderRadius: BorderRadius.circular(18),
                 gradient: const LinearGradient(
                   colors: [
-                    Color(0xFF27AE60),
-                    Color(0xFF2ECC71),
-                    Color(0xFF27AE60),
+                    CyberColors.ctaStart,
+                    CyberColors.ctaEnd,
+                    CyberColors.ctaStart,
                   ],
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
@@ -71,14 +75,14 @@ class _StartLessonButtonState extends State<StartLessonButton> with SingleTicker
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.play_arrow_rounded, color: Colors.white, size: 28),
+                    Icon(Icons.play_arrow_rounded, color: palette.onAccent, size: 28),
                     const SizedBox(width: 8),
                     Text(
                       "Start Lesson",
                       style: GoogleFonts.nunito(
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
-                        color: Colors.white,
+                        color: palette.onAccent,
                         letterSpacing: 0.5,
                       ),
                     ),

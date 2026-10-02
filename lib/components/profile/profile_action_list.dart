@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/settings/settings_screen.dart';
+
 class ProfileActionList extends StatelessWidget {
   const ProfileActionList({
     super.key,
@@ -58,8 +60,10 @@ class ProfileActionList extends StatelessWidget {
           _ActionTile(
             icon: Icons.settings_outlined,
             title: 'Settings',
-            subtitle: 'Preferences & privacy',
-            onTap: () {},
+            subtitle: 'Appearance & preferences',
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const SettingsScreen()),
+            ),
           ),
           Divider(
             height: 1,

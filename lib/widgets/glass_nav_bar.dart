@@ -1,4 +1,4 @@
-import 'dart:ui';
+﻿import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,6 +16,8 @@ class GlassNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.cyber;
+
     final items = [
       _NavItem(Icons.school_rounded, "Learn"),
       _NavItem(Icons.fitness_center_rounded, "Practice"),
@@ -32,15 +34,15 @@ class GlassNavBar extends StatelessWidget {
           child: Container(
             height: 58,
             decoration: BoxDecoration(
-              color: CyberColors.surface.withValues(alpha: 0.85),
+              color: palette.surface.withValues(alpha: 0.85),
               borderRadius: BorderRadius.circular(28),
               border: Border.all(
-                color: CyberColors.borderLight.withValues(alpha: 0.4),
+                color: palette.borderStrong.withValues(alpha: 0.4),
                 width: 1,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.3),
+                  color: palette.shadow.withValues(alpha: 0.16),
                   blurRadius: 20,
                   offset: const Offset(0, 4),
                 ),
@@ -113,9 +115,11 @@ class _GlassNavItemState extends State<_GlassNavItem> with SingleTickerProviderS
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.cyber;
+
     final color = widget.isActive
-        ? CyberColors.navbarActive
-        : (_isHovered ? CyberColors.primaryLight : CyberColors.navbarInactive);
+        ? palette.navbarActive
+        : (_isHovered ? CyberColors.primaryLight : palette.navbarInactive);
 
     return MouseRegion(
       onEnter: (_) {

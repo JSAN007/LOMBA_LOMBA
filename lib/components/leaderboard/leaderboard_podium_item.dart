@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/theme/cyber_colors.dart';
 import '../../models/leaderboard_entry.dart';
 
 class LeaderboardPodiumItem extends StatelessWidget {
@@ -20,9 +21,9 @@ class LeaderboardPodiumItem extends StatelessWidget {
     final textTheme = theme.textTheme;
 
     final (podiumColor, glowOpacity, crownIcon) = switch (tier) {
-      1 => (const Color(0xFFF5D56B), 0.16, Icons.emoji_events_rounded),
-      2 => (const Color(0xFFC9D6E6), 0.12, Icons.military_tech_outlined),
-      3 => (const Color(0xFFE8B08A), 0.10, Icons.shield_outlined),
+      1 => (CyberColors.rankGold, 0.16, Icons.emoji_events_rounded),
+      2 => (CyberColors.rankSilver, 0.12, Icons.military_tech_outlined),
+      3 => (CyberColors.rankBronze, 0.10, Icons.shield_outlined),
       _ => (colorScheme.primary, 0.10, Icons.emoji_events_outlined),
     };
 

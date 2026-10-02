@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/theme/cyber_colors.dart';
@@ -59,15 +59,23 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.cyber;
+
     return Scaffold(
-      backgroundColor: CyberColors.background,
+      backgroundColor: palette.background,
       body: Stack(
         alignment: Alignment.center,
         children: [
           // Subtle grid
           Positioned.fill(
             child: CustomPaint(
-              painter: GridPainter(),
+              painter: GridPainter(
+                color: CyberColors.primary.withValues(
+                  alpha: 0.04 *
+                      (palette.brightness == Brightness.dark ? 2.4 : 1.0),
+                ),
+              ),
+              size: Size.infinite,
             ),
           ),
 
@@ -105,7 +113,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                               )
                             ],
                           ),
-                          child: const Icon(
+                          child: Icon(
                             Icons.security_rounded,
                             color: CyberColors.primaryLight,
                             size: 56,
@@ -117,7 +125,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                           style: GoogleFonts.nunito(
                             fontSize: 38,
                             fontWeight: FontWeight.w800,
-                            color: const Color.fromARGB(255, 15, 15, 15),
+                            color: palette.textPrimary,
                             letterSpacing: 1.5,
                           ),
                         ),
@@ -126,7 +134,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                           "Learn Security, Stay Safe",
                           style: GoogleFonts.nunito(
                             fontSize: 14,
-                            color: CyberColors.textSecondary,
+                            color: palette.textSecondary,
                             letterSpacing: 0.5,
                           ),
                         ),
@@ -148,9 +156,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   height: 4,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(2),
-                    child: const LinearProgressIndicator(
-                      backgroundColor: CyberColors.border,
-                      valueColor: AlwaysStoppedAnimation<Color>(CyberColors.primary),
+                    child: LinearProgressIndicator(
+                      backgroundColor: palette.border,
+                      valueColor: const AlwaysStoppedAnimation<Color>(CyberColors.primary),
                     ),
                   ),
                 ),
@@ -158,7 +166,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                 Text(
                   "Memuat Modul Belajar...",
                   style: GoogleFonts.nunito(
-                    color: CyberColors.textSecondary,
+                    color: palette.textSecondary,
                     fontSize: 12,
                     letterSpacing: 0.5,
                   ),

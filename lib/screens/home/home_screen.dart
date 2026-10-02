@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/theme/cyber_colors.dart';
 import '../../models/cyber_level.dart';
 import '../../state/app_state_provider.dart';
+import '../../widgets/app_snack_bar.dart';
 import '../../widgets/responsive_layout_wrapper.dart';
 import '../lesson/lesson_screen.dart';
 import 'widgets/path_card.dart';
@@ -39,9 +40,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     final state = AppStateProvider.of(context);
+    final palette = context.cyber;
 
     return Scaffold(
-      backgroundColor: CyberColors.background,
+      backgroundColor: palette.background,
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -68,16 +70,16 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                 style: GoogleFonts.nunito(
                                   fontSize: 28,
                                   fontWeight: FontWeight.w800,
-                                  color: CyberColors.textPrimary,
+                                  color: palette.textPrimary,
                                   height: 1.2,
                                 ),
                               ),
                               const SizedBox(height: 10),
                               Text(
-                                "Level ${state.level} · ${state.totalXp} XP",
+                                "Level ${state.level} Â· ${state.totalXp} XP",
                                 style: GoogleFonts.nunito(
                                   fontSize: 13,
-                                  color: CyberColors.textSecondary,
+                                  color: palette.textSecondary,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -129,9 +131,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 child: Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: CyberColors.surface,
+                    color: palette.surface,
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: CyberColors.border, width: 1),
+                    border: Border.all(color: palette.border, width: 1),
                   ),
                   child: Column(
                     children: [
@@ -144,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             style: GoogleFonts.nunito(
                               fontSize: 15,
                               fontWeight: FontWeight.w800,
-                              color: CyberColors.textPrimary,
+                              color: palette.textPrimary,
                             ),
                           ),
                           Text(
@@ -173,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             style: GoogleFonts.nunito(
                               fontSize: 15,
                               fontWeight: FontWeight.w800,
-                              color: CyberColors.textPrimary,
+                              color: palette.textPrimary,
                             ),
                           ),
                           Text(
@@ -236,7 +238,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   style: GoogleFonts.nunito(
                     fontSize: 22,
                     fontWeight: FontWeight.w800,
-                    color: CyberColors.textPrimary,
+                    color: palette.textPrimary,
                   ),
                 ),
               ),
@@ -263,22 +265,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                               ),
                             );
                           } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                backgroundColor: CyberColors.surfaceLight,
-                                content: Row(
-                                  children: [
-                                    const Icon(Icons.lock_outline, color: CyberColors.secondary),
-                                    const SizedBox(width: 10),
-                                    Expanded(
-                                      child: Text(
-                                        "Selesaikan level sebelumnya untuk membuka '${level.title}'!",
-                                        style: GoogleFonts.nunito(color: Colors.white),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                            showAppSnackBar(
+                              context,
+                              "Selesaikan level sebelumnya untuk membuka '${level.title}'!",
+                              icon: Icons.lock_outline_rounded,
                             );
                           }
                         },
@@ -295,19 +285,16 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   child: TextButton.icon(
                     onPressed: () {
                       AppStateProvider.of(context).resetProgress();
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            "Progres disetel ulang untuk simulasi demo!",
-                            style: GoogleFonts.nunito(),
-                          ),
-                        ),
+                      showAppSnackBar(
+                        context,
+                        'Progres disetel ulang untuk simulasi demo!',
+                        icon: Icons.restart_alt_rounded,
                       );
                     },
-                    icon: const Icon(Icons.refresh, color: CyberColors.textMuted, size: 16),
+                    icon: Icon(Icons.refresh, color: palette.textMuted, size: 16),
                     label: Text(
                       "Setel Ulang Progres Demo",
-                      style: GoogleFonts.nunito(color: CyberColors.textMuted, fontSize: 12),
+                      style: GoogleFonts.nunito(color: palette.textMuted, fontSize: 12),
                     ),
                   ),
                 ),
