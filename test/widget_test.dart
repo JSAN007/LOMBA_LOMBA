@@ -7,7 +7,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:cybernusa/main.dart';
+import 'package:cybernusa/app.dart';  
 
 void main() {
   testWidgets('SecuriGo smoke test', (WidgetTester tester) async {
@@ -16,14 +16,14 @@ void main() {
 
     // Verify that the splash screen loads first.
     expect(find.text('SecuriGo'), findsOneWidget);
-    expect(find.text('Learn Security, Stay Safe'), findsOneWidget);
 
-    // Advance the fake clock by 3 seconds to complete the splash transition
-    await tester.pump(const Duration(seconds: 3));
-    await tester.pump(); // trigger frame rebuild after navigation
+    // Advance past the splash delay and route transition to onboarding.
+    await tester.pump(const Duration(seconds: 4));
+    await tester.pumpAndSettle(); // Wait for all animations
 
-    // Verify that the main homepage elements are loaded.
-    expect(find.text('Misi Harian'), findsOneWidget);
-    expect(find.text('PETA MISI KEAMANAN'), findsOneWidget);
+    // Verify onboarding screen elements.
+    expect(find.text('Welcome to SecuriGo.'), findsOneWidget);
+    expect(find.text('Your Path to Cyber Mastery,\nfrom Beginner to Pro.'), findsOneWidget);
+    expect(find.text('Get Started'), findsOneWidget);
   });
 }
