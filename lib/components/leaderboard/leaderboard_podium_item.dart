@@ -77,7 +77,7 @@ class LeaderboardPodiumItem extends StatelessWidget {
                     ),
                     child: Hero(
                       tag: entry.isCurrentUser
-                          ? 'profile_avatar_self_${entry.userId}'
+                          ? 'profile_avatar_self_podium_${entry.userId}'
                           : 'lb_avatar_${entry.userId}_$tier',
                       child: CircleAvatar(
                         radius: tier == 1 ? 30 : 26,
