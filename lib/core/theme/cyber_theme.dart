@@ -47,6 +47,13 @@ class CyberTheme {
         secondary: CyberColors.secondary,
         surface: CyberColors.surface,
         error: CyberColors.accentRed,
+        onSurface: CyberColors.textPrimary,
+        onSurfaceVariant: CyberColors.textSecondary,
+        onPrimary: CyberColors.textPrimary,
+        surfaceContainerLowest: CyberColors.background,
+        surfaceContainerHighest: CyberColors.surfaceLight,
+        outline: CyberColors.textMuted,
+        outlineVariant: CyberColors.border,
       ),
       cardTheme: CardThemeData(
         color: CyberColors.surface,

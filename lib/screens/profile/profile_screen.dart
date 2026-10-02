@@ -5,11 +5,10 @@ import '../../components/profile/profile_xp_bar.dart';
 import '../../components/profile/profile_stats_grid.dart';
 import '../../components/profile/profile_badges.dart';
 import '../../components/profile/profile_action_list.dart';
+import '../../services/account_service.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({
-    super.key,
-  });
+  const ProfileScreen({super.key});
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -21,7 +20,14 @@ class _ProfileScreenState extends State<ProfileScreen>
   late final Animation<double> _fadeAnimation;
   late final Animation<Offset> _slideAnimation;
 
-  final UserProfile _profile = UserProfile.dummy();
+  UserProfile get _profile => UserProfile.account(
+    id: AccountService.configured
+        ? AccountService.auth.currentUser?.uid ?? ''
+        : '',
+    username: AccountService.configured
+        ? AccountService.auth.currentUser?.displayName ?? 'Pelajar'
+        : 'Pelajar',
+  );
 
   @override
   void initState() {
@@ -34,15 +40,10 @@ class _ProfileScreenState extends State<ProfileScreen>
       parent: _fadeController,
       curve: Curves.easeOutCubic,
     );
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.08),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: _fadeController,
-        curve: Curves.easeOutCubic,
-      ),
-    );
+    _slideAnimation =
+        Tween<Offset>(begin: const Offset(0, 0.08), end: Offset.zero).animate(
+          CurvedAnimation(parent: _fadeController, curve: Curves.easeOutCubic),
+        );
 
     _fadeController.forward();
   }
@@ -64,9 +65,7 @@ class _ProfileScreenState extends State<ProfileScreen>
         top: false,
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
-              child: ProfileHeader(profile: _profile),
-            ),
+            SliverToBoxAdapter(child: ProfileHeader(profile: _profile)),
             SliverPadding(
               padding: const EdgeInsets.fromLTRB(20, 64, 20, 20),
               sliver: SliverToBoxAdapter(

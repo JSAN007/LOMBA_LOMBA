@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/theme/cyber_colors.dart';
-import '../main_shell.dart';
+import '../auth/auth_gate.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -25,7 +25,7 @@ class OnboardingScreen extends StatelessWidget {
                 width: 180,
                 height: 180,
                 decoration: BoxDecoration(
-                  color: CyberColors.primary.withOpacity(0.08),
+                  color: CyberColors.primary.withValues(alpha: 0.08),
                   borderRadius: BorderRadius.circular(90),
                 ),
                 child: Stack(
@@ -35,7 +35,7 @@ class OnboardingScreen extends StatelessWidget {
                     Icon(
                       Icons.shield_outlined,
                       size: 90,
-                      color: CyberColors.primary.withOpacity(0.3),
+                      color: CyberColors.primary.withValues(alpha: 0.3),
                     ),
                     // Laptop
                     Positioned(
@@ -43,7 +43,7 @@ class OnboardingScreen extends StatelessWidget {
                       child: Icon(
                         Icons.laptop_mac_outlined,
                         size: 60,
-                        color: CyberColors.secondary.withOpacity(0.5),
+                        color: CyberColors.secondary.withValues(alpha: 0.5),
                       ),
                     ),
                     // Person
@@ -97,7 +97,7 @@ class OnboardingScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (context) => const MainShell(),
+                        builder: (context) => const AuthGate(),
                       ),
                     );
                   },
