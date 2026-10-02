@@ -20,6 +20,7 @@ class GlassNavBar extends StatelessWidget {
       _NavItem(Icons.school_rounded, "Learn"),
       _NavItem(Icons.fitness_center_rounded, "Practice"),
       _NavItem(Icons.emoji_events_rounded, "Leaderboard"),
+      _NavItem(Icons.people_alt_rounded, "Teman"),
       _NavItem(Icons.person_rounded, "Profile"),
     ];
 
@@ -88,7 +89,8 @@ class _GlassNavItem extends StatefulWidget {
   State<_GlassNavItem> createState() => _GlassNavItemState();
 }
 
-class _GlassNavItemState extends State<_GlassNavItem> with SingleTickerProviderStateMixin {
+class _GlassNavItemState extends State<_GlassNavItem>
+    with SingleTickerProviderStateMixin {
   bool _isHovered = false;
   late AnimationController _scaleController;
   late Animation<double> _scaleAnimation;
@@ -100,9 +102,10 @@ class _GlassNavItemState extends State<_GlassNavItem> with SingleTickerProviderS
       vsync: this,
       duration: const Duration(milliseconds: 150),
     );
-    _scaleAnimation = Tween<double>(begin: 1.0, end: 1.12).animate(
-      CurvedAnimation(parent: _scaleController, curve: Curves.easeOut),
-    );
+    _scaleAnimation = Tween<double>(
+      begin: 1.0,
+      end: 1.12,
+    ).animate(CurvedAnimation(parent: _scaleController, curve: Curves.easeOut));
   }
 
   @override
@@ -137,7 +140,9 @@ class _GlassNavItemState extends State<_GlassNavItem> with SingleTickerProviderS
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: (widget.isActive || _isHovered)
-                  ? CyberColors.primary.withValues(alpha: widget.isActive ? 0.15 : 0.08)
+                  ? CyberColors.primary.withValues(
+                      alpha: widget.isActive ? 0.15 : 0.08,
+                    )
                   : Colors.transparent,
             ),
             child: Column(
@@ -149,7 +154,9 @@ class _GlassNavItemState extends State<_GlassNavItem> with SingleTickerProviderS
                   widget.label,
                   style: GoogleFonts.nunito(
                     fontSize: 10,
-                    fontWeight: widget.isActive ? FontWeight.w800 : FontWeight.w600,
+                    fontWeight: widget.isActive
+                        ? FontWeight.w800
+                        : FontWeight.w600,
                     color: color,
                   ),
                 ),

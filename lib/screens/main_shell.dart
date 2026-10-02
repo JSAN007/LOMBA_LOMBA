@@ -7,6 +7,7 @@ import 'home/home_screen.dart';
 import 'leaderboard/leaderboard_screen.dart';
 import 'practice/practice_screen.dart';
 import 'profile/profile_screen.dart';
+import 'friends/friends_screen.dart';
 
 class MainShell extends StatefulWidget {
   const MainShell({super.key});
@@ -30,6 +31,7 @@ class _MainShellState extends State<MainShell> {
             HomeScreen(),
             PracticeScreen(),
             LeaderboardScreen(),
+            FriendsScreen(),
             ProfileScreen(),
           ],
         ),
