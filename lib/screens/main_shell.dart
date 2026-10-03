@@ -1,7 +1,7 @@
 ﻿import 'package:flutter/material.dart';
 
 import '../core/theme/cyber_colors.dart';
-import '../widgets/glass_nav_bar.dart';
+import '../components/shell_navigation_bar.dart';
 import '../widgets/responsive_layout_wrapper.dart';
 import 'home/home_screen.dart';
 import 'leaderboard/leaderboard_screen.dart';
@@ -37,13 +37,9 @@ class _MainShellState extends State<MainShell> {
             ProfileScreen(),
           ],
         ),
-        bottomNavigationBar: GlassNavBar(
+        bottomNavigationBar: ShellNavigationBar(
           currentIndex: _currentIndex,
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
+          onTap: (index) => setState(() => _currentIndex = index),
         ),
       ),
     );

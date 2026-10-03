@@ -49,6 +49,36 @@ service cloud.firestore {
       allow delete: if owner(uid);
     }
     match /profiles/{uid} {
+      match /progress/{progressId} {
+        function validLevel(item) {
+          return item is map
+            && item.keys().hasOnly(['id', 'status', 'progress'])
+            && item.id is int && item.id >= 1 && item.id <= 4
+            && item.status in ['locked', 'unlocked', 'completed']
+            && item.progress is number && item.progress >= 0 && item.progress <= 1;
+        }
+        function validProgress() {
+          let data = request.resource.data;
+          return data.keys().hasAll(['schemaVersion', 'dailyXp', 'streakDays', 'totalXp', 'level', 'totalLessons', 'successfulLessons', 'completedPracticeLevels', 'levels', 'updatedAt'])
+            && data.keys().hasOnly(['schemaVersion', 'dailyXp', 'streakDays', 'totalXp', 'level', 'totalLessons', 'successfulLessons', 'completedPracticeLevels', 'levels', 'updatedAt'])
+            && data.schemaVersion == 1
+            && data.dailyXp is int && data.dailyXp >= 0 && data.dailyXp <= 100
+            && data.streakDays is int && data.streakDays >= 0
+            && data.totalXp is int && data.totalXp >= 0
+            && data.level is int && data.level >= 1
+            && data.totalLessons is int && data.totalLessons >= 0
+            && data.successfulLessons is int && data.successfulLessons >= 0
+            && data.successfulLessons <= data.totalLessons
+            && data.completedPracticeLevels is list && data.completedPracticeLevels.size() <= 50
+            && data.levels is list && data.levels.size() == 4
+            && validLevel(data.levels[0]) && validLevel(data.levels[1])
+            && validLevel(data.levels[2]) && validLevel(data.levels[3])
+            && data.updatedAt == request.time;
+        }
+        allow read: if owner(uid) && progressId == 'current';
+        allow create, update: if owner(uid) && progressId == 'current' && validProgress();
+        allow delete: if false;
+      }
       allow read: if owner(uid);
       allow create: if owner(uid)
         && request.resource.data.keys().hasOnly(['displayName', 'createdAt'])

@@ -21,7 +21,42 @@ Project ini sudah memakai `lib/firebase_options.dart` dari FlutterFire di `lib/m
 
 Gunakan dua akun terverifikasi. Setelah rules dipasang, login ulang keduanya, pastikan dokumen `players/{uid}` terbentuk, cari awalan nama akun lain, dan pastikan akun sendiri muncul dengan label Kamu. Uji pencarian tanpa hasil, koneksi terputus, dan akses profil privat akun lain yang harus ditolak. Pencarian menggunakan indeks tunggal bawaan `searchName`; jangan mengecualikan field tersebut dari indexing.
 
-XP, progres latihan, dan leaderboard masih data lokal/demo. Data tersebut tidak ditulis dalam direktori pemain.
+XP dan progres belajar tersimpan secara privat per akun pada
+`profiles/{uid}/progress/current`, bukan pada direktori pemain. Leaderboard
+masih memakai data demo.
+
+## Progres akun dan logout
+
+Publish `firebase/firestore.rules` terbaru sebelum menjalankan versi ini.
+Rules lama belum mengizinkan subcollection progres, sehingga login akan
+menampilkan pesan gagal memuat profil sampai rules diperbarui.
+
+Setelah profil siap, aplikasi memuat progres dari server berdasarkan UID.
+Akun yang belum memiliki progres mulai dari level 1 dan 0 XP. Akun lama
+yang hanya memiliki profil juga mendapat progres awal tersebut; progres
+demo dari versi sebelumnya belum pernah tersimpan dan tidak bisa dipulihkan.
+
+Data yang disimpan: level akun, total XP, XP harian, streak, statistik sesi
+selesai/berhasil, level latihan selesai, dan status/progres pelajaran.
+Setiap 100 XP menaikkan level akun satu tingkat. Permainan menyimpan otomatis
+setelah sesi selesai (termasuk sesi gagal untuk statistik); sesi soal yang
+masih berlangsung tidak dilanjutkan di tengah soal setelah login ulang.
+Reset progres juga disimpan untuk akun yang sedang login.
+
+Logout menunggu antrean penyimpanan dan konfirmasi server sebelum sign-out.
+Jika koneksi atau izin Firestore gagal, akun tetap login dan pengguna bisa
+mencoba simpan/logout kembali. Login tidak mengganti data server yang gagal
+dibaca dengan progres kosong. UI Home dan Profil menggunakan progres yang sama.
+
+Uji online dengan dua akun terverifikasi: selesaikan latihan pada akun A,
+catat XP dan level, logout, masuk akun B dan pastikan progresnya terpisah,
+lalu masuk akun A lagi dan pastikan XP serta level latihan terbuka sama.
+Uji logout setelah koneksi diputus: logout harus gagal sampai penyimpanan
+berhasil setelah koneksi pulih. Uji akses dokumen progres akun lain dengan
+Firestore Emulator/Rules Playground; akses tersebut harus ditolak.
+
+Penyimpanan memakai snapshot akun dan bukan mekanisme anti-cheat atau
+penggabungan progres dari dua perangkat yang bermain bersamaan.
 
 
 ## Permintaan pertemanan

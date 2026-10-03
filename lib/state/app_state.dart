@@ -7,6 +7,7 @@ import '../data/level_data.dart';
 import '../models/cyber_level.dart';
 import '../models/quiz_question.dart';
 import '../screens/result/result_screen.dart';
+import '../services/progress_store.dart';
 
 class AppState extends ChangeNotifier {
   // User profile
@@ -16,6 +17,8 @@ class AppState extends ChangeNotifier {
   int streakDays = 3;
   int totalXp = 1260;
   int level = 5;
+  int totalLessons = 0;
+  int successfulLessons = 0;
 
   // Levels
   final List<CyberLevel> levels = buildInitialLevels();
@@ -25,10 +28,122 @@ class AppState extends ChangeNotifier {
   bool isLoading = true;
 
   final AssetBundle _questionBundle;
+  final ProgressStore? _progressStore;
+  Future<void> _pendingSave = Future<void>.value();
+  bool _disposed = false;
+  bool _progressLoaded = false;
+  bool isSigningOut = false;
+  Object? progressSaveError;
 
-  AppState({AssetBundle? questionBundle})
-    : _questionBundle = questionBundle ?? rootBundle {
+  AppState({AssetBundle? questionBundle, ProgressStore? progressStore})
+    : _questionBundle = questionBundle ?? rootBundle,
+      _progressStore = progressStore {
+    if (progressStore != null) _resetAccountProgress();
     _loadQuestions();
+  }
+
+  void _resetAccountProgress() {
+    dailyXp = 0;
+    streakDays = 0;
+    totalXp = 0;
+    level = 1;
+    totalLessons = 0;
+    successfulLessons = 0;
+    completedPracticeLevels.clear();
+    for (final item in levels) {
+      item.status = item.id == 1 ? LevelStatus.unlocked : LevelStatus.locked;
+      item.progress = 0;
+    }
+  }
+
+  Future<void> loadProgress() async {
+    if (_progressStore == null || _progressLoaded) return;
+    final data = await _progressStore.load();
+    if (_disposed) return;
+    if (data != null) {
+      dailyXp = (data['dailyXp'] as num).toInt();
+      streakDays = (data['streakDays'] as num).toInt();
+      totalXp = (data['totalXp'] as num).toInt();
+      level = (data['level'] as num).toInt();
+      totalLessons = (data['totalLessons'] as num).toInt();
+      successfulLessons = (data['successfulLessons'] as num).toInt();
+      completedPracticeLevels
+        ..clear()
+        ..addAll((data['completedPracticeLevels'] as List).cast<int>());
+      final savedLevels = data['levels'] as List;
+      for (final saved in savedLevels.cast<Map>()) {
+        final id = (saved['id'] as num).toInt();
+        if (id < 1 || id > levels.length) continue;
+        levels[id - 1].status = LevelStatus.values.byName(
+          saved['status'] as String,
+        );
+        levels[id - 1].progress = (saved['progress'] as num).toDouble();
+      }
+    } else {
+      await _progressStore.save(_progressSnapshot());
+    }
+    _progressLoaded = true;
+    _notify();
+  }
+
+  Map<String, dynamic> _progressSnapshot() => {
+    'schemaVersion': 1,
+    'dailyXp': dailyXp,
+    'streakDays': streakDays,
+    'totalXp': totalXp,
+    'level': level,
+    'totalLessons': totalLessons,
+    'successfulLessons': successfulLessons,
+    'completedPracticeLevels': completedPracticeLevels.toList()..sort(),
+    'levels': [
+      for (final item in levels)
+        {'id': item.id, 'status': item.status.name, 'progress': item.progress},
+    ],
+  };
+
+  void _queueSave() {
+    if (_progressStore == null || !_progressLoaded) return;
+    final snapshot = _progressSnapshot();
+    _pendingSave = _pendingSave.then((_) async {
+      try {
+        await _progressStore.save(snapshot);
+        progressSaveError = null;
+      } catch (error) {
+        progressSaveError = error;
+      }
+      _notify();
+    });
+  }
+
+  Future<void> saveProgress() async {
+    if (_progressStore == null) return;
+    if (!_progressLoaded) throw StateError('Progress has not loaded yet');
+    _queueSave();
+    await _pendingSave;
+    if (progressSaveError != null) throw progressSaveError!;
+  }
+
+  Future<void> signOut(Future<void> Function() signOutAccount) async {
+    if (isSigningOut) return;
+    isSigningOut = true;
+    _notify();
+    try {
+      await saveProgress();
+      await signOutAccount();
+    } finally {
+      isSigningOut = false;
+      _notify();
+    }
+  }
+
+  void _notify() {
+    if (!_disposed) notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    _disposed = true;
+    super.dispose();
   }
 
   String? loadError;
@@ -60,7 +175,7 @@ class AppState extends ChangeNotifier {
       debugPrint("=================================");
     } finally {
       isLoading = false;
-      notifyListeners();
+      _notify();
     }
   }
 
@@ -143,15 +258,18 @@ class AppState extends ChangeNotifier {
   }
 
   void finishLesson(BuildContext context, {required bool completedSuccess}) {
+    totalLessons++;
     if (completedSuccess) {
+      successfulLessons++;
       if (activePracticeLevel != null) {
         completedPracticeLevels.add(activePracticeLevel!);
       }
       dailyXp = math.min(dailyGoalXp, dailyXp + sessionXpEarned);
       totalXp += sessionXpEarned;
+      level = 1 + totalXp ~/ 100;
 
       // Unlock next level logic
-      if (activeLevel != null && activeLevel!.id < levels.length) {
+      if (activeLevel != null && activeLevel!.id <= levels.length) {
         levels[activeLevel!.id - 1].status = LevelStatus.completed;
         levels[activeLevel!.id - 1].progress = 1.0;
 
@@ -160,6 +278,7 @@ class AppState extends ChangeNotifier {
         }
       }
     }
+    _queueSave();
     notifyListeners();
 
     Navigator.of(context).pushReplacement(
@@ -175,6 +294,14 @@ class AppState extends ChangeNotifier {
   }
 
   void resetProgress() {
+    if (_progressStore != null) {
+      _resetAccountProgress();
+      activePracticeLevel = null;
+      activeLevel = null;
+      _queueSave();
+      _notify();
+      return;
+    }
     completedPracticeLevels.clear();
     activePracticeLevel = null;
     dailyXp = 40;

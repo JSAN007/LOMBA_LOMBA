@@ -6,6 +6,7 @@ import '../../components/profile/profile_stats_grid.dart';
 import '../../components/profile/profile_badges.dart';
 import '../../components/profile/profile_action_list.dart';
 import '../../services/account_service.dart';
+import '../../state/app_state_provider.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -27,6 +28,10 @@ class _ProfileScreenState extends State<ProfileScreen>
     username: AccountService.configured
         ? AccountService.auth.currentUser?.displayName ?? 'Pelajar'
         : 'Pelajar',
+    level: AppStateProvider.of(context).level,
+    totalXp: AppStateProvider.of(context).totalXp,
+    totalLessons: AppStateProvider.of(context).totalLessons,
+    successfulLessons: AppStateProvider.of(context).successfulLessons,
   );
 
   @override

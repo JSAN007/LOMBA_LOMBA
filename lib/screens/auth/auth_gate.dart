@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../../services/account_service.dart';
 import '../../state/app_state_provider.dart';
 import '../../state/app_state.dart';
+import '../../services/progress_store.dart';
 import '../../components/auth/account_status.dart';
 import '../main_shell.dart';
 import 'auth_screen.dart';
@@ -42,7 +43,13 @@ class _AccountSessionState extends State<AccountSession> {
   @override
   void initState() {
     super.initState();
-    _state = AppState()..username = widget.user.displayName ?? 'Pelajar';
+    _state = AppState(progressStore: FirestoreProgressStore(widget.user.uid))
+      ..username = widget.user.displayName ?? 'Pelajar';
+  }
+
+  Future<void> _loadAccount() async {
+    await AccountService.ensureProfile(widget.user);
+    await _state.loadProgress();
   }
 
   @override
@@ -54,7 +61,7 @@ class _AccountSessionState extends State<AccountSession> {
   @override
   Widget build(BuildContext context) {
     if (!widget.user.emailVerified) return const AccountVerification();
-    _profile ??= AccountService.ensureProfile(widget.user);
+    _profile ??= _loadAccount();
     return FutureBuilder<void>(
       future: _profile,
       builder: (context, snapshot) {

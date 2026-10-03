@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../services/account_service.dart';
+import '../../state/app_state_provider.dart';
 
 import '../../screens/settings/settings_screen.dart';
 
@@ -32,15 +33,22 @@ class ProfileActionList extends StatelessWidget {
         children: [
           _ActionTile(
             icon: Icons.logout_rounded,
-            title: 'Keluar dari akun',
+            title: AppStateProvider.of(context).isSigningOut
+                ? 'Menyimpan progres…'
+                : 'Keluar dari akun',
             subtitle: 'Sampai jumpa di sesi belajar berikutnya',
             onTap: () async {
+              final state = AppStateProvider.of(context);
               try {
-                await AccountService.auth.signOut();
+                await state.signOut(AccountService.auth.signOut);
               } catch (_) {
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Gagal keluar. Coba lagi.')),
+                    const SnackBar(
+                      content: Text(
+                        'Progres belum tersimpan. Periksa koneksi lalu coba keluar lagi.',
+                      ),
+                    ),
                   );
                 }
               }
@@ -76,9 +84,9 @@ class ProfileActionList extends StatelessWidget {
             icon: Icons.settings_outlined,
             title: 'Settings',
             subtitle: 'Appearance & preferences',
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const SettingsScreen()),
-            ),
+            onTap: () => Navigator.of(
+              context,
+            ).push(MaterialPageRoute(builder: (_) => const SettingsScreen())),
           ),
           Divider(
             height: 1,
