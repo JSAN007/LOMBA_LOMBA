@@ -27,6 +27,12 @@ masih memakai data demo.
 
 ## Progres akun dan logout
 
+Jawaban uraian Practice Naratif disimpan sebagai draf privat pada
+`profiles/{uid}/narrativeAnswers/{questionId}` lewat tombol Simpan jawaban.
+Publish rules terbaru agar subcollection tersebut dapat dibaca/ditulis
+pemilik akun. Draf dimuat kembali ketika akun membuka skenario yang sama;
+penilaian NLP menggunakan backend lokal (lihat backend/README.md); XP naratif belum aktif.
+
 Publish `firebase/firestore.rules` terbaru sebelum menjalankan versi ini.
 Rules lama belum mengizinkan subcollection progres, sehingga login akan
 menampilkan pesan gagal memuat profil sampai rules diperbarui.
@@ -62,4 +68,3 @@ penggabungan progres dari dua perangkat yang bermain bersamaan.
 ## Permintaan pertemanan
 Publish rules terbaru untuk collection friendships sebelum memakai Tambah teman. Dokumen pasangan unik menyimpan anggota, pengirim/penerima, nama pemain, status pending/accepted, dan waktu pembuatan. Penerima dapat menerima/menolak; pengirim dapat membatalkan. Setelah diterima, keduanya melihat teman yang sama. Hanya dua anggota yang bisa membaca hubungan ini. Tidak perlu composite index untuk query members arrayContains.
 Uji dengan dua akun: cari Jovan, kirim permintaan, buka akun Jovan, terima permintaan, lalu pastikan keduanya muncul dalam daftar Temanmu. Data pertemanan tersimpan di Firestore dan tetap ada setelah app ditutup.
-

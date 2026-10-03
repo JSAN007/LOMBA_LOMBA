@@ -49,6 +49,18 @@ service cloud.firestore {
       allow delete: if owner(uid);
     }
     match /profiles/{uid} {
+      match /narrativeAnswers/{questionId} {
+        allow read: if owner(uid);
+        allow create, update: if owner(uid)
+          && request.resource.data.keys().hasAll(['answer', 'status', 'updatedAt'])
+          && request.resource.data.keys().hasOnly(['answer', 'status', 'updatedAt'])
+          && request.resource.data.answer is string
+          && request.resource.data.answer.size() > 0
+          && request.resource.data.answer.size() <= 4000
+          && request.resource.data.status == 'draft'
+          && request.resource.data.updatedAt == request.time;
+        allow delete: if false;
+      }
       match /progress/{progressId} {
         function validLevel(item) {
           return item is map

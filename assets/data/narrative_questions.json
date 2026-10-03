@@ -1,0 +1,1861 @@
+{
+  "schemaVersion": 1,
+  "provenance": "validation_dataset_examples",
+  "modelGenerated": false,
+  "questions": [
+    {
+      "id": "4763531e2f0642ce",
+      "title": "DDoS · High",
+      "scenario": "Pada 2022-07-26 14:37:41, Firewall mencatat komunikasi dari 130.27.184.127:32066 menuju 187.166.230.128:44084 melalui UDP. Log memberi label serangan DDoS dengan tingkat keparahan High. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-07-26 14:37:41 src=130.27.184.127:32066 dst=187.166.230.128:44084 proto=UDP len=529 traffic=DNS anomaly=71.6 ioc=None alert=None attack=DDoS action=Blocked severity=High segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan High. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "B": "Periksa log autentikasi dan perketat aturan firewall",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity High: Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 2
+    },
+    {
+      "id": "2357807028cc77b4",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2023-08-26 14:03:44, Server mencatat komunikasi dari 47.191.237.14:33550 menuju 40.16.250.233:27168 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-08-26 14:03:44 src=47.191.237.14:33550 dst=40.16.250.233:27168 proto=ICMP len=1184 traffic=HTTP anomaly=63.33 ioc=IoC Detected alert=Alert Triggered attack=DDoS action=Blocked severity=Medium segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Kamu bertugas menjaga layanan tetap tersedia. Susun langkah penanganan lonjakan trafik pada kasus ini, urutkan prioritasnya, dan jelaskan cara memeriksa apakah layanan sudah pulih.",
+      "options": {
+        "A": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "B": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "C": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 6
+    },
+    {
+      "id": "d5fe8ac7d9a0989f",
+      "title": "Malware · High",
+      "scenario": "Pada 2022-08-25 11:15:53, Firewall mencatat komunikasi dari 26.203.70.92:16140 menuju 56.246.117.136:45424 melalui TCP. Log memberi label serangan Malware dengan tingkat keparahan High. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-08-25 11:15:53 src=26.203.70.92:16140 dst=56.246.117.136:45424 proto=TCP len=1321 traffic=FTP anomaly=8.3 ioc=IoC Detected alert=Alert Triggered attack=Malware action=Logged severity=High segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan High. Susun instruksi penanganan bagi tim: apa yang perlu dikonfirmasi dari log, langkah yang akan dilakukan pada perangkat, dan bagaimana memantau kemungkinan kejadian berulang.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Malware severity High: Isolasi perangkat dari jaringan lalu lakukan analisis malware.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 8
+    },
+    {
+      "id": "3dea879b3a2b6279",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2021-12-24 07:10:51, Firewall mencatat komunikasi dari 145.138.40.247:44110 menuju 77.162.149.26:33701 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-12-24 07:10:51 src=145.138.40.247:44110 dst=77.162.149.26:33701 proto=UDP len=1325 traffic=HTTP anomaly=60.82 ioc=IoC Detected alert=Alert Triggered attack=Intrusion action=Logged severity=Medium segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 10
+    },
+    {
+      "id": "a6d03e930ee79ddf",
+      "title": "Malware · Medium",
+      "scenario": "Pada 2023-04-24 15:52:42, Server mencatat komunikasi dari 201.30.52.54:44337 menuju 87.231.211.130:34724 melalui UDP. Log memberi label serangan Malware dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-04-24 15:52:42 src=201.30.52.54:44337 dst=87.231.211.130:34724 proto=UDP len=519 traffic=DNS anomaly=95.35 ioc=IoC Detected alert=Alert Triggered attack=Malware action=Blocked severity=Medium segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Medium. Buat rencana untuk membatasi dampak dugaan malware ini. Jelaskan bagaimana kamu memeriksa perangkat terdampak, mempertahankan bukti yang diperlukan, dan menentukan langkah pemulihan.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Medium: Jalankan pemindaian antivirus dan periksa IoC terkait.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 13
+    },
+    {
+      "id": "f7df24be1901e52f",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2023-04-24 09:22:42, Server mencatat komunikasi dari 46.246.72.172:55554 menuju 16.149.112.94:9698 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-04-24 09:22:42 src=46.246.72.172:55554 dst=16.149.112.94:9698 proto=UDP len=275 traffic=HTTP anomaly=50.21 ioc=None alert=None attack=Intrusion action=Ignored severity=Low segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 14
+    },
+    {
+      "id": "b5cf6d930866a746",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2023-09-27 01:47:12, Firewall mencatat komunikasi dari 175.86.225.109:30905 menuju 212.31.186.193:11418 melalui ICMP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-09-27 01:47:12 src=175.86.225.109:30905 dst=212.31.186.193:11418 proto=ICMP len=871 traffic=DNS anomaly=91.72 ioc=None alert=None attack=Intrusion action=Blocked severity=Medium segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Periksa log autentikasi dan perketat aturan firewall",
+        "C": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "D": "Jalankan pemindaian antivirus dan periksa IoC terkait"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 16
+    },
+    {
+      "id": "3a6be0d1aa40cbca",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2020-05-08 02:34:05, Firewall mencatat komunikasi dari 170.126.91.142:2191 menuju 116.181.85.235:53703 melalui ICMP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-05-08 02:34:05 src=170.126.91.142:2191 dst=116.181.85.235:53703 proto=ICMP len=292 traffic=FTP anomaly=98.56 ioc=IoC Detected alert=None attack=Intrusion action=Ignored severity=Low segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "B": "Periksa log autentikasi dan perketat aturan firewall",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 17
+    },
+    {
+      "id": "04e5998cc501d1f3",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2020-02-01 04:00:20, Firewall mencatat komunikasi dari 129.0.170.165:61706 menuju 218.39.48.31:32063 melalui TCP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-02-01 04:00:20 src=129.0.170.165:61706 dst=218.39.48.31:32063 proto=TCP len=223 traffic=FTP anomaly=20.27 ioc=None alert=None attack=DDoS action=Ignored severity=Medium segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Kamu bertugas menjaga layanan tetap tersedia. Susun langkah penanganan lonjakan trafik pada kasus ini, urutkan prioritasnya, dan jelaskan cara memeriksa apakah layanan sudah pulih.",
+      "options": {
+        "A": "Catat aktivitas dan tinjau konfigurasi akses",
+        "B": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 18
+    },
+    {
+      "id": "32c965f988bd81fd",
+      "title": "Malware · Low",
+      "scenario": "Pada 2021-09-03 17:16:39, Server mencatat komunikasi dari 83.218.181.165:4063 menuju 199.185.133.164:27242 melalui ICMP. Log memberi label serangan Malware dengan tingkat keparahan Low. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-09-03 17:16:39 src=83.218.181.165:4063 dst=199.185.133.164:27242 proto=ICMP len=949 traffic=FTP anomaly=49.86 ioc=IoC Detected alert=Alert Triggered attack=Malware action=Logged severity=Low segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Low. Buat rencana untuk membatasi dampak dugaan malware ini. Jelaskan bagaimana kamu memeriksa perangkat terdampak, mempertahankan bukti yang diperlukan, dan menentukan langkah pemulihan.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Catat trafik dan pantau tren secara berkala",
+        "C": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "D": "Jalankan pemindaian antivirus dan periksa IoC terkait"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Low: Catat IoC dan jadwalkan pemindaian rutin.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 19
+    },
+    {
+      "id": "e219c75ce2e567f3",
+      "title": "Malware · High",
+      "scenario": "Pada 2022-02-23 06:42:40, Server mencatat komunikasi dari 38.200.26.163:37989 menuju 145.13.19.240:22406 melalui UDP. Log memberi label serangan Malware dengan tingkat keparahan High. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-02-23 06:42:40 src=38.200.26.163:37989 dst=145.13.19.240:22406 proto=UDP len=1337 traffic=FTP anomaly=92.45 ioc=None alert=None attack=Malware action=Ignored severity=High segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan High. Susun instruksi penanganan bagi tim: apa yang perlu dikonfirmasi dari log, langkah yang akan dilakukan pada perangkat, dan bagaimana memantau kemungkinan kejadian berulang.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Catat trafik dan pantau tren secara berkala",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Malware severity High: Isolasi perangkat dari jaringan lalu lakukan analisis malware.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 23
+    },
+    {
+      "id": "e03b27c1f1545bbd",
+      "title": "Malware · High",
+      "scenario": "Pada 2023-07-09 13:47:08, Server mencatat komunikasi dari 198.194.21.145:34838 menuju 131.46.118.176:31669 melalui ICMP. Log memberi label serangan Malware dengan tingkat keparahan High. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-07-09 13:47:08 src=198.194.21.145:34838 dst=131.46.118.176:31669 proto=ICMP len=670 traffic=DNS anomaly=53.56 ioc=IoC Detected alert=Alert Triggered attack=Malware action=Blocked severity=High segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan High. Buat rencana untuk membatasi dampak dugaan malware ini. Jelaskan bagaimana kamu memeriksa perangkat terdampak, mempertahankan bukti yang diperlukan, dan menentukan langkah pemulihan.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Malware severity High: Isolasi perangkat dari jaringan lalu lakukan analisis malware.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 25
+    },
+    {
+      "id": "842ddaf26c936493",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2023-01-16 02:35:58, Server mencatat komunikasi dari 162.220.195.41:22937 menuju 211.223.183.156:19553 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-01-16 02:35:58 src=162.220.195.41:22937 dst=211.223.183.156:19553 proto=TCP len=464 traffic=FTP anomaly=6.72 ioc=IoC Detected alert=None attack=Intrusion action=Logged severity=Medium segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 32
+    },
+    {
+      "id": "f33e8838118de7e3",
+      "title": "DDoS · High",
+      "scenario": "Pada 2020-02-02 17:22:25, Server mencatat komunikasi dari 111.176.39.140:53137 menuju 33.29.212.218:27722 melalui UDP. Log memberi label serangan DDoS dengan tingkat keparahan High. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-02-02 17:22:25 src=111.176.39.140:53137 dst=33.29.212.218:27722 proto=UDP len=1050 traffic=FTP anomaly=88.0 ioc=None alert=Alert Triggered attack=DDoS action=Logged severity=High segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan High. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "D": "Catat IoC dan jadwalkan pemindaian rutin"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity High: Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 35
+    },
+    {
+      "id": "6211845664477bb3",
+      "title": "Malware · Low",
+      "scenario": "Pada 2020-08-28 10:41:10, Firewall mencatat komunikasi dari 35.90.157.212:8904 menuju 156.176.144.53:32924 melalui ICMP. Log memberi label serangan Malware dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-08-28 10:41:10 src=35.90.157.212:8904 dst=156.176.144.53:32924 proto=ICMP len=1374 traffic=FTP anomaly=58.06 ioc=None alert=None attack=Malware action=Blocked severity=Low segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Low. Kamu diminta menangani dugaan malware pada perangkat yang tercatat. Susun langkah pemeriksaan dan penanganan, jelaskan prioritasmu, serta cara memverifikasi perangkat aman digunakan kembali.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Catat trafik dan pantau tren secara berkala",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Low: Catat IoC dan jadwalkan pemindaian rutin.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 39
+    },
+    {
+      "id": "e12832bab4c9650c",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2021-04-14 05:49:39, Firewall mencatat komunikasi dari 161.123.22.163:26735 menuju 145.34.188.240:28433 melalui ICMP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-04-14 05:49:39 src=161.123.22.163:26735 dst=145.34.188.240:28433 proto=ICMP len=755 traffic=HTTP anomaly=37.33 ioc=None alert=None attack=Intrusion action=Blocked severity=High segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "D": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 41
+    },
+    {
+      "id": "b07625d110da0f82",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2021-07-11 05:03:21, Server mencatat komunikasi dari 108.72.205.102:28336 menuju 170.225.4.93:8473 melalui ICMP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-07-11 05:03:21 src=108.72.205.102:28336 dst=170.225.4.93:8473 proto=ICMP len=975 traffic=FTP anomaly=91.07 ioc=None alert=Alert Triggered attack=Intrusion action=Ignored severity=Medium segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Periksa log autentikasi dan perketat aturan firewall",
+        "C": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 44
+    },
+    {
+      "id": "0e02105786eb8345",
+      "title": "Malware · Low",
+      "scenario": "Pada 2020-07-03 00:36:03, Firewall mencatat komunikasi dari 47.12.52.193:23168 menuju 30.129.249.22:20264 melalui UDP. Log memberi label serangan Malware dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-07-03 00:36:03 src=47.12.52.193:23168 dst=30.129.249.22:20264 proto=UDP len=477 traffic=FTP anomaly=66.78 ioc=IoC Detected alert=Alert Triggered attack=Malware action=Ignored severity=Low segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Low. Kamu diminta menangani dugaan malware pada perangkat yang tercatat. Susun langkah pemeriksaan dan penanganan, jelaskan prioritasmu, serta cara memverifikasi perangkat aman digunakan kembali.",
+      "options": {
+        "A": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "B": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "C": "Catat trafik dan pantau tren secara berkala",
+        "D": "Catat IoC dan jadwalkan pemindaian rutin"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Low: Catat IoC dan jadwalkan pemindaian rutin.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 45
+    },
+    {
+      "id": "a16e2b761118b7a0",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2021-12-26 18:40:43, Server mencatat komunikasi dari 66.8.166.143:25857 menuju 2.215.197.214:59736 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-12-26 18:40:43 src=66.8.166.143:25857 dst=2.215.197.214:59736 proto=UDP len=1197 traffic=FTP anomaly=20.64 ioc=IoC Detected alert=Alert Triggered attack=Intrusion action=Blocked severity=Low segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Pantau lonjakan trafik dan siapkan rate limiting"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 47
+    },
+    {
+      "id": "0caf06e01a2f06a5",
+      "title": "DDoS · High",
+      "scenario": "Pada 2020-10-02 04:43:22, Firewall mencatat komunikasi dari 121.211.46.150:41427 menuju 49.161.253.155:30377 melalui UDP. Log memberi label serangan DDoS dengan tingkat keparahan High. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-10-02 04:43:22 src=121.211.46.150:41427 dst=49.161.253.155:30377 proto=UDP len=326 traffic=DNS anomaly=30.96 ioc=IoC Detected alert=Alert Triggered attack=DDoS action=Logged severity=High segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan High. Buat rencana mitigasi insiden DDoS ini. Jelaskan apa yang perlu diperiksa, tindakan yang kamu pilih, dan bagaimana mengurangi dampak pada pengguna yang sah.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity High: Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 55
+    },
+    {
+      "id": "60595edc9b0a3bb8",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2023-09-09 13:39:18, Firewall mencatat komunikasi dari 22.10.185.143:43522 menuju 13.70.146.10:41693 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-09-09 13:39:18 src=22.10.185.143:43522 dst=13.70.146.10:41693 proto=TCP len=124 traffic=FTP anomaly=84.04 ioc=None alert=Alert Triggered attack=Intrusion action=Logged severity=Medium segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "B": "Periksa log autentikasi dan perketat aturan firewall",
+        "C": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "D": "Pantau lonjakan trafik dan siapkan rate limiting"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 56
+    },
+    {
+      "id": "28c5acddfeeb22da",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2020-10-13 09:56:08, Server mencatat komunikasi dari 24.241.63.13:36762 menuju 100.2.234.212:36247 melalui TCP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-10-13 09:56:08 src=24.241.63.13:36762 dst=100.2.234.212:36247 proto=TCP len=1312 traffic=DNS anomaly=12.95 ioc=IoC Detected alert=Alert Triggered attack=DDoS action=Logged severity=Medium segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Kamu bertugas menjaga layanan tetap tersedia. Susun langkah penanganan lonjakan trafik pada kasus ini, urutkan prioritasnya, dan jelaskan cara memeriksa apakah layanan sudah pulih.",
+      "options": {
+        "A": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Periksa log autentikasi dan perketat aturan firewall",
+        "D": "Pantau lonjakan trafik dan siapkan rate limiting"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 63
+    },
+    {
+      "id": "30d20a35a293c503",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2021-11-26 06:48:55, Firewall mencatat komunikasi dari 129.35.81.203:15797 menuju 159.50.191.135:54665 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-11-26 06:48:55 src=129.35.81.203:15797 dst=159.50.191.135:54665 proto=UDP len=870 traffic=DNS anomaly=92.97 ioc=None alert=Alert Triggered attack=Intrusion action=Ignored severity=High segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "B": "Periksa log autentikasi dan perketat aturan firewall",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 65
+    },
+    {
+      "id": "e0c486d87d6eb765",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2021-05-25 20:13:00, Firewall mencatat komunikasi dari 180.143.234.21:35195 menuju 155.198.208.17:51025 melalui ICMP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-05-25 20:13:00 src=180.143.234.21:35195 dst=155.198.208.17:51025 proto=ICMP len=262 traffic=DNS anomaly=44.98 ioc=IoC Detected alert=Alert Triggered attack=Intrusion action=Blocked severity=Low segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Catat trafik dan pantau tren secara berkala",
+        "C": "Periksa log autentikasi dan perketat aturan firewall",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 67
+    },
+    {
+      "id": "75c3c792875d1874",
+      "title": "DDoS · Low",
+      "scenario": "Pada 2020-07-08 15:55:52, Server mencatat komunikasi dari 180.130.80.10:51109 menuju 220.144.66.202:27607 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-07-08 15:55:52 src=180.130.80.10:51109 dst=220.144.66.202:27607 proto=ICMP len=637 traffic=DNS anomaly=16.0 ioc=IoC Detected alert=None attack=DDoS action=Blocked severity=Low segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Low. Kamu bertugas menjaga layanan tetap tersedia. Susun langkah penanganan lonjakan trafik pada kasus ini, urutkan prioritasnya, dan jelaskan cara memeriksa apakah layanan sudah pulih.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Low: Catat trafik dan pantau tren secara berkala.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 69
+    },
+    {
+      "id": "7b9327c8577ffa08",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2022-11-06 11:59:18, Firewall mencatat komunikasi dari 25.172.87.65:15570 menuju 192.116.35.128:64047 melalui ICMP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-11-06 11:59:18 src=25.172.87.65:15570 dst=192.116.35.128:64047 proto=ICMP len=1362 traffic=DNS anomaly=43.53 ioc=None alert=Alert Triggered attack=Intrusion action=Ignored severity=Low segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Catat aktivitas dan tinjau konfigurasi akses",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 70
+    },
+    {
+      "id": "6213568fb3c846f8",
+      "title": "Malware · Medium",
+      "scenario": "Pada 2023-04-26 21:53:42, Server mencatat komunikasi dari 27.44.59.183:19240 menuju 146.175.181.0:54806 melalui ICMP. Log memberi label serangan Malware dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-04-26 21:53:42 src=27.44.59.183:19240 dst=146.175.181.0:54806 proto=ICMP len=1185 traffic=FTP anomaly=79.11 ioc=None alert=None attack=Malware action=Blocked severity=Medium segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Medium. Buat rencana untuk membatasi dampak dugaan malware ini. Jelaskan bagaimana kamu memeriksa perangkat terdampak, mempertahankan bukti yang diperlukan, dan menentukan langkah pemulihan.",
+      "options": {
+        "A": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Medium: Jalankan pemindaian antivirus dan periksa IoC terkait.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 73
+    },
+    {
+      "id": "416edf1e1da43035",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2023-06-27 19:07:18, Firewall mencatat komunikasi dari 202.79.122.78:30009 menuju 121.165.204.63:35319 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-06-27 19:07:18 src=202.79.122.78:30009 dst=121.165.204.63:35319 proto=UDP len=771 traffic=FTP anomaly=6.1 ioc=None alert=None attack=Intrusion action=Blocked severity=Low segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Kamu diminta menangani dugaan akses tidak sah. Jelaskan urutan pemeriksaan, langkah membatasi akses, dan cara memastikan akun atau sistem terdampak kembali aman.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 75
+    },
+    {
+      "id": "ec2866ef3c53098d",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2022-08-15 05:55:31, Server mencatat komunikasi dari 69.140.182.97:64776 menuju 116.240.53.219:28956 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-08-15 05:55:31 src=69.140.182.97:64776 dst=116.240.53.219:28956 proto=ICMP len=1140 traffic=HTTP anomaly=82.81 ioc=IoC Detected alert=None attack=DDoS action=Logged severity=Medium segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Buat rencana mitigasi insiden DDoS ini. Jelaskan apa yang perlu diperiksa, tindakan yang kamu pilih, dan bagaimana mengurangi dampak pada pengguna yang sah.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "D": "Catat IoC dan jadwalkan pemindaian rutin"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 76
+    },
+    {
+      "id": "8271823b6adc8e2e",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2023-04-22 05:35:48, Firewall mencatat komunikasi dari 188.227.247.41:44500 menuju 77.233.123.178:62498 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-04-22 05:35:48 src=188.227.247.41:44500 dst=77.233.123.178:62498 proto=TCP len=1392 traffic=DNS anomaly=77.99 ioc=IoC Detected alert=Alert Triggered attack=Intrusion action=Ignored severity=Low segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Kamu diminta menangani dugaan akses tidak sah. Jelaskan urutan pemeriksaan, langkah membatasi akses, dan cara memastikan akun atau sistem terdampak kembali aman.",
+      "options": {
+        "A": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "B": "Catat IoC dan jadwalkan pemindaian rutin",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Isolasi perangkat dari jaringan lalu lakukan analisis malware"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 78
+    },
+    {
+      "id": "133ddb8dc98284f9",
+      "title": "DDoS · Low",
+      "scenario": "Pada 2022-07-21 09:18:50, Server mencatat komunikasi dari 217.186.210.5:36720 menuju 6.220.106.42:31070 melalui TCP. Log memberi label serangan DDoS dengan tingkat keparahan Low. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-07-21 09:18:50 src=217.186.210.5:36720 dst=6.220.106.42:31070 proto=TCP len=1081 traffic=HTTP anomaly=87.34 ioc=None alert=Alert Triggered attack=DDoS action=Logged severity=Low segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Low. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Catat trafik dan pantau tren secara berkala",
+        "C": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Low: Catat trafik dan pantau tren secara berkala.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 80
+    },
+    {
+      "id": "e866941cd7b00894",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2022-10-19 18:06:54, Firewall mencatat komunikasi dari 149.65.222.119:20568 menuju 7.177.112.181:50267 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-10-19 18:06:54 src=149.65.222.119:20568 dst=7.177.112.181:50267 proto=TCP len=807 traffic=HTTP anomaly=31.22 ioc=None alert=None attack=Intrusion action=Ignored severity=Low segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Kamu diminta menangani dugaan akses tidak sah. Jelaskan urutan pemeriksaan, langkah membatasi akses, dan cara memastikan akun atau sistem terdampak kembali aman.",
+      "options": {
+        "A": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "B": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "C": "Periksa log autentikasi dan perketat aturan firewall",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 87
+    },
+    {
+      "id": "2d67487a74eeac50",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2021-09-28 07:32:10, Firewall mencatat komunikasi dari 56.124.37.133:47435 menuju 126.132.76.133:29801 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-09-28 07:32:10 src=56.124.37.133:47435 dst=126.132.76.133:29801 proto=UDP len=1482 traffic=HTTP anomaly=74.14 ioc=None alert=None attack=Intrusion action=Logged severity=Medium segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "B": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 89
+    },
+    {
+      "id": "9b39988127777544",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2021-06-12 15:42:07, Firewall mencatat komunikasi dari 169.12.83.249:40367 menuju 82.160.148.88:18203 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-06-12 15:42:07 src=169.12.83.249:40367 dst=82.160.148.88:18203 proto=TCP len=1030 traffic=HTTP anomaly=94.47 ioc=IoC Detected alert=None attack=Intrusion action=Blocked severity=Low segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Kamu diminta menangani dugaan akses tidak sah. Jelaskan urutan pemeriksaan, langkah membatasi akses, dan cara memastikan akun atau sistem terdampak kembali aman.",
+      "options": {
+        "A": "Catat aktivitas dan tinjau konfigurasi akses",
+        "B": "Catat trafik dan pantau tren secara berkala",
+        "C": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 90
+    },
+    {
+      "id": "b22e5f76f1318531",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2020-07-02 10:38:42, Firewall mencatat komunikasi dari 148.240.62.132:51955 menuju 100.59.5.187:57559 melalui ICMP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-07-02 10:38:42 src=148.240.62.132:51955 dst=100.59.5.187:57559 proto=ICMP len=636 traffic=FTP anomaly=31.14 ioc=IoC Detected alert=Alert Triggered attack=Intrusion action=Blocked severity=High segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Catat aktivitas dan tinjau konfigurasi akses",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Catat trafik dan pantau tren secara berkala",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 92
+    },
+    {
+      "id": "d2d8bc2219e561d2",
+      "title": "DDoS · High",
+      "scenario": "Pada 2022-08-26 09:48:33, Server mencatat komunikasi dari 118.221.203.156:15691 menuju 20.226.137.199:38066 melalui UDP. Log memberi label serangan DDoS dengan tingkat keparahan High. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-08-26 09:48:33 src=118.221.203.156:15691 dst=20.226.137.199:38066 proto=UDP len=222 traffic=DNS anomaly=20.12 ioc=None alert=Alert Triggered attack=DDoS action=Logged severity=High segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan High. Kamu bertugas menjaga layanan tetap tersedia. Susun langkah penanganan lonjakan trafik pada kasus ini, urutkan prioritasnya, dan jelaskan cara memeriksa apakah layanan sudah pulih.",
+      "options": {
+        "A": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "B": "Catat IoC dan jadwalkan pemindaian rutin",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity High: Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 93
+    },
+    {
+      "id": "8a7c7242cb8425ff",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2022-12-13 02:06:36, Server mencatat komunikasi dari 156.43.175.170:60360 menuju 214.26.62.76:58779 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-12-13 02:06:36 src=156.43.175.170:60360 dst=214.26.62.76:58779 proto=UDP len=1191 traffic=FTP anomaly=17.59 ioc=None alert=None attack=Intrusion action=Ignored severity=High segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Catat aktivitas dan tinjau konfigurasi akses",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 104
+    },
+    {
+      "id": "a8ba20b848e89a51",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2020-03-24 00:35:26, Server mencatat komunikasi dari 200.184.98.62:36870 menuju 121.117.77.186:14621 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-03-24 00:35:26 src=200.184.98.62:36870 dst=121.117.77.186:14621 proto=UDP len=1186 traffic=HTTP anomaly=59.71 ioc=None alert=Alert Triggered attack=Intrusion action=Blocked severity=High segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Catat trafik dan pantau tren secara berkala",
+        "D": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 112
+    },
+    {
+      "id": "22af68c913a35ad2",
+      "title": "Malware · High",
+      "scenario": "Pada 2021-03-02 02:27:00, Server mencatat komunikasi dari 170.243.216.90:1191 menuju 147.7.185.15:44701 melalui TCP. Log memberi label serangan Malware dengan tingkat keparahan High. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-03-02 02:27:00 src=170.243.216.90:1191 dst=147.7.185.15:44701 proto=TCP len=836 traffic=DNS anomaly=97.58 ioc=IoC Detected alert=None attack=Malware action=Ignored severity=High segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan High. Susun instruksi penanganan bagi tim: apa yang perlu dikonfirmasi dari log, langkah yang akan dilakukan pada perangkat, dan bagaimana memantau kemungkinan kejadian berulang.",
+      "options": {
+        "A": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Catat IoC dan jadwalkan pemindaian rutin"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Malware severity High: Isolasi perangkat dari jaringan lalu lakukan analisis malware.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 113
+    },
+    {
+      "id": "af55a83df48a6db3",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2021-10-04 01:24:16, Server mencatat komunikasi dari 50.190.93.133:1086 menuju 95.180.153.91:23936 melalui UDP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-10-04 01:24:16 src=50.190.93.133:1086 dst=95.180.153.91:23936 proto=UDP len=1495 traffic=DNS anomaly=54.22 ioc=None alert=None attack=DDoS action=Logged severity=Medium segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Pantau lonjakan trafik dan siapkan rate limiting"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 119
+    },
+    {
+      "id": "d4fd056c1cb60a3c",
+      "title": "Malware · High",
+      "scenario": "Pada 2022-11-18 21:46:02, Firewall mencatat komunikasi dari 5.136.155.118:47429 menuju 171.131.46.119:27309 melalui UDP. Log memberi label serangan Malware dengan tingkat keparahan High. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-11-18 21:46:02 src=5.136.155.118:47429 dst=171.131.46.119:27309 proto=UDP len=971 traffic=FTP anomaly=1.0 ioc=IoC Detected alert=None attack=Malware action=Ignored severity=High segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan High. Kamu diminta menangani dugaan malware pada perangkat yang tercatat. Susun langkah pemeriksaan dan penanganan, jelaskan prioritasmu, serta cara memverifikasi perangkat aman digunakan kembali.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Malware severity High: Isolasi perangkat dari jaringan lalu lakukan analisis malware.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 120
+    },
+    {
+      "id": "f5c7cddfba553809",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2021-01-28 14:36:08, Firewall mencatat komunikasi dari 140.129.78.198:7752 menuju 138.37.247.244:61380 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-01-28 14:36:08 src=140.129.78.198:7752 dst=138.37.247.244:61380 proto=TCP len=693 traffic=DNS anomaly=51.99 ioc=None alert=None attack=Intrusion action=Ignored severity=High segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Isolasi perangkat dari jaringan lalu lakukan analisis malware"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 124
+    },
+    {
+      "id": "a090ce15b06b5f11",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2020-08-10 16:27:05, Firewall mencatat komunikasi dari 16.70.204.173:49716 menuju 48.51.246.230:14794 melalui ICMP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-08-10 16:27:05 src=16.70.204.173:49716 dst=48.51.246.230:14794 proto=ICMP len=817 traffic=DNS anomaly=48.94 ioc=None alert=None attack=Intrusion action=Blocked severity=Low segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Periksa log autentikasi dan perketat aturan firewall",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 125
+    },
+    {
+      "id": "3d5061eb6d2c8687",
+      "title": "Malware · Low",
+      "scenario": "Pada 2023-08-29 20:39:47, Firewall mencatat komunikasi dari 86.68.18.94:48107 menuju 140.250.132.154:58975 melalui ICMP. Log memberi label serangan Malware dengan tingkat keparahan Low. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-08-29 20:39:47 src=86.68.18.94:48107 dst=140.250.132.154:58975 proto=ICMP len=749 traffic=DNS anomaly=88.01 ioc=None alert=None attack=Malware action=Logged severity=Low segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Low. Kamu diminta menangani dugaan malware pada perangkat yang tercatat. Susun langkah pemeriksaan dan penanganan, jelaskan prioritasmu, serta cara memverifikasi perangkat aman digunakan kembali.",
+      "options": {
+        "A": "Catat trafik dan pantau tren secara berkala",
+        "B": "Periksa log autentikasi dan perketat aturan firewall",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Isolasi perangkat dari jaringan lalu lakukan analisis malware"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Low: Catat IoC dan jadwalkan pemindaian rutin.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 132
+    },
+    {
+      "id": "89ff8da89eb45dbd",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2020-06-21 03:49:55, Firewall mencatat komunikasi dari 15.53.245.227:63617 menuju 54.182.232.37:11584 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-06-21 03:49:55 src=15.53.245.227:63617 dst=54.182.232.37:11584 proto=ICMP len=630 traffic=DNS anomaly=78.67 ioc=None alert=None attack=DDoS action=Logged severity=Medium segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Buat rencana mitigasi insiden DDoS ini. Jelaskan apa yang perlu diperiksa, tindakan yang kamu pilih, dan bagaimana mengurangi dampak pada pengguna yang sah.",
+      "options": {
+        "A": "Catat aktivitas dan tinjau konfigurasi akses",
+        "B": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "C": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 133
+    },
+    {
+      "id": "833bc298bbd491be",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2023-04-07 16:48:55, Firewall mencatat komunikasi dari 105.212.31.0:28633 menuju 106.202.211.64:17860 melalui TCP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-04-07 16:48:55 src=105.212.31.0:28633 dst=106.202.211.64:17860 proto=TCP len=183 traffic=DNS anomaly=1.78 ioc=None alert=Alert Triggered attack=DDoS action=Logged severity=Medium segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Kamu bertugas menjaga layanan tetap tersedia. Susun langkah penanganan lonjakan trafik pada kasus ini, urutkan prioritasnya, dan jelaskan cara memeriksa apakah layanan sudah pulih.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 138
+    },
+    {
+      "id": "f6a3a5eab8579a5a",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2021-06-22 09:11:04, Firewall mencatat komunikasi dari 176.13.77.168:28681 menuju 14.11.76.172:43807 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-06-22 09:11:04 src=176.13.77.168:28681 dst=14.11.76.172:43807 proto=ICMP len=251 traffic=DNS anomaly=66.15 ioc=IoC Detected alert=Alert Triggered attack=DDoS action=Blocked severity=Medium segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Kamu bertugas menjaga layanan tetap tersedia. Susun langkah penanganan lonjakan trafik pada kasus ini, urutkan prioritasnya, dan jelaskan cara memeriksa apakah layanan sudah pulih.",
+      "options": {
+        "A": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "B": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 141
+    },
+    {
+      "id": "ef78cd7e06180842",
+      "title": "Malware · Medium",
+      "scenario": "Pada 2022-12-08 15:53:18, Server mencatat komunikasi dari 221.182.222.56:54321 menuju 102.213.203.139:17973 melalui TCP. Log memberi label serangan Malware dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-12-08 15:53:18 src=221.182.222.56:54321 dst=102.213.203.139:17973 proto=TCP len=69 traffic=HTTP anomaly=79.51 ioc=IoC Detected alert=None attack=Malware action=Blocked severity=Medium segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Medium. Buat rencana untuk membatasi dampak dugaan malware ini. Jelaskan bagaimana kamu memeriksa perangkat terdampak, mempertahankan bukti yang diperlukan, dan menentukan langkah pemulihan.",
+      "options": {
+        "A": "Catat trafik dan pantau tren secara berkala",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Medium: Jalankan pemindaian antivirus dan periksa IoC terkait.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 142
+    },
+    {
+      "id": "c6e430a42345d170",
+      "title": "DDoS · Low",
+      "scenario": "Pada 2020-09-25 19:01:28, Server mencatat komunikasi dari 176.127.107.230:60015 menuju 138.134.169.16:14842 melalui UDP. Log memberi label serangan DDoS dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-09-25 19:01:28 src=176.127.107.230:60015 dst=138.134.169.16:14842 proto=UDP len=1291 traffic=FTP anomaly=19.65 ioc=IoC Detected alert=Alert Triggered attack=DDoS action=Ignored severity=Low segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Low. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Catat trafik dan pantau tren secara berkala",
+        "D": "Isolasi perangkat dari jaringan lalu lakukan analisis malware"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Low: Catat trafik dan pantau tren secara berkala.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 143
+    },
+    {
+      "id": "db2af707f2d8633a",
+      "title": "Malware · Medium",
+      "scenario": "Pada 2021-01-14 22:45:53, Server mencatat komunikasi dari 2.64.30.79:28941 menuju 183.9.122.99:59452 melalui ICMP. Log memberi label serangan Malware dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-01-14 22:45:53 src=2.64.30.79:28941 dst=183.9.122.99:59452 proto=ICMP len=99 traffic=FTP anomaly=99.06 ioc=IoC Detected alert=Alert Triggered attack=Malware action=Logged severity=Medium segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Medium. Susun instruksi penanganan bagi tim: apa yang perlu dikonfirmasi dari log, langkah yang akan dilakukan pada perangkat, dan bagaimana memantau kemungkinan kejadian berulang.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Periksa log autentikasi dan perketat aturan firewall",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Medium: Jalankan pemindaian antivirus dan periksa IoC terkait.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 146
+    },
+    {
+      "id": "aa85f18d4dc24e22",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2020-12-08 03:29:16, Server mencatat komunikasi dari 39.97.159.3:52081 menuju 206.224.42.142:43853 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-12-08 03:29:16 src=39.97.159.3:52081 dst=206.224.42.142:43853 proto=UDP len=679 traffic=DNS anomaly=78.47 ioc=None alert=Alert Triggered attack=Intrusion action=Logged severity=Medium segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Kamu diminta menangani dugaan akses tidak sah. Jelaskan urutan pemeriksaan, langkah membatasi akses, dan cara memastikan akun atau sistem terdampak kembali aman.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Periksa log autentikasi dan perketat aturan firewall",
+        "C": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "D": "Isolasi perangkat dari jaringan lalu lakukan analisis malware"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 147
+    },
+    {
+      "id": "33abb01a1fa24ccb",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2020-12-16 09:32:14, Server mencatat komunikasi dari 68.244.135.228:47992 menuju 67.40.241.64:3373 melalui UDP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-12-16 09:32:14 src=68.244.135.228:47992 dst=67.40.241.64:3373 proto=UDP len=1350 traffic=HTTP anomaly=3.66 ioc=IoC Detected alert=Alert Triggered attack=DDoS action=Blocked severity=Medium segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Buat rencana mitigasi insiden DDoS ini. Jelaskan apa yang perlu diperiksa, tindakan yang kamu pilih, dan bagaimana mengurangi dampak pada pengguna yang sah.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Catat IoC dan jadwalkan pemindaian rutin"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 151
+    },
+    {
+      "id": "af5f55ceb3c29130",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2022-09-18 00:15:57, Server mencatat komunikasi dari 180.193.232.37:2946 menuju 214.16.112.246:17106 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-09-18 00:15:57 src=180.193.232.37:2946 dst=214.16.112.246:17106 proto=ICMP len=1375 traffic=HTTP anomaly=6.55 ioc=IoC Detected alert=None attack=DDoS action=Blocked severity=Medium segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Pantau lonjakan trafik dan siapkan rate limiting"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 152
+    },
+    {
+      "id": "f39cdd8f5daf6541",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2021-04-16 19:07:48, Firewall mencatat komunikasi dari 190.227.204.234:13905 menuju 35.144.126.218:24194 melalui ICMP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-04-16 19:07:48 src=190.227.204.234:13905 dst=35.144.126.218:24194 proto=ICMP len=1039 traffic=FTP anomaly=97.88 ioc=IoC Detected alert=Alert Triggered attack=Intrusion action=Logged severity=Medium segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Catat trafik dan pantau tren secara berkala",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 154
+    },
+    {
+      "id": "a5e5d1cf48bdf344",
+      "title": "DDoS · Low",
+      "scenario": "Pada 2020-10-15 18:06:39, Server mencatat komunikasi dari 25.238.16.200:15724 menuju 67.19.130.65:31889 melalui TCP. Log memberi label serangan DDoS dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-10-15 18:06:39 src=25.238.16.200:15724 dst=67.19.130.65:31889 proto=TCP len=1278 traffic=FTP anomaly=7.29 ioc=None alert=None attack=DDoS action=Ignored severity=Low segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Low. Kamu bertugas menjaga layanan tetap tersedia. Susun langkah penanganan lonjakan trafik pada kasus ini, urutkan prioritasnya, dan jelaskan cara memeriksa apakah layanan sudah pulih.",
+      "options": {
+        "A": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Low: Catat trafik dan pantau tren secara berkala.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 159
+    },
+    {
+      "id": "012c0a81d0ca84cf",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2022-05-14 07:45:36, Firewall mencatat komunikasi dari 56.202.235.44:60341 menuju 16.35.51.126:55528 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-05-14 07:45:36 src=56.202.235.44:60341 dst=16.35.51.126:55528 proto=UDP len=1039 traffic=HTTP anomaly=75.55 ioc=IoC Detected alert=None attack=Intrusion action=Logged severity=High segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 160
+    },
+    {
+      "id": "feb420e9371e91b7",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2023-09-27 02:10:15, Server mencatat komunikasi dari 220.46.98.6:4437 menuju 188.18.162.254:27679 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-09-27 02:10:15 src=220.46.98.6:4437 dst=188.18.162.254:27679 proto=TCP len=1003 traffic=HTTP anomaly=98.5 ioc=IoC Detected alert=Alert Triggered attack=Intrusion action=Blocked severity=Low segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Kamu diminta menangani dugaan akses tidak sah. Jelaskan urutan pemeriksaan, langkah membatasi akses, dan cara memastikan akun atau sistem terdampak kembali aman.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Pantau lonjakan trafik dan siapkan rate limiting"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 162
+    },
+    {
+      "id": "01b7df277a2e15e3",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2020-08-01 21:06:33, Firewall mencatat komunikasi dari 143.63.45.128:20119 menuju 64.93.6.194:4394 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-08-01 21:06:33 src=143.63.45.128:20119 dst=64.93.6.194:4394 proto=UDP len=958 traffic=HTTP anomaly=41.19 ioc=None alert=None attack=Intrusion action=Blocked severity=Low segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 163
+    },
+    {
+      "id": "d0584d1c085a8bf0",
+      "title": "Malware · High",
+      "scenario": "Pada 2021-01-08 23:30:42, Server mencatat komunikasi dari 172.209.10.225:15233 menuju 57.32.115.132:17045 melalui TCP. Log memberi label serangan Malware dengan tingkat keparahan High. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-01-08 23:30:42 src=172.209.10.225:15233 dst=57.32.115.132:17045 proto=TCP len=442 traffic=FTP anomaly=69.11 ioc=None alert=Alert Triggered attack=Malware action=Logged severity=High segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan High. Kamu diminta menangani dugaan malware pada perangkat yang tercatat. Susun langkah pemeriksaan dan penanganan, jelaskan prioritasmu, serta cara memverifikasi perangkat aman digunakan kembali.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Periksa log autentikasi dan perketat aturan firewall",
+        "D": "Pantau lonjakan trafik dan siapkan rate limiting"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Malware severity High: Isolasi perangkat dari jaringan lalu lakukan analisis malware.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 165
+    },
+    {
+      "id": "b4b743a944aacade",
+      "title": "Malware · Low",
+      "scenario": "Pada 2021-03-19 10:05:04, Firewall mencatat komunikasi dari 32.46.50.176:5124 menuju 181.191.157.185:31628 melalui UDP. Log memberi label serangan Malware dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-03-19 10:05:04 src=32.46.50.176:5124 dst=181.191.157.185:31628 proto=UDP len=536 traffic=DNS anomaly=45.67 ioc=None alert=Alert Triggered attack=Malware action=Ignored severity=Low segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Low. Buat rencana untuk membatasi dampak dugaan malware ini. Jelaskan bagaimana kamu memeriksa perangkat terdampak, mempertahankan bukti yang diperlukan, dan menentukan langkah pemulihan.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Catat IoC dan jadwalkan pemindaian rutin",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Low: Catat IoC dan jadwalkan pemindaian rutin.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 175
+    },
+    {
+      "id": "4bc1adfbc9552039",
+      "title": "Malware · Medium",
+      "scenario": "Pada 2021-10-29 18:48:00, Server mencatat komunikasi dari 161.234.163.159:40863 menuju 165.64.118.80:12123 melalui UDP. Log memberi label serangan Malware dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-10-29 18:48:00 src=161.234.163.159:40863 dst=165.64.118.80:12123 proto=UDP len=1062 traffic=HTTP anomaly=97.0 ioc=None alert=Alert Triggered attack=Malware action=Ignored severity=Medium segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Medium. Susun instruksi penanganan bagi tim: apa yang perlu dikonfirmasi dari log, langkah yang akan dilakukan pada perangkat, dan bagaimana memantau kemungkinan kejadian berulang.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Medium: Jalankan pemindaian antivirus dan periksa IoC terkait.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 176
+    },
+    {
+      "id": "b277861182cf435b",
+      "title": "Malware · Medium",
+      "scenario": "Pada 2022-03-18 00:34:03, Firewall mencatat komunikasi dari 162.14.80.122:45850 menuju 208.215.210.142:34827 melalui UDP. Log memberi label serangan Malware dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-03-18 00:34:03 src=162.14.80.122:45850 dst=208.215.210.142:34827 proto=UDP len=623 traffic=HTTP anomaly=79.89 ioc=None alert=None attack=Malware action=Ignored severity=Medium segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Medium. Buat rencana untuk membatasi dampak dugaan malware ini. Jelaskan bagaimana kamu memeriksa perangkat terdampak, mempertahankan bukti yang diperlukan, dan menentukan langkah pemulihan.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Medium: Jalankan pemindaian antivirus dan periksa IoC terkait.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 178
+    },
+    {
+      "id": "c4fafbc46455e1c9",
+      "title": "DDoS · Low",
+      "scenario": "Pada 2021-11-04 11:42:15, Firewall mencatat komunikasi dari 116.165.84.77:36398 menuju 26.40.75.149:13463 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan Low. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-11-04 11:42:15 src=116.165.84.77:36398 dst=26.40.75.149:13463 proto=ICMP len=334 traffic=FTP anomaly=8.72 ioc=None alert=None attack=DDoS action=Logged severity=Low segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Low. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Catat aktivitas dan tinjau konfigurasi akses",
+        "B": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "C": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Low: Catat trafik dan pantau tren secara berkala.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 188
+    },
+    {
+      "id": "882a1688e281a5a4",
+      "title": "DDoS · Low",
+      "scenario": "Pada 2023-02-05 21:50:17, Firewall mencatat komunikasi dari 130.225.105.188:52568 menuju 139.70.233.24:32358 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-02-05 21:50:17 src=130.225.105.188:52568 dst=139.70.233.24:32358 proto=ICMP len=269 traffic=FTP anomaly=77.73 ioc=None alert=Alert Triggered attack=DDoS action=Ignored severity=Low segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Low. Kamu bertugas menjaga layanan tetap tersedia. Susun langkah penanganan lonjakan trafik pada kasus ini, urutkan prioritasnya, dan jelaskan cara memeriksa apakah layanan sudah pulih.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Catat IoC dan jadwalkan pemindaian rutin",
+        "C": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Low: Catat trafik dan pantau tren secara berkala.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 189
+    },
+    {
+      "id": "312b170fdb9a2a9a",
+      "title": "DDoS · High",
+      "scenario": "Pada 2022-10-23 22:05:13, Firewall mencatat komunikasi dari 56.246.206.187:37003 menuju 134.206.155.59:25250 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan High. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-10-23 22:05:13 src=56.246.206.187:37003 dst=134.206.155.59:25250 proto=ICMP len=1105 traffic=FTP anomaly=50.27 ioc=None alert=None attack=DDoS action=Blocked severity=High segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan High. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity High: Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 194
+    },
+    {
+      "id": "070b7cfcfc745d11",
+      "title": "DDoS · Low",
+      "scenario": "Pada 2020-10-21 22:10:32, Firewall mencatat komunikasi dari 219.60.240.15:35362 menuju 119.30.130.127:53581 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-10-21 22:10:32 src=219.60.240.15:35362 dst=119.30.130.127:53581 proto=ICMP len=1383 traffic=HTTP anomaly=92.66 ioc=IoC Detected alert=None attack=DDoS action=Blocked severity=Low segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Low. Kamu bertugas menjaga layanan tetap tersedia. Susun langkah penanganan lonjakan trafik pada kasus ini, urutkan prioritasnya, dan jelaskan cara memeriksa apakah layanan sudah pulih.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Low: Catat trafik dan pantau tren secara berkala.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 195
+    },
+    {
+      "id": "51ece2f714885cca",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2023-09-29 06:38:26, Firewall mencatat komunikasi dari 69.213.35.30:56924 menuju 194.193.46.48:8362 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-09-29 06:38:26 src=69.213.35.30:56924 dst=194.193.46.48:8362 proto=TCP len=356 traffic=HTTP anomaly=98.58 ioc=IoC Detected alert=Alert Triggered attack=Intrusion action=Ignored severity=Low segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Kamu diminta menangani dugaan akses tidak sah. Jelaskan urutan pemeriksaan, langkah membatasi akses, dan cara memastikan akun atau sistem terdampak kembali aman.",
+      "options": {
+        "A": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 201
+    },
+    {
+      "id": "63acc30e58619439",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2022-06-13 21:46:34, Server mencatat komunikasi dari 141.248.79.157:61059 menuju 215.152.182.185:50406 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-06-13 21:46:34 src=141.248.79.157:61059 dst=215.152.182.185:50406 proto=TCP len=1393 traffic=FTP anomaly=65.35 ioc=None alert=None attack=Intrusion action=Logged severity=Medium segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 202
+    },
+    {
+      "id": "294e4ee0d1d3a0d2",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2023-05-16 08:11:15, Firewall mencatat komunikasi dari 201.161.94.139:19580 menuju 73.195.104.29:50406 melalui ICMP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-05-16 08:11:15 src=201.161.94.139:19580 dst=73.195.104.29:50406 proto=ICMP len=394 traffic=HTTP anomaly=7.12 ioc=None alert=None attack=Intrusion action=Blocked severity=High segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "D": "Catat IoC dan jadwalkan pemindaian rutin"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 203
+    },
+    {
+      "id": "8dd11362f543fb26",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2023-02-01 14:36:28, Firewall mencatat komunikasi dari 74.178.17.248:42879 menuju 95.126.212.74:18421 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-02-01 14:36:28 src=74.178.17.248:42879 dst=95.126.212.74:18421 proto=UDP len=596 traffic=FTP anomaly=79.89 ioc=None alert=Alert Triggered attack=Intrusion action=Blocked severity=High segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "C": "Catat trafik dan pantau tren secara berkala",
+        "D": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 205
+    },
+    {
+      "id": "321bd7b9c1b5d935",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2022-01-25 03:41:59, Server mencatat komunikasi dari 153.1.180.214:62140 menuju 137.157.38.39:39914 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-01-25 03:41:59 src=153.1.180.214:62140 dst=137.157.38.39:39914 proto=UDP len=900 traffic=DNS anomaly=58.48 ioc=None alert=Alert Triggered attack=Intrusion action=Blocked severity=High segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 206
+    },
+    {
+      "id": "5f40b4dfcf774abe",
+      "title": "Malware · Medium",
+      "scenario": "Pada 2021-07-08 06:57:28, Server mencatat komunikasi dari 171.157.54.22:9278 menuju 18.172.13.90:45987 melalui UDP. Log memberi label serangan Malware dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-07-08 06:57:28 src=171.157.54.22:9278 dst=18.172.13.90:45987 proto=UDP len=481 traffic=FTP anomaly=10.08 ioc=IoC Detected alert=None attack=Malware action=Logged severity=Medium segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Medium. Kamu diminta menangani dugaan malware pada perangkat yang tercatat. Susun langkah pemeriksaan dan penanganan, jelaskan prioritasmu, serta cara memverifikasi perangkat aman digunakan kembali.",
+      "options": {
+        "A": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Medium: Jalankan pemindaian antivirus dan periksa IoC terkait.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 210
+    },
+    {
+      "id": "71ba84ff50edb05d",
+      "title": "Malware · Medium",
+      "scenario": "Pada 2020-10-14 15:05:45, Firewall mencatat komunikasi dari 8.172.243.167:3389 menuju 222.87.79.106:18262 melalui ICMP. Log memberi label serangan Malware dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-10-14 15:05:45 src=8.172.243.167:3389 dst=222.87.79.106:18262 proto=ICMP len=796 traffic=HTTP anomaly=45.56 ioc=IoC Detected alert=Alert Triggered attack=Malware action=Ignored severity=Medium segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Medium. Buat rencana untuk membatasi dampak dugaan malware ini. Jelaskan bagaimana kamu memeriksa perangkat terdampak, mempertahankan bukti yang diperlukan, dan menentukan langkah pemulihan.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Medium: Jalankan pemindaian antivirus dan periksa IoC terkait.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 211
+    },
+    {
+      "id": "a2bc27f486a2bf07",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2020-06-03 03:21:59, Server mencatat komunikasi dari 118.164.91.239:45933 menuju 68.218.252.213:36077 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-06-03 03:21:59 src=118.164.91.239:45933 dst=68.218.252.213:36077 proto=UDP len=1219 traffic=HTTP anomaly=79.89 ioc=IoC Detected alert=Alert Triggered attack=Intrusion action=Ignored severity=High segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Kamu diminta menangani dugaan akses tidak sah. Jelaskan urutan pemeriksaan, langkah membatasi akses, dan cara memastikan akun atau sistem terdampak kembali aman.",
+      "options": {
+        "A": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Jalankan pemindaian antivirus dan periksa IoC terkait"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 213
+    },
+    {
+      "id": "c681210c4ebc53d8",
+      "title": "Malware · Low",
+      "scenario": "Pada 2022-10-22 17:43:59, Firewall mencatat komunikasi dari 45.70.110.30:32711 menuju 177.159.243.6:44024 melalui TCP. Log memberi label serangan Malware dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-10-22 17:43:59 src=45.70.110.30:32711 dst=177.159.243.6:44024 proto=TCP len=472 traffic=FTP anomaly=83.62 ioc=IoC Detected alert=None attack=Malware action=Blocked severity=Low segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Low. Susun instruksi penanganan bagi tim: apa yang perlu dikonfirmasi dari log, langkah yang akan dilakukan pada perangkat, dan bagaimana memantau kemungkinan kejadian berulang.",
+      "options": {
+        "A": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "B": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Low: Catat IoC dan jadwalkan pemindaian rutin.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 218
+    },
+    {
+      "id": "0122877257b2998f",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2020-10-29 06:23:53, Firewall mencatat komunikasi dari 142.218.242.142:39959 menuju 119.214.43.203:8841 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-10-29 06:23:53 src=142.218.242.142:39959 dst=119.214.43.203:8841 proto=TCP len=1143 traffic=DNS anomaly=93.59 ioc=None alert=Alert Triggered attack=Intrusion action=Ignored severity=High segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "C": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "D": "Jalankan pemindaian antivirus dan periksa IoC terkait"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 221
+    },
+    {
+      "id": "60b94aa82379d606",
+      "title": "Malware · Low",
+      "scenario": "Pada 2021-04-27 23:30:00, Server mencatat komunikasi dari 23.189.148.86:5816 menuju 16.165.5.115:63973 melalui UDP. Log memberi label serangan Malware dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-04-27 23:30:00 src=23.189.148.86:5816 dst=16.165.5.115:63973 proto=UDP len=1151 traffic=FTP anomaly=50.99 ioc=None alert=None attack=Malware action=Ignored severity=Low segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Low. Kamu diminta menangani dugaan malware pada perangkat yang tercatat. Susun langkah pemeriksaan dan penanganan, jelaskan prioritasmu, serta cara memverifikasi perangkat aman digunakan kembali.",
+      "options": {
+        "A": "Catat trafik dan pantau tren secara berkala",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "D": "Catat IoC dan jadwalkan pemindaian rutin"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Low: Catat IoC dan jadwalkan pemindaian rutin.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 222
+    },
+    {
+      "id": "ec3edf183321ec0e",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2023-02-20 18:03:48, Firewall mencatat komunikasi dari 184.106.47.231:64814 menuju 137.236.125.7:55174 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-02-20 18:03:48 src=184.106.47.231:64814 dst=137.236.125.7:55174 proto=UDP len=1264 traffic=HTTP anomaly=4.38 ioc=IoC Detected alert=Alert Triggered attack=Intrusion action=Logged severity=Medium segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Kamu diminta menangani dugaan akses tidak sah. Jelaskan urutan pemeriksaan, langkah membatasi akses, dan cara memastikan akun atau sistem terdampak kembali aman.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Catat trafik dan pantau tren secara berkala",
+        "D": "Catat IoC dan jadwalkan pemindaian rutin"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 225
+    },
+    {
+      "id": "4782f9a5b3b5f6e0",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2022-01-10 21:21:40, Firewall mencatat komunikasi dari 198.181.36.90:14703 menuju 68.106.78.188:7039 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-01-10 21:21:40 src=198.181.36.90:14703 dst=68.106.78.188:7039 proto=UDP len=973 traffic=HTTP anomaly=54.47 ioc=None alert=None attack=Intrusion action=Ignored severity=Medium segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Catat trafik dan pantau tren secara berkala",
+        "D": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 226
+    },
+    {
+      "id": "7cc162e2f2f2a7a7",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2022-10-11 17:48:44, Firewall mencatat komunikasi dari 183.27.211.2:51897 menuju 42.65.44.218:49611 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-10-11 17:48:44 src=183.27.211.2:51897 dst=42.65.44.218:49611 proto=TCP len=1014 traffic=FTP anomaly=61.66 ioc=None alert=Alert Triggered attack=Intrusion action=Logged severity=Low segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "B": "Catat trafik dan pantau tren secara berkala",
+        "C": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 227
+    },
+    {
+      "id": "73c54cf2db362f60",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2023-07-20 14:10:18, Firewall mencatat komunikasi dari 169.159.107.116:43958 menuju 90.204.243.19:2884 melalui UDP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-07-20 14:10:18 src=169.159.107.116:43958 dst=90.204.243.19:2884 proto=UDP len=1102 traffic=DNS anomaly=49.68 ioc=None alert=None attack=DDoS action=Logged severity=Medium segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Buat rencana mitigasi insiden DDoS ini. Jelaskan apa yang perlu diperiksa, tindakan yang kamu pilih, dan bagaimana mengurangi dampak pada pengguna yang sah.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Catat trafik dan pantau tren secara berkala",
+        "C": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "D": "Pantau lonjakan trafik dan siapkan rate limiting"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 229
+    },
+    {
+      "id": "6acc3b5b7404fad2",
+      "title": "Malware · Low",
+      "scenario": "Pada 2020-03-05 20:25:29, Server mencatat komunikasi dari 14.8.49.69:15644 menuju 126.56.62.57:55963 melalui TCP. Log memberi label serangan Malware dengan tingkat keparahan Low. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-03-05 20:25:29 src=14.8.49.69:15644 dst=126.56.62.57:55963 proto=TCP len=1133 traffic=DNS anomaly=31.75 ioc=None alert=Alert Triggered attack=Malware action=Logged severity=Low segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Low. Susun instruksi penanganan bagi tim: apa yang perlu dikonfirmasi dari log, langkah yang akan dilakukan pada perangkat, dan bagaimana memantau kemungkinan kejadian berulang.",
+      "options": {
+        "A": "Catat trafik dan pantau tren secara berkala",
+        "B": "Catat IoC dan jadwalkan pemindaian rutin",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Low: Catat IoC dan jadwalkan pemindaian rutin.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 230
+    },
+    {
+      "id": "4aa5238e6a559889",
+      "title": "DDoS · Low",
+      "scenario": "Pada 2023-04-02 14:52:35, Firewall mencatat komunikasi dari 136.29.185.239:42530 menuju 19.45.255.248:65409 melalui UDP. Log memberi label serangan DDoS dengan tingkat keparahan Low. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-04-02 14:52:35 src=136.29.185.239:42530 dst=19.45.255.248:65409 proto=UDP len=498 traffic=FTP anomaly=22.8 ioc=IoC Detected alert=Alert Triggered attack=DDoS action=Logged severity=Low segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Low. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Low: Catat trafik dan pantau tren secara berkala.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 233
+    },
+    {
+      "id": "f74751780e7e7697",
+      "title": "DDoS · High",
+      "scenario": "Pada 2022-08-14 06:08:05, Server mencatat komunikasi dari 162.177.247.20:10850 menuju 33.6.55.56:1582 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan High. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-08-14 06:08:05 src=162.177.247.20:10850 dst=33.6.55.56:1582 proto=ICMP len=634 traffic=DNS anomaly=54.41 ioc=None alert=None attack=DDoS action=Logged severity=High segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan High. Buat rencana mitigasi insiden DDoS ini. Jelaskan apa yang perlu diperiksa, tindakan yang kamu pilih, dan bagaimana mengurangi dampak pada pengguna yang sah.",
+      "options": {
+        "A": "Catat trafik dan pantau tren secara berkala",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Periksa log autentikasi dan perketat aturan firewall"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity High: Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 235
+    },
+    {
+      "id": "48eb1166ae544720",
+      "title": "Malware · Medium",
+      "scenario": "Pada 2021-09-01 11:12:09, Firewall mencatat komunikasi dari 17.167.24.52:49149 menuju 99.73.167.134:19758 melalui TCP. Log memberi label serangan Malware dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-09-01 11:12:09 src=17.167.24.52:49149 dst=99.73.167.134:19758 proto=TCP len=579 traffic=HTTP anomaly=10.81 ioc=None alert=None attack=Malware action=Blocked severity=Medium segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Medium. Kamu diminta menangani dugaan malware pada perangkat yang tercatat. Susun langkah pemeriksaan dan penanganan, jelaskan prioritasmu, serta cara memverifikasi perangkat aman digunakan kembali.",
+      "options": {
+        "A": "Catat trafik dan pantau tren secara berkala",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Medium: Jalankan pemindaian antivirus dan periksa IoC terkait.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 240
+    },
+    {
+      "id": "63b40f5a054a6dde",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2021-04-28 05:31:06, Server mencatat komunikasi dari 179.195.47.72:16328 menuju 27.75.119.136:30698 melalui TCP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-04-28 05:31:06 src=179.195.47.72:16328 dst=27.75.119.136:30698 proto=TCP len=1407 traffic=FTP anomaly=61.16 ioc=IoC Detected alert=None attack=DDoS action=Blocked severity=Medium segment=Segment C source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "B": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "C": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 242
+    },
+    {
+      "id": "86866e4a07433af5",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2020-07-02 09:18:15, Firewall mencatat komunikasi dari 37.38.87.201:23268 menuju 216.52.121.25:31104 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-07-02 09:18:15 src=37.38.87.201:23268 dst=216.52.121.25:31104 proto=TCP len=312 traffic=DNS anomaly=94.46 ioc=IoC Detected alert=Alert Triggered attack=Intrusion action=Blocked severity=Medium segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Kamu diminta menangani dugaan akses tidak sah. Jelaskan urutan pemeriksaan, langkah membatasi akses, dan cara memastikan akun atau sistem terdampak kembali aman.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Catat trafik dan pantau tren secara berkala",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 246
+    },
+    {
+      "id": "46ac025d1d6ee8d9",
+      "title": "DDoS · Low",
+      "scenario": "Pada 2021-07-16 08:43:03, Server mencatat komunikasi dari 148.37.16.82:42114 menuju 56.224.191.183:64246 melalui UDP. Log memberi label serangan DDoS dengan tingkat keparahan Low. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-07-16 08:43:03 src=148.37.16.82:42114 dst=56.224.191.183:64246 proto=UDP len=641 traffic=FTP anomaly=84.36 ioc=None alert=None attack=DDoS action=Logged severity=Low segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Low. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Catat trafik dan pantau tren secara berkala",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Low: Catat trafik dan pantau tren secara berkala.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 248
+    },
+    {
+      "id": "86bc0f5efc334b14",
+      "title": "Malware · Medium",
+      "scenario": "Pada 2021-01-16 23:57:52, Firewall mencatat komunikasi dari 75.154.230.158:42139 menuju 65.49.149.170:12377 melalui ICMP. Log memberi label serangan Malware dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-01-16 23:57:52 src=75.154.230.158:42139 dst=65.49.149.170:12377 proto=ICMP len=279 traffic=FTP anomaly=31.26 ioc=None alert=None attack=Malware action=Logged severity=Medium segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Medium. Kamu diminta menangani dugaan malware pada perangkat yang tercatat. Susun langkah pemeriksaan dan penanganan, jelaskan prioritasmu, serta cara memverifikasi perangkat aman digunakan kembali.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "D": "Jalankan pemindaian antivirus dan periksa IoC terkait"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Medium: Jalankan pemindaian antivirus dan periksa IoC terkait.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 249
+    },
+    {
+      "id": "d36bddaa1407457e",
+      "title": "Malware · Medium",
+      "scenario": "Pada 2020-05-30 23:07:38, Firewall mencatat komunikasi dari 5.128.108.154:60595 menuju 60.81.35.204:18177 melalui UDP. Log memberi label serangan Malware dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-05-30 23:07:38 src=5.128.108.154:60595 dst=60.81.35.204:18177 proto=UDP len=366 traffic=FTP anomaly=65.29 ioc=IoC Detected alert=Alert Triggered attack=Malware action=Ignored severity=Medium segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Medium. Buat rencana untuk membatasi dampak dugaan malware ini. Jelaskan bagaimana kamu memeriksa perangkat terdampak, mempertahankan bukti yang diperlukan, dan menentukan langkah pemulihan.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "D": "Catat IoC dan jadwalkan pemindaian rutin"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Medium: Jalankan pemindaian antivirus dan periksa IoC terkait.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 250
+    },
+    {
+      "id": "cf60398802bf1f35",
+      "title": "DDoS · Low",
+      "scenario": "Pada 2021-07-19 13:51:06, Server mencatat komunikasi dari 203.56.216.47:23959 menuju 105.138.205.124:65361 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan Low. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-07-19 13:51:06 src=203.56.216.47:23959 dst=105.138.205.124:65361 proto=ICMP len=1464 traffic=FTP anomaly=86.57 ioc=None alert=Alert Triggered attack=DDoS action=Logged severity=Low segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Low. Buat rencana mitigasi insiden DDoS ini. Jelaskan apa yang perlu diperiksa, tindakan yang kamu pilih, dan bagaimana mengurangi dampak pada pengguna yang sah.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Catat trafik dan pantau tren secara berkala",
+        "D": "Isolasi perangkat dari jaringan lalu lakukan analisis malware"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Low: Catat trafik dan pantau tren secara berkala.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 253
+    },
+    {
+      "id": "eec9d6fc7c1a9dab",
+      "title": "DDoS · Low",
+      "scenario": "Pada 2021-11-24 16:02:17, Firewall mencatat komunikasi dari 31.149.137.29:38578 menuju 204.165.138.118:46000 melalui TCP. Log memberi label serangan DDoS dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-11-24 16:02:17 src=31.149.137.29:38578 dst=204.165.138.118:46000 proto=TCP len=316 traffic=FTP anomaly=8.6 ioc=None alert=None attack=DDoS action=Blocked severity=Low segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Low. Kamu bertugas menjaga layanan tetap tersedia. Susun langkah penanganan lonjakan trafik pada kasus ini, urutkan prioritasnya, dan jelaskan cara memeriksa apakah layanan sudah pulih.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "D": "Catat trafik dan pantau tren secara berkala"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Low: Catat trafik dan pantau tren secara berkala.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 255
+    },
+    {
+      "id": "c1f60bb265a765f4",
+      "title": "Malware · Low",
+      "scenario": "Pada 2021-07-28 04:53:42, Firewall mencatat komunikasi dari 40.81.61.142:32200 menuju 171.47.103.171:7394 melalui UDP. Log memberi label serangan Malware dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-07-28 04:53:42 src=40.81.61.142:32200 dst=171.47.103.171:7394 proto=UDP len=398 traffic=HTTP anomaly=92.91 ioc=IoC Detected alert=Alert Triggered attack=Malware action=Blocked severity=Low segment=Segment A source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Low. Susun instruksi penanganan bagi tim: apa yang perlu dikonfirmasi dari log, langkah yang akan dilakukan pada perangkat, dan bagaimana memantau kemungkinan kejadian berulang.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Periksa log autentikasi dan perketat aturan firewall",
+        "D": "Catat IoC dan jadwalkan pemindaian rutin"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Low: Catat IoC dan jadwalkan pemindaian rutin.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 257
+    },
+    {
+      "id": "406b45291bb7a197",
+      "title": "Intrusion · Low",
+      "scenario": "Pada 2020-03-04 15:34:55, Firewall mencatat komunikasi dari 197.246.245.18:5850 menuju 53.220.174.64:8653 melalui TCP. Log memberi label serangan Intrusion dengan tingkat keparahan Low. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-03-04 15:34:55 src=197.246.245.18:5850 dst=53.220.174.64:8653 proto=TCP len=1310 traffic=DNS anomaly=35.55 ioc=None alert=None attack=Intrusion action=Ignored severity=Low segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Low. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Catat trafik dan pantau tren secara berkala",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Catat IoC dan jadwalkan pemindaian rutin"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Low: Catat aktivitas dan tinjau konfigurasi akses.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 259
+    },
+    {
+      "id": "baae8d104924103f",
+      "title": "Malware · High",
+      "scenario": "Pada 2020-01-13 18:34:08, Server mencatat komunikasi dari 70.82.205.230:28422 menuju 87.116.204.52:44110 melalui ICMP. Log memberi label serangan Malware dengan tingkat keparahan High. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-01-13 18:34:08 src=70.82.205.230:28422 dst=87.116.204.52:44110 proto=ICMP len=604 traffic=HTTP anomaly=33.87 ioc=None alert=None attack=Malware action=Logged severity=High segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan High. Kamu diminta menangani dugaan malware pada perangkat yang tercatat. Susun langkah pemeriksaan dan penanganan, jelaskan prioritasmu, serta cara memverifikasi perangkat aman digunakan kembali.",
+      "options": {
+        "A": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "B": "Catat IoC dan jadwalkan pemindaian rutin",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "A",
+      "explanation": "Sesuai playbook umum, untuk Malware severity High: Isolasi perangkat dari jaringan lalu lakukan analisis malware.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 261
+    },
+    {
+      "id": "496d7efbfacfe796",
+      "title": "Malware · High",
+      "scenario": "Pada 2020-10-05 09:56:17, Server mencatat komunikasi dari 165.147.117.143:46242 menuju 41.67.90.54:19145 melalui ICMP. Log memberi label serangan Malware dengan tingkat keparahan High. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-10-05 09:56:17 src=165.147.117.143:46242 dst=41.67.90.54:19145 proto=ICMP len=791 traffic=DNS anomaly=52.9 ioc=None alert=None attack=Malware action=Blocked severity=High segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan High. Susun instruksi penanganan bagi tim: apa yang perlu dikonfirmasi dari log, langkah yang akan dilakukan pada perangkat, dan bagaimana memantau kemungkinan kejadian berulang.",
+      "options": {
+        "A": "Periksa log autentikasi dan perketat aturan firewall",
+        "B": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "C": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "D": "Pantau lonjakan trafik dan siapkan rate limiting"
+      },
+      "answer": "B",
+      "explanation": "Sesuai playbook umum, untuk Malware severity High: Isolasi perangkat dari jaringan lalu lakukan analisis malware.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 263
+    },
+    {
+      "id": "f98f904aee7412b4",
+      "title": "DDoS · Low",
+      "scenario": "Pada 2021-03-09 13:32:08, Server mencatat komunikasi dari 171.172.167.15:24386 menuju 122.77.16.133:2256 melalui UDP. Log memberi label serangan DDoS dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2021-03-09 13:32:08 src=171.172.167.15:24386 dst=122.77.16.133:2256 proto=UDP len=166 traffic=HTTP anomaly=29.61 ioc=IoC Detected alert=Alert Triggered attack=DDoS action=Blocked severity=Low segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan DDoS dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Low. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Catat aktivitas dan tinjau konfigurasi akses",
+        "C": "Catat trafik dan pantau tren secara berkala",
+        "D": "Isolasi perangkat dari jaringan lalu lakukan analisis malware"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Low: Catat trafik dan pantau tren secara berkala.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 266
+    },
+    {
+      "id": "0dd37c7aab254f4f",
+      "title": "Intrusion · Medium",
+      "scenario": "Pada 2023-03-21 08:42:33, Server mencatat komunikasi dari 46.40.179.2:55699 menuju 157.108.135.56:41177 melalui ICMP. Log memberi label serangan Intrusion dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-03-21 08:42:33 src=46.40.179.2:55699 dst=157.108.135.56:41177 proto=ICMP len=383 traffic=FTP anomaly=63.02 ioc=None alert=None attack=Intrusion action=Ignored severity=Medium segment=Segment B source=Server",
+      "question": "Log menunjukkan serangan Intrusion dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan Medium. Susun rencana penanganan insiden akses tidak sah ini. Tentukan informasi tambahan yang dibutuhkan, prioritas tindakanmu, dan bagaimana kamu memverifikasi hasil penanganannya.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Periksa log autentikasi dan perketat aturan firewall",
+        "D": "Pantau lonjakan trafik dan siapkan rate limiting"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity Medium: Periksa log autentikasi dan perketat aturan firewall.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 277
+    },
+    {
+      "id": "7fb7b0b97e2cd350",
+      "title": "Malware · Low",
+      "scenario": "Pada 2020-10-22 10:24:24, Firewall mencatat komunikasi dari 86.15.188.59:52033 menuju 102.14.223.158:29916 melalui ICMP. Log memberi label serangan Malware dengan tingkat keparahan Low. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-10-22 10:24:24 src=86.15.188.59:52033 dst=102.14.223.158:29916 proto=ICMP len=1036 traffic=DNS anomaly=40.39 ioc=IoC Detected alert=Alert Triggered attack=Malware action=Blocked severity=Low segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan Malware dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Low. Kamu diminta menangani dugaan malware pada perangkat yang tercatat. Susun langkah pemeriksaan dan penanganan, jelaskan prioritasmu, serta cara memverifikasi perangkat aman digunakan kembali.",
+      "options": {
+        "A": "Catat aktivitas dan tinjau konfigurasi akses",
+        "B": "Jalankan pemindaian antivirus dan periksa IoC terkait",
+        "C": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "D": "Catat IoC dan jadwalkan pemindaian rutin"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Low: Catat IoC dan jadwalkan pemindaian rutin.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 279
+    },
+    {
+      "id": "eeaa16479783263d",
+      "title": "DDoS · High",
+      "scenario": "Pada 2020-10-28 16:41:36, Firewall mencatat komunikasi dari 212.52.244.39:28739 menuju 215.145.244.153:55397 melalui ICMP. Log memberi label serangan DDoS dengan tingkat keparahan High. Tindakan yang tercatat adalah Blocked. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-10-28 16:41:36 src=212.52.244.39:28739 dst=215.145.244.153:55397 proto=ICMP len=68 traffic=FTP anomaly=67.76 ioc=IoC Detected alert=Alert Triggered attack=DDoS action=Blocked severity=High segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan High. Susun laporan singkat untuk tim insiden: informasi apa yang sudah diketahui dari log, apa yang masih perlu dikonfirmasi, dan tindakan penanganan berikutnya beserta alasannya.",
+      "options": {
+        "A": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "B": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "C": "Catat aktivitas dan tinjau konfigurasi akses",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "D",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity High: Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 281
+    },
+    {
+      "id": "bc4b52fa9c74fd24",
+      "title": "Intrusion · High",
+      "scenario": "Pada 2023-06-09 18:37:29, Firewall mencatat komunikasi dari 99.121.74.190:62004 menuju 86.91.205.68:1390 melalui UDP. Log memberi label serangan Intrusion dengan tingkat keparahan High. Tindakan yang tercatat adalah Ignored. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2023-06-09 18:37:29 src=99.121.74.190:62004 dst=86.91.205.68:1390 proto=UDP len=1269 traffic=DNS anomaly=17.72 ioc=IoC Detected alert=Alert Triggered attack=Intrusion action=Ignored severity=High segment=Segment B source=Firewall",
+      "question": "Log menunjukkan serangan Intrusion dengan severity High. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Intrusion dengan tingkat keparahan High. Buat laporan tindakan untuk tim keamanan: bedakan fakta pada log dan dugaan yang perlu diperiksa, lalu jelaskan langkah penanganan serta pemantauan setelah insiden.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik",
+        "C": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "D": "Catat aktivitas dan tinjau konfigurasi akses"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Intrusion severity High: Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 284
+    },
+    {
+      "id": "2d4592d1b17b3f59",
+      "title": "DDoS · Medium",
+      "scenario": "Pada 2020-06-09 18:18:04, Firewall mencatat komunikasi dari 184.40.165.228:46429 menuju 10.29.225.251:47004 melalui TCP. Log memberi label serangan DDoS dengan tingkat keparahan Medium. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2020-06-09 18:18:04 src=184.40.165.228:46429 dst=10.29.225.251:47004 proto=TCP len=603 traffic=DNS anomaly=39.36 ioc=None alert=Alert Triggered attack=DDoS action=Logged severity=Medium segment=Segment C source=Firewall",
+      "question": "Log menunjukkan serangan DDoS dengan severity Medium. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus DDoS dengan tingkat keparahan Medium. Kamu bertugas menjaga layanan tetap tersedia. Susun langkah penanganan lonjakan trafik pada kasus ini, urutkan prioritasnya, dan jelaskan cara memeriksa apakah layanan sudah pulih.",
+      "options": {
+        "A": "Catat IoC dan jadwalkan pemindaian rutin",
+        "B": "Isolasi perangkat dari jaringan lalu lakukan analisis malware",
+        "C": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "D": "Aktifkan rate limiting/mitigasi DDoS dan blokir sumber trafik"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk DDoS severity Medium: Pantau lonjakan trafik dan siapkan rate limiting.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 291
+    },
+    {
+      "id": "02ebc17d0461ec85",
+      "title": "Malware · Low",
+      "scenario": "Pada 2022-10-14 20:09:03, Server mencatat komunikasi dari 138.81.53.184:5465 menuju 192.117.115.162:49654 melalui UDP. Log memberi label serangan Malware dengan tingkat keparahan Low. Tindakan yang tercatat adalah Logged. Kamu bertugas menentukan respons awal berdasarkan informasi yang tersedia.",
+      "log": "time=2022-10-14 20:09:03 src=138.81.53.184:5465 dst=192.117.115.162:49654 proto=UDP len=1234 traffic=DNS anomaly=81.4 ioc=None alert=None attack=Malware action=Logged severity=Low segment=Segment A source=Server",
+      "question": "Log menunjukkan serangan Malware dengan severity Low. Apa respon awal yang paling tepat?",
+      "task": "Tangani kasus Malware dengan tingkat keparahan Low. Buat rencana untuk membatasi dampak dugaan malware ini. Jelaskan bagaimana kamu memeriksa perangkat terdampak, mempertahankan bukti yang diperlukan, dan menentukan langkah pemulihan.",
+      "options": {
+        "A": "Blokir IP sumber, cabut kredensial terkait, dan eskalasi ke tim insiden",
+        "B": "Pantau lonjakan trafik dan siapkan rate limiting",
+        "C": "Catat IoC dan jadwalkan pemindaian rutin",
+        "D": "Isolasi perangkat dari jaringan lalu lakukan analisis malware"
+      },
+      "answer": "C",
+      "explanation": "Sesuai playbook umum, untuk Malware severity Low: Catat IoC dan jadwalkan pemindaian rutin.",
+      "source": "gen_val.jsonl",
+      "sourceLine": 295
+    }
+  ]
+}

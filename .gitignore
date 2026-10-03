@@ -46,3 +46,5 @@ app.*.map.json
 .agents/
 .opencode/skills/
 firebase/config.local.json
+backend/.data/
+backend/.env
