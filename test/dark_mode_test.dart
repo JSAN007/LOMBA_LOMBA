@@ -78,23 +78,29 @@ Future<void> _pump(
 
 /// The painted chip inside a floating [SnackBar], excluding the full-width
 /// widget box and the transparent scrim Material underneath.
-Finder _visibleChip(WidgetTester tester) => find.descendant(
-      of: find.byType(SnackBar),
-      matching: find.byType(Material),
-    ).first;
+Finder _visibleChip(WidgetTester tester) => find
+    .descendant(of: find.byType(SnackBar), matching: find.byType(Material))
+    .first;
 
 void main() {
   group('CyberPalette', () {
     test('light mode uses dark ink, dark mode uses light ink', () {
-      expect(_luminance(CyberPalette.light.textPrimary),
-          lessThan(_luminance(CyberPalette.light.background)));
-      expect(_luminance(CyberPalette.dark.textPrimary),
-          greaterThan(_luminance(CyberPalette.dark.background)));
+      expect(
+        _luminance(CyberPalette.light.textPrimary),
+        lessThan(_luminance(CyberPalette.light.background)),
+      );
+      expect(
+        _luminance(CyberPalette.dark.textPrimary),
+        greaterThan(_luminance(CyberPalette.dark.background)),
+      );
     });
 
     test('primary text meets 4.5:1 against background in both modes', () {
       expect(
-        _contrast(CyberPalette.light.textPrimary, CyberPalette.light.background),
+        _contrast(
+          CyberPalette.light.textPrimary,
+          CyberPalette.light.background,
+        ),
         greaterThanOrEqualTo(4.5),
       );
       expect(
@@ -168,10 +174,16 @@ void main() {
 
         for (final role in _textRoles) {
           final style = role.read(textTheme);
-          expect(style, isNotNull,
-              reason: '${role.name} missing in ${palette.brightness}');
-          expect(style!.color, isNotNull,
-              reason: '${role.name} has null color in ${palette.brightness}');
+          expect(
+            style,
+            isNotNull,
+            reason: '${role.name} missing in ${palette.brightness}',
+          );
+          expect(
+            style!.color,
+            isNotNull,
+            reason: '${role.name} has null color in ${palette.brightness}',
+          );
           expect(
             _contrast(style.color!, palette.background),
             greaterThanOrEqualTo(4.5),
@@ -184,10 +196,14 @@ void main() {
     test('brightness, scaffold and palette extension track each other', () {
       expect(CyberTheme.light.brightness, Brightness.light);
       expect(CyberTheme.dark.brightness, Brightness.dark);
-      expect(CyberTheme.light.scaffoldBackgroundColor,
-          CyberPalette.light.background);
-      expect(CyberTheme.dark.scaffoldBackgroundColor,
-          CyberPalette.dark.background);
+      expect(
+        CyberTheme.light.scaffoldBackgroundColor,
+        CyberPalette.light.background,
+      );
+      expect(
+        CyberTheme.dark.scaffoldBackgroundColor,
+        CyberPalette.dark.background,
+      );
 
       for (final theme in [CyberTheme.light, CyberTheme.dark]) {
         final palette = theme.extension<CyberPalette>()!;
@@ -233,7 +249,8 @@ void main() {
 
           for (final text in tester.widgetList<Text>(find.byType(Text))) {
             final element = tester.element(find.byWidget(text));
-            final color = text.style?.color ??
+            final color =
+                text.style?.color ??
                 DefaultTextStyle.of(element).style.color ??
                 const Color(0xFF000000);
             if (color == Colors.white || color == Colors.black) {
@@ -248,11 +265,16 @@ void main() {
   });
 
   group('settings toggle', () {
-    testWidgets('switches theme and text colour, then switches back',
-        (tester) async {
+    testWidgets('switches theme and text colour, then switches back', (
+      tester,
+    ) async {
       final controller = ThemeController();
-      await _pump(tester, ThemeMode.light, const SettingsScreen(),
-          controller: controller);
+      await _pump(
+        tester,
+        ThemeMode.light,
+        const SettingsScreen(),
+        controller: controller,
+      );
 
       final switchTile = find.byKey(const Key('dark-mode-switch'));
       expect(switchTile, findsOneWidget);
@@ -261,14 +283,16 @@ void main() {
       // follow a rebuild on its own.
       ThemeData activeTheme() => Theme.of(tester.element(switchTile));
       Color bodyColor() => activeTheme().textTheme.bodyLarge!.color!;
-      CyberPalette palette() =>
-          activeTheme().extension<CyberPalette>()!;
+      CyberPalette palette() => activeTheme().extension<CyberPalette>()!;
 
       expect(activeTheme().brightness, Brightness.light);
       expect(palette().brightness, Brightness.light);
       final lightBody = bodyColor();
-      expect(_luminance(lightBody), lessThan(0.5),
-          reason: 'light mode body text should be dark ink');
+      expect(
+        _luminance(lightBody),
+        lessThan(0.5),
+        reason: 'light mode body text should be dark ink',
+      );
 
       await tester.tap(switchTile);
       await tester.pumpAndSettle();
@@ -276,8 +300,11 @@ void main() {
       expect(activeTheme().brightness, Brightness.dark);
       expect(palette().brightness, Brightness.dark);
       final darkBody = bodyColor();
-      expect(_luminance(darkBody), greaterThan(0.5),
-          reason: 'dark mode body text should be light ink');
+      expect(
+        _luminance(darkBody),
+        greaterThan(0.5),
+        reason: 'dark mode body text should be light ink',
+      );
       expect(_luminance(darkBody), greaterThan(_luminance(lightBody)));
 
       await tester.tap(switchTile);
@@ -289,8 +316,12 @@ void main() {
 
     testWidgets('subtitle reflects the active mode', (tester) async {
       final controller = ThemeController();
-      await _pump(tester, ThemeMode.light, const SettingsScreen(),
-          controller: controller);
+      await _pump(
+        tester,
+        ThemeMode.light,
+        const SettingsScreen(),
+        controller: controller,
+      );
 
       expect(find.text('Tampilan terang aktif'), findsOneWidget);
 
@@ -314,7 +345,14 @@ void main() {
       await tester.pump(const Duration(milliseconds: 600));
 
       // "Social Engineering" is a locked level, so tapping it raises the
-      // snackbar.
+      // snackbar. It sits below the fold on a phone-sized window, so the
+      // path list is scrolled to it first.
+      await tester.scrollUntilVisible(
+        find.text('Social Engineering'),
+        200,
+        scrollable: find.byType(Scrollable).last,
+      );
+      await tester.pump(const Duration(milliseconds: 300));
       await tester.tap(find.text('Social Engineering'));
       await tester.pump(const Duration(milliseconds: 300));
 
@@ -340,6 +378,12 @@ void main() {
       await _pump(tester, ThemeMode.light, const HomeScreen());
       await tester.pump(const Duration(milliseconds: 600));
 
+      await tester.scrollUntilVisible(
+        find.text('Social Engineering'),
+        200,
+        scrollable: find.byType(Scrollable).last,
+      );
+      await tester.pump(const Duration(milliseconds: 300));
       await tester.tap(find.text('Social Engineering'));
       await tester.pump(const Duration(milliseconds: 300));
 
@@ -356,13 +400,18 @@ void main() {
         await _pump(tester, mode, const HomeScreen());
         await tester.pump(const Duration(milliseconds: 600));
 
+        await tester.scrollUntilVisible(
+          find.text('Social Engineering'),
+          200,
+          scrollable: find.byType(Scrollable).last,
+        );
+        await tester.pump(const Duration(milliseconds: 300));
         await tester.tap(find.text('Social Engineering'));
         await tester.pump(const Duration(milliseconds: 300));
 
         final element = tester.element(find.byType(SnackBar));
         final palette = Theme.of(element).extension<CyberPalette>()!;
-        final background =
-            Theme.of(element).snackBarTheme.backgroundColor!;
+        final background = Theme.of(element).snackBarTheme.backgroundColor!;
 
         expect(
           _contrast(palette.background, background),
@@ -410,14 +459,16 @@ void main() {
 
           // Answer through the app state so the feedback panel renders.
           final state = AppStateProvider.of(
-              tester.element(find.byType(LessonScreen)));
+            tester.element(find.byType(LessonScreen)),
+          );
           state.answerQuestion(isCorrect);
 
           await tester.pump();
           await tester.pump(const Duration(milliseconds: 400));
 
-          final palette = Theme.of(tester.element(find.byType(LessonScreen)))
-              .extension<CyberPalette>()!;
+          final palette = Theme.of(
+            tester.element(find.byType(LessonScreen)),
+          ).extension<CyberPalette>()!;
           final fill = isCorrect
               ? CyberColors.accentGreen
               : CyberColors.accentRed;

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
+import '../../screens/edit_profile/edit_profile_screen.dart';
+import '../../screens/help/help_support_screen.dart';
 import '../../screens/settings/settings_screen.dart';
+import '../../widgets/app_snack_bar.dart';
 
 class ProfileActionList extends StatelessWidget {
-  const ProfileActionList({
-    super.key,
-  });
+  const ProfileActionList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,20 +37,9 @@ class ProfileActionList extends StatelessWidget {
             icon: Icons.person_outline,
             title: 'Edit Profile',
             subtitle: 'Update avatar, bio & info',
-            onTap: () {},
-          ),
-          Divider(
-            height: 1,
-            thickness: 1,
-            indent: 16,
-            endIndent: 16,
-            color: colorScheme.outlineVariant.withValues(alpha: 0.4),
-          ),
-          _ActionTile(
-            icon: Icons.emoji_events_outlined,
-            title: 'My Achievements',
-            subtitle: 'See all unlocked badges',
-            onTap: () {},
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const EditProfileScreen()),
+            ),
           ),
           Divider(
             height: 1,
@@ -61,9 +52,9 @@ class ProfileActionList extends StatelessWidget {
             icon: Icons.settings_outlined,
             title: 'Settings',
             subtitle: 'Appearance & preferences',
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const SettingsScreen()),
-            ),
+            onTap: () => Navigator.of(
+              context,
+            ).push(MaterialPageRoute(builder: (_) => const SettingsScreen())),
           ),
           Divider(
             height: 1,
@@ -72,18 +63,98 @@ class ProfileActionList extends StatelessWidget {
             endIndent: 16,
             color: colorScheme.outlineVariant.withValues(alpha: 0.4),
           ),
-          _ActionTile(
-            icon: Icons.help_outline,
-            title: 'Help & Support',
-            subtitle: 'FAQs & feedback',
-            onTap: () {},
-            trailing: Icon(
-              Icons.chevron_right,
+          _HelpSupportTile(colorScheme: colorScheme),
+        ],
+      ),
+    );
+  }
+}
+
+/// Help & Support expands in place to reveal the admin and developer contact
+/// channels, so a single tap answers "who do I email?" without leaving Profile.
+class _HelpSupportTile extends StatefulWidget {
+  final ColorScheme colorScheme;
+
+  const _HelpSupportTile({required this.colorScheme});
+
+  @override
+  State<_HelpSupportTile> createState() => _HelpSupportTileState();
+}
+
+class _HelpSupportTileState extends State<_HelpSupportTile> {
+  bool _expanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = widget.colorScheme;
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        _ActionTile(
+          icon: Icons.help_outline,
+          title: 'Help & Support',
+          subtitle: 'Contact admin, developer & FAQs',
+          onTap: () => setState(() => _expanded = !_expanded),
+          trailing: AnimatedRotation(
+            turns: _expanded ? 0.5 : 0,
+            duration: const Duration(milliseconds: 220),
+            curve: Curves.easeOutCubic,
+            child: Icon(
+              Icons.keyboard_arrow_down_rounded,
               color: colorScheme.onSurfaceVariant,
             ),
           ),
-        ],
-      ),
+        ),
+        AnimatedSize(
+          duration: const Duration(milliseconds: 260),
+          curve: Curves.easeOutCubic,
+          alignment: Alignment.topCenter,
+          child: _expanded
+              ? Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  child: Column(
+                    children: [
+                      for (var i = 0; i < kSupportContacts.length; i++) ...[
+                        _SupportRow(
+                          contact: kSupportContacts[i],
+                          onTap: () => _openSupport(context, i),
+                        ),
+                        if (i != kSupportContacts.length - 1)
+                          const SizedBox(height: 8),
+                      ],
+                      const SizedBox(height: 12),
+                      SizedBox(
+                        width: double.infinity,
+                        child: TextButton.icon(
+                          onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const HelpSupportScreen(),
+                            ),
+                          ),
+                          icon: const Icon(Icons.open_in_new_rounded, size: 18),
+                          label: const Text('Lihat semua & FAQs'),
+                          style: TextButton.styleFrom(
+                            foregroundColor: colorScheme.primary,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              : const SizedBox.shrink(),
+        ),
+      ],
+    );
+  }
+
+  void _openSupport(BuildContext context, int index) {
+    final contact = kSupportContacts[index];
+    Clipboard.setData(ClipboardData(text: contact.email));
+    showAppSnackBar(
+      context,
+      'Email ${contact.label} disalin: ${contact.email}',
+      icon: Icons.copy_rounded,
     );
   }
 }
@@ -122,14 +193,12 @@ class _ActionTile extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.8),
+                  color: colorScheme.surfaceContainerHighest.withValues(
+                    alpha: 0.8,
+                  ),
                   borderRadius: BorderRadius.circular(999),
                 ),
-                child: Icon(
-                  icon,
-                  size: 20,
-                  color: colorScheme.onSurface,
-                ),
+                child: Icon(icon, size: 20, color: colorScheme.onSurface),
               ),
               const SizedBox(width: 14),
               Expanded(
@@ -158,6 +227,73 @@ class _ActionTile extends StatelessWidget {
                     Icons.chevron_right,
                     color: colorScheme.onSurfaceVariant,
                   ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// One contact channel inside the expanded Help & Support panel.
+class _SupportRow extends StatelessWidget {
+  final SupportContact contact;
+  final VoidCallback onTap;
+
+  const _SupportRow({required this.contact, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
+    return Material(
+      color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.45),
+      borderRadius: BorderRadius.circular(16),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: contact.accent.withValues(alpha: 0.16),
+                  borderRadius: BorderRadius.circular(999),
+                ),
+                child: Icon(contact.icon, size: 18, color: contact.accent),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      contact.label,
+                      style: textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w800,
+                        color: colorScheme.onSurface,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      contact.email,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(
+                Icons.copy_rounded,
+                size: 18,
+                color: colorScheme.onSurfaceVariant,
+              ),
             ],
           ),
         ),

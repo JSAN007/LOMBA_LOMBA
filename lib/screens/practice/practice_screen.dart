@@ -40,22 +40,41 @@ class PracticeScreen extends StatelessWidget {
             ),
             child: ListTile(
               enabled: unlocked,
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 8,
+              ),
               leading: Icon(
-                completed ? Icons.check_circle_rounded
-                    : unlocked ? Icons.play_circle_outline_rounded : Icons.lock_outline_rounded,
-                color: unlocked ? theme.colorScheme.primary : theme.disabledColor,
+                completed
+                    ? Icons.check_circle_rounded
+                    : unlocked
+                    ? Icons.play_circle_outline_rounded
+                    : Icons.lock_outline_rounded,
+                color: unlocked
+                    ? theme.colorScheme.primary
+                    : theme.disabledColor,
               ),
               title: Text('Level $index · ${tiers[(index - 1) ~/ 10]}'),
-              subtitle: Text(completed ? 'Selesai · Latihan ulang'
-                  : unlocked ? 'Latihan deteksi phishing' : 'Selesaikan level ${index - 1}'),
-              trailing: unlocked ? const Icon(Icons.chevron_right_rounded) : null,
-              onTap: unlocked ? () {
-                state.startPractice(index);
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const LessonScreen()),
-                );
-              } : null,
+              subtitle: Text(
+                completed
+                    ? 'Selesai · Latihan ulang'
+                    : unlocked
+                    ? 'Latihan deteksi phishing'
+                    : 'Selesaikan level ${index - 1}',
+              ),
+              trailing: unlocked
+                  ? const Icon(Icons.chevron_right_rounded)
+                  : null,
+              onTap: unlocked
+                  ? () {
+                      state.startPractice(index);
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const LessonScreen(),
+                        ),
+                      );
+                    }
+                  : null,
             ),
           );
         },

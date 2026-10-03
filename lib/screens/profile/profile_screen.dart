@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import '../../models/user_profile.dart';
 import '../../components/profile/profile_header.dart';
 import '../../components/profile/profile_xp_bar.dart';
 import '../../components/profile/profile_stats_grid.dart';
 import '../../components/profile/profile_badges.dart';
 import '../../components/profile/profile_action_list.dart';
+import '../../state/profile_controller.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({
-    super.key,
-  });
+  const ProfileScreen({super.key});
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -20,8 +18,6 @@ class _ProfileScreenState extends State<ProfileScreen>
   late final AnimationController _fadeController;
   late final Animation<double> _fadeAnimation;
   late final Animation<Offset> _slideAnimation;
-
-  final UserProfile _profile = UserProfile.dummy();
 
   @override
   void initState() {
@@ -34,15 +30,10 @@ class _ProfileScreenState extends State<ProfileScreen>
       parent: _fadeController,
       curve: Curves.easeOutCubic,
     );
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.08),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: _fadeController,
-        curve: Curves.easeOutCubic,
-      ),
-    );
+    _slideAnimation =
+        Tween<Offset>(begin: const Offset(0, 0.08), end: Offset.zero).animate(
+          CurvedAnimation(parent: _fadeController, curve: Curves.easeOutCubic),
+        );
 
     _fadeController.forward();
   }
@@ -57,6 +48,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final profile = ProfileProvider.of(context).profile;
 
     return Scaffold(
       backgroundColor: colorScheme.surfaceContainerLowest,
@@ -65,10 +57,13 @@ class _ProfileScreenState extends State<ProfileScreen>
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
-              child: ProfileHeader(profile: _profile),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 20, bottom: 28),
+                child: ProfileHeader(profile: profile),
+              ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(20, 64, 20, 20),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
               sliver: SliverToBoxAdapter(
                 child: FadeTransition(
                   opacity: _fadeAnimation,
@@ -77,11 +72,11 @@ class _ProfileScreenState extends State<ProfileScreen>
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ProfileXpBar(profile: _profile),
+                        ProfileXpBar(profile: profile),
                         const SizedBox(height: 16),
-                        ProfileStatsGrid(profile: _profile),
+                        ProfileStatsGrid(profile: profile),
                         const SizedBox(height: 16),
-                        ProfileBadges(profile: _profile),
+                        ProfileBadges(profile: profile),
                         const SizedBox(height: 16),
                         const ProfileActionList(),
                         const SizedBox(height: 8),

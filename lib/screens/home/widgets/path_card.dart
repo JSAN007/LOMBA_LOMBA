@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/theme/cyber_colors.dart';
@@ -7,13 +7,9 @@ import '../../../widgets/circular_progress_widget.dart';
 
 class PathCard extends StatelessWidget {
   final CyberLevel level;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
-  const PathCard({
-    super.key,
-    required this.level,
-    required this.onTap,
-  });
+  const PathCard({super.key, required this.level, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +25,9 @@ class PathCard extends StatelessWidget {
           color: palette.surface,
           borderRadius: BorderRadius.circular(18),
           border: Border.all(
-            color: isLocked ? palette.border : level.color.withValues(alpha: 0.3),
+            color: isLocked
+                ? palette.border
+                : level.color.withValues(alpha: 0.3),
             width: 1,
           ),
         ),

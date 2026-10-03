@@ -1,8 +1,10 @@
-﻿import 'dart:ui';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../core/theme/cyber_colors.dart';
+import '../core/theme/app_tokens.dart';
 
 class GlassNavBar extends StatelessWidget {
   final int currentIndex;
@@ -28,14 +30,14 @@ class GlassNavBar extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 0, 16, 12),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(AppTokens.radiusPill),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
           child: Container(
             height: 58,
             decoration: BoxDecoration(
               color: palette.surface.withValues(alpha: 0.85),
-              borderRadius: BorderRadius.circular(28),
+              borderRadius: BorderRadius.circular(AppTokens.radiusPill),
               border: Border.all(
                 color: palette.borderStrong.withValues(alpha: 0.4),
                 width: 1,
@@ -55,7 +57,10 @@ class GlassNavBar extends StatelessWidget {
                   icon: items[index].icon,
                   label: items[index].label,
                   isActive: currentIndex == index,
-                  onTap: () => onTap(index),
+                  onTap: () {
+                    HapticFeedback.selectionClick();
+                    onTap(index);
+                  },
                 );
               }),
             ),
@@ -90,7 +95,8 @@ class _GlassNavItem extends StatefulWidget {
   State<_GlassNavItem> createState() => _GlassNavItemState();
 }
 
-class _GlassNavItemState extends State<_GlassNavItem> with SingleTickerProviderStateMixin {
+class _GlassNavItemState extends State<_GlassNavItem>
+    with SingleTickerProviderStateMixin {
   bool _isHovered = false;
   late AnimationController _scaleController;
   late Animation<double> _scaleAnimation;
@@ -102,9 +108,10 @@ class _GlassNavItemState extends State<_GlassNavItem> with SingleTickerProviderS
       vsync: this,
       duration: const Duration(milliseconds: 150),
     );
-    _scaleAnimation = Tween<double>(begin: 1.0, end: 1.12).animate(
-      CurvedAnimation(parent: _scaleController, curve: Curves.easeOut),
-    );
+    _scaleAnimation = Tween<double>(
+      begin: 1.0,
+      end: 1.12,
+    ).animate(CurvedAnimation(parent: _scaleController, curve: Curves.easeOut));
   }
 
   @override
@@ -131,7 +138,10 @@ class _GlassNavItemState extends State<_GlassNavItem> with SingleTickerProviderS
         _scaleController.reverse();
       },
       child: GestureDetector(
-        onTap: widget.onTap,
+        onTap: () {
+          HapticFeedback.selectionClick();
+          widget.onTap();
+        },
         behavior: HitTestBehavior.opaque,
         child: ScaleTransition(
           scale: _scaleAnimation,
@@ -141,20 +151,33 @@ class _GlassNavItemState extends State<_GlassNavItem> with SingleTickerProviderS
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: (widget.isActive || _isHovered)
-                  ? CyberColors.primary.withValues(alpha: widget.isActive ? 0.15 : 0.08)
+                  ? CyberColors.primary.withValues(
+                      alpha: widget.isActive ? 0.15 : 0.08,
+                    )
                   : Colors.transparent,
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(widget.icon, color: color, size: 24),
+                AnimatedScale(
+                  scale: widget.isActive ? 1.12 : 1.0,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeOutCubic,
+                  child: Icon(widget.icon, color: color, size: 24),
+                ),
                 const SizedBox(height: 4),
-                Text(
-                  widget.label,
-                  style: GoogleFonts.nunito(
-                    fontSize: 10,
-                    fontWeight: widget.isActive ? FontWeight.w800 : FontWeight.w600,
-                    color: color,
+                AnimatedOpacity(
+                  opacity: 1.0,
+                  duration: const Duration(milliseconds: 200),
+                  child: Text(
+                    widget.label,
+                    style: GoogleFonts.nunito(
+                      fontSize: 10,
+                      fontWeight: widget.isActive
+                          ? FontWeight.w800
+                          : FontWeight.w600,
+                      color: color,
+                    ),
                   ),
                 ),
               ],

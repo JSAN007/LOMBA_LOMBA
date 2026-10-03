@@ -1,11 +1,31 @@
+import 'package:flutter/material.dart';
+
+import '../core/theme/cyber_colors.dart';
+
+/// A single achievement badge.
+///
+/// [levelRequired] is the level the badge is awarded at, so one badge per ten
+/// levels across the fifty level campaign.
 class ProfileBadge {
   final String name;
+  final String tier;
+  final String description;
+  final String requirement;
+  final int levelRequired;
+  final IconData icon;
+  final Color accent;
   final String assetPath;
   final bool unlocked;
 
   const ProfileBadge({
     required this.name,
-    required this.assetPath,
+    required this.tier,
+    required this.description,
+    required this.requirement,
+    required this.levelRequired,
+    required this.icon,
+    required this.accent,
+    this.assetPath = '',
     this.unlocked = false,
   });
 }
@@ -14,7 +34,6 @@ class UserProfile {
   final String id;
   final String username;
   final String avatarUrl;
-  final String coverUrl;
   final String bio;
   final int level;
   final double xpCurrent;
@@ -26,11 +45,13 @@ class UserProfile {
   final int totalPoints;
   final List<ProfileBadge> badges;
 
+  /// Index into `kAvatarPresets`. Negative means "use [avatarUrl] instead".
+  final int avatarPreset;
+
   const UserProfile({
     required this.id,
     required this.username,
     required this.avatarUrl,
-    required this.coverUrl,
     required this.bio,
     required this.level,
     required this.xpCurrent,
@@ -41,41 +62,50 @@ class UserProfile {
     required this.winRate,
     required this.totalPoints,
     required this.badges,
+    this.avatarPreset = -1,
   });
+
+  bool get usesPresetAvatar => avatarPreset >= 0;
+
+  UserProfile copyWith({
+    String? username,
+    String? bio,
+    String? avatarUrl,
+    int? avatarPreset,
+  }) {
+    return UserProfile(
+      id: id,
+      username: username ?? this.username,
+      avatarUrl: avatarUrl ?? this.avatarUrl,
+      bio: bio ?? this.bio,
+      level: level,
+      xpCurrent: xpCurrent,
+      xpToNext: xpToNext,
+      globalRank: globalRank,
+      totalMatches: totalMatches,
+      wins: wins,
+      winRate: winRate,
+      totalPoints: totalPoints,
+      badges: badges,
+      avatarPreset: avatarPreset ?? this.avatarPreset,
+    );
+  }
 
   double get xpProgress =>
       xpToNext <= 0 ? 1.0 : (xpCurrent / xpToNext).clamp(0.0, 1.0);
 
-  factory UserProfile.dummy() {
-    final unlockedBadges = [
-      ProfileBadge(
-        name: 'Rising Star',
-        assetPath: 'assets/badges/rising_star.png',
-        unlocked: true,
-      ),
-      ProfileBadge(
-        name: 'Champion',
-        assetPath: 'assets/badges/champion.png',
-        unlocked: true,
-      ),
-      ProfileBadge(
-        name: 'Legend',
-        assetPath: 'assets/badges/legend.png',
-        unlocked: false,
-      ),
-      ProfileBadge(
-        name: 'Iron Will',
-        assetPath: 'assets/badges/iron_will.png',
-        unlocked: true,
-      ),
-    ];
+  /// Levels completed inside a badge's ten level band, 0..1.
+  double badgeProgress(ProfileBadge badge) {
+    final bandStart = badge.levelRequired - 9;
+    final completed = (level - bandStart + 1).clamp(0, 10);
+    return completed / 10;
+  }
 
+  factory UserProfile.dummy() {
     return UserProfile(
       id: 'u_001',
       username: 'CyberNusa',
       avatarUrl: 'https://i.pravatar.cc/300?img=68',
-      coverUrl:
-          'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       bio: 'Grinding hard. Play clean. Climb the ranks.',
       level: 27,
       xpCurrent: 860,
@@ -85,7 +115,80 @@ class UserProfile {
       wins: 156,
       winRate: (156 / 248) * 100,
       totalPoints: 48250,
-      badges: unlockedBadges,
+      badges: buildBadges(),
+      avatarPreset: 0,
     );
   }
+}
+
+/// The five achievement badges: one awarded per ten levels of the fifty level
+/// campaign, so clearing every level unlocks all of them.
+List<ProfileBadge> buildBadges({int currentLevel = 27}) {
+  final definitions = <ProfileBadge>[
+    const ProfileBadge(
+      name: 'First Blood',
+      tier: 'Bronze',
+      description:
+          'Selesaikan 10 level pertama dan kuasai dasar deteksi phishing.',
+      requirement: 'Clear levels 1 - 10',
+      levelRequired: 10,
+      icon: Icons.visibility_rounded,
+      accent: CyberColors.accentOrange,
+    ),
+    const ProfileBadge(
+      name: 'Signal Hunter',
+      tier: 'Silver',
+      description:
+          'Naik ke level 20 dan selesaikan semua latihan di setiap level yang terbuka.',
+      requirement: 'Clear levels 11 - 20',
+      levelRequired: 20,
+      icon: Icons.radar_rounded,
+      accent: CyberColors.rankSilver,
+    ),
+    const ProfileBadge(
+      name: 'Firewall Knight',
+      tier: 'Gold',
+      description:
+          'Capai level 30 dan habiskan seluruh bank soal phishing dengan skorminimal.',
+      requirement: 'Clear levels 21 - 30',
+      levelRequired: 30,
+      icon: Icons.shield_moon_rounded,
+      accent: CyberColors.rankGold,
+    ),
+    const ProfileBadge(
+      name: 'Zero Day Ace',
+      tier: 'Platinum',
+      description:
+          'Tembus level 40 tanpa gagal satu pun di level 31 sampai 40.',
+      requirement: 'Clear levels 31 - 40',
+      levelRequired: 40,
+      icon: Icons.bolt_rounded,
+      accent: CyberColors.secondary,
+    ),
+    const ProfileBadge(
+      name: 'Legend of Cyberspace',
+      tier: 'Diamond',
+      description:
+          'Tuntaskan 50 level dan selesaikan semua latihan yang tersisa.',
+      requirement: 'Clear levels 41 - 50',
+      levelRequired: 50,
+      icon: Icons.workspace_premium_rounded,
+      accent: CyberColors.primary,
+    ),
+  ];
+
+  return [
+    for (final badge in definitions)
+      ProfileBadge(
+        name: badge.name,
+        tier: badge.tier,
+        description: badge.description,
+        requirement: badge.requirement,
+        levelRequired: badge.levelRequired,
+        icon: badge.icon,
+        accent: badge.accent,
+        assetPath: badge.assetPath,
+        unlocked: currentLevel >= badge.levelRequired,
+      ),
+  ];
 }

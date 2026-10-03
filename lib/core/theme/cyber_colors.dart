@@ -8,13 +8,13 @@ class CyberColors {
   const CyberColors._();
 
   // Pastel Accent Colors
-  static const Color primary = Color(0xFF7BA4E0);       // Soft Blue
-  static const Color primaryLight = Color(0xFFA8C8F0);   // Lighter Blue
-  static const Color secondary = Color(0xFFB09DE0);      // Soft Lavender
-  static const Color accentGreen = Color(0xFF7DD3A8);    // Soft Mint
-  static const Color accentRed = Color(0xFFE8A0A0);      // Soft Rose
-  static const Color accentYellow = Color(0xFFF2CB6C);   // Soft Honey
-  static const Color accentOrange = Color(0xFFF0B080);   // Soft Peach
+  static const Color primary = Color(0xFF7BA4E0); // Soft Blue
+  static const Color primaryLight = Color(0xFFA8C8F0); // Lighter Blue
+  static const Color secondary = Color(0xFFB09DE0); // Soft Lavender
+  static const Color accentGreen = Color(0xFF7DD3A8); // Soft Mint
+  static const Color accentRed = Color(0xFFE8A0A0); // Soft Rose
+  static const Color accentYellow = Color(0xFFF2CB6C); // Soft Honey
+  static const Color accentOrange = Color(0xFFF0B080); // Soft Peach
 
   // Rank medals — identity colors, not theme roles
   static const Color rankGold = Color(0xFFF5D56B);

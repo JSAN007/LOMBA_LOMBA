@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/theme/cyber_colors.dart';
@@ -20,7 +20,8 @@ class _LessonScreenState extends State<LessonScreen> {
     final palette = context.cyber;
     final currentQ = state.currentQuestion;
 
-    double progressRatio = (state.currentQuestionIndex) / state.phishingQuestions.length;
+    double progressRatio =
+        (state.currentQuestionIndex) / state.phishingQuestions.length;
 
     return Scaffold(
       backgroundColor: palette.background,
@@ -34,12 +35,21 @@ class _LessonScreenState extends State<LessonScreen> {
                 children: [
                   // Back / Close
                   IconButton(
-                    icon: Icon(Icons.close_rounded, color: palette.textPrimary, size: 28),
+                    icon: Icon(
+                      Icons.close_rounded,
+                      color: palette.textPrimary,
+                      size: 28,
+                    ),
                     onPressed: () {
                       showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                          title: Text("Tinggalkan Misi?", style: GoogleFonts.nunito(fontWeight: FontWeight.w800)),
+                          title: Text(
+                            "Tinggalkan Misi?",
+                            style: GoogleFonts.nunito(
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
                           content: Text(
                             "Anda akan kehilangan semua progress misi ini jika keluar sekarang.",
                             style: GoogleFonts.nunito(),
@@ -47,14 +57,25 @@ class _LessonScreenState extends State<LessonScreen> {
                           actions: [
                             TextButton(
                               onPressed: () => Navigator.pop(context),
-                              child: Text("Batal", style: GoogleFonts.nunito(fontWeight: FontWeight.w700)),
+                              child: Text(
+                                "Batal",
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
                             ),
                             TextButton(
                               onPressed: () {
                                 Navigator.pop(context); // Close dialog
                                 Navigator.pop(context); // Exit lesson screen
                               },
-                              child: Text("Keluar", style: GoogleFonts.nunito(color: CyberColors.accentRed, fontWeight: FontWeight.w700)),
+                              child: Text(
+                                "Keluar",
+                                style: GoogleFonts.nunito(
+                                  color: CyberColors.accentRed,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -77,10 +98,15 @@ class _LessonScreenState extends State<LessonScreen> {
                         AnimatedContainer(
                           duration: const Duration(milliseconds: 300),
                           height: 12,
-                          width: (MediaQuery.of(context).size.width - 180) * progressRatio,
+                          width:
+                              (MediaQuery.of(context).size.width - 180) *
+                              progressRatio,
                           decoration: BoxDecoration(
                             gradient: const LinearGradient(
-                              colors: [CyberColors.primary, CyberColors.secondary],
+                              colors: [
+                                CyberColors.primary,
+                                CyberColors.secondary,
+                              ],
                             ),
                             borderRadius: BorderRadius.circular(6),
                           ),
@@ -95,7 +121,9 @@ class _LessonScreenState extends State<LessonScreen> {
                     children: List.generate(3, (index) {
                       return Icon(
                         Icons.favorite_rounded,
-                        color: index < state.lives ? CyberColors.accentRed : palette.border,
+                        color: index < state.lives
+                            ? CyberColors.accentRed
+                            : palette.border,
                         size: 24,
                       );
                     }),
@@ -144,7 +172,10 @@ class _LessonScreenState extends State<LessonScreen> {
                         children: [
                           // Window bar
                           Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 10,
+                            ),
                             decoration: BoxDecoration(
                               color: CyberPalette.mailChrome,
                               borderRadius: BorderRadius.only(
@@ -156,31 +187,67 @@ class _LessonScreenState extends State<LessonScreen> {
                               children: [
                                 Row(
                                   children: [
-                                    Container(width: 10, height: 10, decoration: const BoxDecoration(shape: BoxShape.circle, color: Color(0xFFEF4444))),
+                                    Container(
+                                      width: 10,
+                                      height: 10,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color(0xFFEF4444),
+                                      ),
+                                    ),
                                     const SizedBox(width: 6),
-                                    Container(width: 10, height: 10, decoration: const BoxDecoration(shape: BoxShape.circle, color: Color(0xFFF59E0B))),
+                                    Container(
+                                      width: 10,
+                                      height: 10,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color(0xFFF59E0B),
+                                      ),
+                                    ),
                                     const SizedBox(width: 6),
-                                    Container(width: 10, height: 10, decoration: const BoxDecoration(shape: BoxShape.circle, color: Color(0xFF10B981))),
+                                    Container(
+                                      width: 10,
+                                      height: 10,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color(0xFF10B981),
+                                      ),
+                                    ),
                                   ],
                                 ),
                                 Expanded(
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      const Icon(Icons.mail_outline_rounded, color: CyberPalette.mailInkMuted, size: 14),
+                                      const Icon(
+                                        Icons.mail_outline_rounded,
+                                        color: CyberPalette.mailInkMuted,
+                                        size: 14,
+                                      ),
                                       const SizedBox(width: 6),
-                                      Text(
-                                        "Kotak Masuk - Protokol Aman",
-                                        style: GoogleFonts.nunito(
-                                          color: CyberPalette.mailInk,
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.bold,
+                                      // Flexible keeps the window title inside the
+                                      // bar on narrow phones and at large text
+                                      // scales; without it the Row overflows.
+                                      Flexible(
+                                        child: Text(
+                                          "Kotak Masuk - Protokol Aman",
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.nunito(
+                                            color: CyberPalette.mailInk,
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                                const Icon(Icons.more_horiz, color: CyberPalette.mailInkMuted, size: 18),
+                                const Icon(
+                                  Icons.more_horiz,
+                                  color: CyberPalette.mailInkMuted,
+                                  size: 18,
+                                ),
                               ],
                             ),
                           ),
@@ -193,13 +260,25 @@ class _LessonScreenState extends State<LessonScreen> {
                               children: [
                                 Row(
                                   children: [
-                                    Text("Dari: ", style: GoogleFonts.nunito(color: CyberPalette.mailInkMuted, fontWeight: FontWeight.bold, fontSize: 13)),
+                                    Text(
+                                      "Dari: ",
+                                      style: GoogleFonts.nunito(
+                                        color: CyberPalette.mailInkMuted,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 13,
+                                      ),
+                                    ),
                                     Expanded(
                                       child: Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 8,
+                                          vertical: 4,
+                                        ),
                                         decoration: BoxDecoration(
                                           color: CyberPalette.mailChrome,
-                                          borderRadius: BorderRadius.circular(6),
+                                          borderRadius: BorderRadius.circular(
+                                            6,
+                                          ),
                                         ),
                                         child: Text(
                                           currentQ.sender,
@@ -214,10 +293,20 @@ class _LessonScreenState extends State<LessonScreen> {
                                     ),
                                   ],
                                 ),
-                                const Divider(height: 16, color: CyberPalette.mailHairline),
+                                const Divider(
+                                  height: 16,
+                                  color: CyberPalette.mailHairline,
+                                ),
                                 Row(
                                   children: [
-                                    Text("Subjek: ", style: GoogleFonts.nunito(color: CyberPalette.mailInkMuted, fontWeight: FontWeight.bold, fontSize: 13)),
+                                    Text(
+                                      "Subjek: ",
+                                      style: GoogleFonts.nunito(
+                                        color: CyberPalette.mailInkMuted,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 13,
+                                      ),
+                                    ),
                                     Expanded(
                                       child: Text(
                                         currentQ.subject,
@@ -233,7 +322,10 @@ class _LessonScreenState extends State<LessonScreen> {
                               ],
                             ),
                           ),
-                          Container(height: 1, color: CyberPalette.mailHairline),
+                          Container(
+                            height: 1,
+                            color: CyberPalette.mailHairline,
+                          ),
 
                           // Email Body
                           Padding(
@@ -243,7 +335,9 @@ class _LessonScreenState extends State<LessonScreen> {
                               decoration: BoxDecoration(
                                 color: CyberPalette.mailBody,
                                 borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: CyberPalette.mailHairline),
+                                border: Border.all(
+                                  color: CyberPalette.mailHairline,
+                                ),
                               ),
                               child: Text(
                                 currentQ.body,
@@ -281,17 +375,25 @@ class _LessonScreenState extends State<LessonScreen> {
                         Row(
                           children: [
                             Icon(
-                              state.isCorrect ? Icons.check_circle_rounded : Icons.cancel_rounded,
+                              state.isCorrect
+                                  ? Icons.check_circle_rounded
+                                  : Icons.cancel_rounded,
                               color: palette.onAccent,
                               size: 32,
                             ),
                             const SizedBox(width: 12),
-                            Text(
-                              state.isCorrect ? "Jawaban Benar!" : "Oops, Kurang Tepat!",
-                              style: GoogleFonts.nunito(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800,
-                                color: palette.onAccent,
+                            // Expanded lets the verdict wrap instead of
+                            // overflowing the panel on narrow phones.
+                            Expanded(
+                              child: Text(
+                                state.isCorrect
+                                    ? "Jawaban Benar!"
+                                    : "Oops, Kurang Tepat!",
+                                style: GoogleFonts.nunito(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w800,
+                                  color: palette.onAccent,
+                                ),
                               ),
                             ),
                           ],
@@ -319,7 +421,8 @@ class _LessonScreenState extends State<LessonScreen> {
                         const SizedBox(height: 16),
 
                         // Red Flags List
-                        if (state.currentQuestion.isPhishing && state.currentQuestion.redFlags.isNotEmpty) ...[
+                        if (state.currentQuestion.isPhishing &&
+                            state.currentQuestion.redFlags.isNotEmpty) ...[
                           Text(
                             "Indikator Ancaman (Red Flags):",
                             style: GoogleFonts.nunito(
@@ -331,18 +434,26 @@ class _LessonScreenState extends State<LessonScreen> {
                           const SizedBox(height: 6),
                           ...state.currentQuestion.redFlags.map((flag) {
                             return Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 2.0),
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 2.0,
+                              ),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Icon(Icons.flag_rounded, color: palette.onAccent, size: 14),
+                                  Icon(
+                                    Icons.flag_rounded,
+                                    color: palette.onAccent,
+                                    size: 14,
+                                  ),
                                   const SizedBox(width: 6),
                                   Expanded(
                                     child: Text(
                                       flag,
                                       style: GoogleFonts.nunito(
                                         fontSize: 12,
-                                        color: palette.onAccent.withValues(alpha: 0.8),
+                                        color: palette.onAccent.withValues(
+                                          alpha: 0.8,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -362,7 +473,9 @@ class _LessonScreenState extends State<LessonScreen> {
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: palette.onAccent,
-                              foregroundColor: state.isCorrect ? CyberColors.accentGreen : CyberColors.accentRed,
+                              foregroundColor: state.isCorrect
+                                  ? CyberColors.accentGreen
+                                  : CyberColors.accentRed,
                               elevation: 0,
                               padding: const EdgeInsets.symmetric(vertical: 16),
                               shape: RoundedRectangleBorder(

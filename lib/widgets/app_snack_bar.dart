@@ -54,11 +54,7 @@ class AppSnackBar extends StatelessWidget {
   final String message;
   final IconData? icon;
 
-  const AppSnackBar({
-    super.key,
-    required this.message,
-    this.icon,
-  });
+  const AppSnackBar({super.key, required this.message, this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -73,10 +69,7 @@ class AppSnackBar extends StatelessWidget {
             const SizedBox(width: 10),
           ],
           Flexible(
-            child: Text(
-              message,
-              style: TextStyle(color: palette.background),
-            ),
+            child: Text(message, style: TextStyle(color: palette.background)),
           ),
         ],
       ),

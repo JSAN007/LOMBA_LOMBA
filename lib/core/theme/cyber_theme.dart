@@ -22,20 +22,36 @@ class CyberTheme {
       brightness: p.brightness,
       primary: CyberColors.primary,
       onPrimary: p.onAccent,
-      primaryContainer: isDark ? const Color(0xFF2A3A57) : const Color(0xFFDCE8FA),
-      onPrimaryContainer: isDark ? const Color(0xFFCFE1FA) : const Color(0xFF1B3A66),
+      primaryContainer: isDark
+          ? const Color(0xFF2A3A57)
+          : const Color(0xFFDCE8FA),
+      onPrimaryContainer: isDark
+          ? const Color(0xFFCFE1FA)
+          : const Color(0xFF1B3A66),
       secondary: CyberColors.secondary,
       onSecondary: p.onAccent,
-      secondaryContainer: isDark ? const Color(0xFF382F52) : const Color(0xFFEAE4F8),
-      onSecondaryContainer: isDark ? const Color(0xFFDDD2F5) : const Color(0xFF3F2F6B),
+      secondaryContainer: isDark
+          ? const Color(0xFF382F52)
+          : const Color(0xFFEAE4F8),
+      onSecondaryContainer: isDark
+          ? const Color(0xFFDDD2F5)
+          : const Color(0xFF3F2F6B),
       tertiary: CyberColors.accentGreen,
       onTertiary: p.onAccent,
-      tertiaryContainer: isDark ? const Color(0xFF24483A) : const Color(0xFFDDF2E8),
-      onTertiaryContainer: isDark ? const Color(0xFFC6EEDD) : const Color(0xFF14503A),
+      tertiaryContainer: isDark
+          ? const Color(0xFF24483A)
+          : const Color(0xFFDDF2E8),
+      onTertiaryContainer: isDark
+          ? const Color(0xFFC6EEDD)
+          : const Color(0xFF14503A),
       error: CyberColors.accentRed,
       onError: p.onAccent,
-      errorContainer: isDark ? const Color(0xFF4A2429) : const Color(0xFFFBE3E3),
-      onErrorContainer: isDark ? const Color(0xFFF7CFCF) : const Color(0xFF6B2222),
+      errorContainer: isDark
+          ? const Color(0xFF4A2429)
+          : const Color(0xFFFBE3E3),
+      onErrorContainer: isDark
+          ? const Color(0xFFF7CFCF)
+          : const Color(0xFF6B2222),
       surface: p.surface,
       onSurface: p.textPrimary,
       onSurfaceVariant: p.textSecondary,
@@ -61,10 +77,9 @@ class CyberTheme {
     // light ink no matter which role a widget picks.
     final ramp = Typography.material2021(platform: defaultTargetPlatform).black;
 
-    final base = GoogleFonts.nunitoTextTheme(ramp).apply(
-      bodyColor: p.textPrimary,
-      displayColor: p.textPrimary,
-    );
+    final base = GoogleFonts.nunitoTextTheme(
+      ramp,
+    ).apply(bodyColor: p.textPrimary, displayColor: p.textPrimary);
 
     return base.copyWith(
       headlineLarge: base.headlineLarge?.copyWith(
@@ -168,7 +183,9 @@ class CyberTheme {
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        titleTextStyle: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
+        titleTextStyle: textTheme.titleLarge?.copyWith(
+          fontWeight: FontWeight.w800,
+        ),
         contentTextStyle: textTheme.bodyMedium,
       ),
       snackBarTheme: SnackBarThemeData(
@@ -184,19 +201,18 @@ class CyberTheme {
         insetPadding: const EdgeInsets.fromLTRB(16, 0, 16, 88),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
-      dividerTheme: DividerThemeData(
-        color: p.border,
-        thickness: 1,
-        space: 1,
-      ),
+      dividerTheme: DividerThemeData(color: p.border, thickness: 1, space: 1),
       iconTheme: IconThemeData(color: p.textPrimary),
       switchTheme: SwitchThemeData(
-        trackColor: WidgetStateProperty.resolveWith((states) =>
-            states.contains(WidgetState.selected)
-                ? CyberColors.primary
-                : p.surfaceAlt),
-        thumbColor: WidgetStateProperty.resolveWith((states) =>
-            states.contains(WidgetState.selected) ? p.onAccent : p.textMuted),
+        trackColor: WidgetStateProperty.resolveWith(
+          (states) => states.contains(WidgetState.selected)
+              ? CyberColors.primary
+              : p.surfaceAlt,
+        ),
+        thumbColor: WidgetStateProperty.resolveWith(
+          (states) =>
+              states.contains(WidgetState.selected) ? p.onAccent : p.textMuted,
+        ),
         trackOutlineColor: WidgetStatePropertyAll(p.borderStrong),
       ),
       listTileTheme: ListTileThemeData(

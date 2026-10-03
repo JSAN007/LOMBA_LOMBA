@@ -28,121 +28,119 @@ class LeaderboardPodiumItem extends StatelessWidget {
     };
 
     return Flexible(
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeOutCubic,
-        height: height,
-        margin: const EdgeInsets.symmetric(horizontal: 4),
-        decoration: BoxDecoration(
-          color: colorScheme.surface,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            color: podiumColor.withValues(alpha: 0.25),
-            width: 1.5,
+      // A fixed height overflowed once the podium content needed more room, so
+      // the height is a floor: every tier still lines up, but a taller tier
+      // grows instead of clipping its stats.
+      child: ConstrainedBox(
+        constraints: BoxConstraints(minHeight: height),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeOutCubic,
+          margin: const EdgeInsets.symmetric(horizontal: 4),
+          decoration: BoxDecoration(
+            color: colorScheme.surface,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: podiumColor.withValues(alpha: 0.25),
+              width: 1.5,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: podiumColor.withValues(alpha: glowOpacity),
+                blurRadius: 24,
+                offset: const Offset(0, 14),
+              ),
+              BoxShadow(
+                color: colorScheme.shadow.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 6),
+              ),
+            ],
           ),
-          boxShadow: [
-            BoxShadow(
-              color: podiumColor.withValues(alpha: glowOpacity),
-              blurRadius: 24,
-              offset: const Offset(0, 14),
-            ),
-            BoxShadow(
-              color: colorScheme.shadow.withValues(alpha: 0.05),
-              blurRadius: 10,
-              offset: const Offset(0, 6),
-            ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 12, 12, 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: podiumColor,
-                        width: 2,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: podiumColor, width: 2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: podiumColor.withValues(alpha: 0.25),
+                            blurRadius: 12,
+                            offset: const Offset(0, 6),
+                          ),
+                        ],
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: podiumColor.withValues(alpha: 0.25),
-                          blurRadius: 12,
-                          offset: const Offset(0, 6),
+                      child: Hero(
+                        tag: entry.isCurrentUser
+                            ? 'profile_avatar_self_${entry.userId}'
+                            : 'lb_avatar_${entry.userId}_$tier',
+                        child: CircleAvatar(
+                          radius: tier == 1 ? 26 : 23,
+                          backgroundColor: colorScheme.surfaceContainerHighest,
+                          backgroundImage: NetworkImage(entry.avatarUrl),
+                          onBackgroundImageError: (_, _) {},
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(crownIcon, size: 16, color: podiumColor),
+                        const SizedBox(width: 4),
+                        Text(
+                          '#${entry.rank}',
+                          style: textTheme.labelLarge?.copyWith(
+                            fontWeight: FontWeight.w800,
+                            color: podiumColor,
+                          ),
                         ),
                       ],
                     ),
-                    child: Hero(
-                      tag: entry.isCurrentUser
-                          ? 'profile_avatar_self_${entry.userId}'
-                          : 'lb_avatar_${entry.userId}_$tier',
-                      child: CircleAvatar(
-                        radius: tier == 1 ? 30 : 26,
-                        backgroundColor: colorScheme.surfaceContainerHighest,
-                        backgroundImage: NetworkImage(entry.avatarUrl),
-                        onBackgroundImageError: (_, _) {},
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text(
+                      entry.username,
+                      style: textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: colorScheme.onSurface,
                       ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        crownIcon,
-                        size: 16,
-                        color: podiumColor,
+                    const SizedBox(height: 4),
+                    Text(
+                      '${_formatPoints(entry.points)} pts',
+                      style: textTheme.bodySmall?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: colorScheme.primary,
                       ),
-                      const SizedBox(width: 4),
-                      Text(
-                        '#${entry.rank}',
-                        style: textTheme.labelLarge?.copyWith(
-                          fontWeight: FontWeight.w800,
-                          color: podiumColor,
-                        ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      '${entry.wins}W / ${entry.matches}M',
+                      style: textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
                       ),
-                    ],
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  Text(
-                    entry.username,
-                    style: textTheme.bodyMedium?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: colorScheme.onSurface,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    '${_formatPoints(entry.points)} pts',
-                    style: textTheme.bodySmall?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: colorScheme.primary,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    '${entry.wins}W / ${entry.matches}M',
-                    style: textTheme.bodySmall?.copyWith(
-                      color: colorScheme.onSurfaceVariant,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

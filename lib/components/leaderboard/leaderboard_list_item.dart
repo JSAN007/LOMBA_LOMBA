@@ -5,10 +5,7 @@ import '../../models/leaderboard_entry.dart';
 class LeaderboardListItem extends StatelessWidget {
   final LeaderboardEntry entry;
 
-  const LeaderboardListItem({
-    super.key,
-    required this.entry,
-  });
+  const LeaderboardListItem({super.key, required this.entry});
 
   @override
   Widget build(BuildContext context) {
