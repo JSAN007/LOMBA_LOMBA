@@ -41,13 +41,21 @@ class AppState extends ChangeNotifier {
       final Map<String, dynamic> data = json.decode(jsonString);
       final List<dynamic> levelsData = data['levels'];
 
+      final List<QuizQuestion> allQs = [];
       for (var levelJson in levelsData) {
-        int levelId = levelJson['level'];
         List<dynamic> qs = levelJson['questions'];
-        _allQuestions[levelId] = qs
-            .map((q) => QuizQuestion.fromJson(q))
-            .toList();
+        allQs.addAll(qs.map((q) => QuizQuestion.fromJson(q)));
       }
+      
+      // Shuffle the entire pool to mix the templates
+      allQs.shuffle(math.Random(42)); // Fixed seed so it's consistent across restarts if desired, or use math.Random() for completely random. Let's use completely random.
+      allQs.shuffle();
+      
+      // Distribute 5 questions to each level (up to 50 levels)
+      for (int i = 0; i < 50; i++) {
+        _allQuestions[i + 1] = allQs.skip(i * 5).take(5).toList();
+      }
+
       final selectedLevel = activePracticeLevel ?? activeLevel?.id;
       if (selectedLevel != null) {
         currentLessonQuestions = _allQuestions[selectedLevel] ?? [];
