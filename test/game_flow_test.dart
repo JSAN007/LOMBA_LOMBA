@@ -27,7 +27,7 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
     GoogleFonts.config.allowRuntimeFetching = false;
     final theme = await tester.runAsync(() async {
-      final theme = CyberTheme.darkTheme;
+      final theme = CyberTheme.dark;
       await GoogleFonts.pendingFonts();
       final icons = FontLoader('MaterialIcons')
         ..addFont(rootBundle.load('fonts/MaterialIcons-Regular.otf'));

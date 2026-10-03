@@ -10,7 +10,7 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      MaterialApp(theme: CyberTheme.darkTheme, home: const AuthScreen()),
+      MaterialApp(theme: CyberTheme.dark, home: const AuthScreen()),
     );
     await tester.tap(find.text('Daftar'));
     await tester.pumpAndSettle();
@@ -30,7 +30,7 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      MaterialApp(theme: CyberTheme.darkTheme, home: const AuthScreen()),
+      MaterialApp(theme: CyberTheme.dark, home: const AuthScreen()),
     );
     final fields = find.byType(TextFormField);
     await tester.enterText(fields.at(0), 'jo@example.com');

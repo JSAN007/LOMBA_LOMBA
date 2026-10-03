@@ -411,7 +411,8 @@ void main() {
           // Answer through the app state so the feedback panel renders.
           final state = AppStateProvider.of(
               tester.element(find.byType(LessonScreen)));
-          state.answerQuestion(isCorrect);
+          final q = state.currentQuestion;
+          state.answerQuestion(isCorrect ? q.correctAnswerIndex : (q.correctAnswerIndex + 1) % q.options.length);
 
           await tester.pump();
           await tester.pump(const Duration(milliseconds: 400));
