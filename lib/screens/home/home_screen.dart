@@ -5,7 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/motion/app_motion.dart';
 import '../../core/theme/cyber_colors.dart';
-import '../../core/widgets/animated_progress_bar.dart';
+import '../../components/daily_goals_card.dart';
+import '../../components/activity_history_sheet.dart';
 import '../../core/widgets/app_skeleton.dart';
 import '../../core/widgets/count_up_text.dart';
 import '../../core/widgets/fade_slide_in.dart';
@@ -28,10 +29,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
-  late AnimationController _pulseController;
   late AnimationController _introController;
-  late AnimationController _floatController;
-  late Animation<double> _floatAnimation;
   bool _isIntroLoading = true;
   bool _introStarted = false;
   Timer? _introTimer;
@@ -39,26 +37,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _pulseController = AnimationController(
-      vsync: this,
-      duration: AppMotion.breathingGlow,
-    )..repeat(reverse: true);
-
     _introController = AnimationController(
       vsync: this,
       duration: AppMotion.introTotal,
     );
-
-    _floatController = AnimationController(
-      vsync: this,
-      duration: AppMotion.floatIdle,
-    );
-
-    _floatAnimation = Tween<double>(begin: -4, end: 4).animate(
-      CurvedAnimation(parent: _floatController, curve: Curves.easeInOut),
-    );
-
-    _floatController.repeat(reverse: true);
   }
 
   @override
@@ -71,8 +53,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     _introStarted = true;
 
     if (AppMotion.reduceAnimations(context)) {
-      _pulseController.value = 1.0;
-      _floatController.stop();
       _isIntroLoading = false;
       _introController.value = 1.0;
       return;
@@ -96,9 +76,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   void dispose() {
     _introTimer?.cancel();
     _introTimer = null;
-    _pulseController.dispose();
     _introController.dispose();
-    _floatController.dispose();
     super.dispose();
   }
 
@@ -308,12 +286,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               child: Row(
                 children: [
                   Expanded(
-                    child: _StatCardAnimated(
-                      icon: Icons.local_fire_department_rounded,
-                      iconColor: CyberColors.accentOrange,
-                      value: state.streakDays.toDouble(),
-                      label: "Streak",
-                      tintColor: CyberColors.accentOrange,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(20),
+                      onTap: () => showActivityHistory(context, state),
+                      child: _StatCardAnimated(
+                        icon: Icons.local_fire_department_rounded,
+                        iconColor: CyberColors.accentOrange,
+                        value: state.streakDays.toDouble(),
+                        label: "Streak ↗",
+                        tintColor: CyberColors.accentOrange,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -342,197 +324,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ),
           const SizedBox(height: 20),
 
-          // Hero Daily Quest
           FadeSlideIn(
             index: 2,
             delay: const Duration(milliseconds: 500),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: palette.surface,
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(
-                    color: CyberColors.accentGreen.withValues(alpha: 0.4),
-                    width: 1,
-                  ),
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      palette.surface,
-                      CyberColors.accentGreen.withValues(alpha: 0.08),
-                    ],
-                  ),
-                ),
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "DAILY QUEST",
-                          style: GoogleFonts.nunito(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w800,
-                            color: CyberColors.accentGreen,
-                            letterSpacing: 0.5,
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          decoration: BoxDecoration(
-                            color: CyberColors.accentGreen.withValues(
-                              alpha: 0.16,
-                            ),
-                            borderRadius: BorderRadius.circular(999),
-                          ),
-                          child: Text(
-                            "+100 XP",
-                            style: GoogleFonts.nunito(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w800,
-                              color: palette.textPrimary,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 12),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Taklukkan jebakan phishing.",
-                                style: GoogleFonts.nunito(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w800,
-                                  color: palette.textPrimary,
-                                ),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                "Kenali tanda-tanda email mencurigakan",
-                                style: GoogleFonts.nunito(
-                                  fontSize: 12,
-                                  color: palette.textSecondary,
-                                ),
-                              ),
-                              const SizedBox(height: 12),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  // Expanded + ellipsis keeps this label from
-                                  // pushing the percentage off the card on
-                                  // narrow phones.
-                                  Expanded(
-                                    child: Text(
-                                      "3 dari 5 langkah",
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.nunito(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w600,
-                                        color: palette.textSecondary,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  CountUpText(
-                                    value: 60,
-                                    formatter: CountUpFormatters.percent,
-                                    style: GoogleFonts.nunito(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w700,
-                                      color: palette.textPrimary,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 8),
-                              AnimatedProgressBar(
-                                value: 0.6,
-                                color: CyberColors.accentGreen,
-                                height: 8,
-                              ),
-                              const SizedBox(height: 16),
-                              PressableScale(
-                                onTap: () {},
-                                child: Container(
-                                  height: 48,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(14),
-                                    gradient: const LinearGradient(
-                                      colors: [
-                                        CyberColors.ctaStart,
-                                        CyberColors.ctaEnd,
-                                      ],
-                                    ),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Lanjutkan pelajaran",
-                                      style: GoogleFonts.nunito(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w800,
-                                        color: palette.onAccent,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        PopIn(
-                          delay: const Duration(milliseconds: 700),
-                          child: AnimatedBuilder(
-                            animation: _floatAnimation,
-                            builder: (context, child) {
-                              return Transform.translate(
-                                offset: Offset(0, _floatAnimation.value),
-                                child: Container(
-                                  width: 60,
-                                  height: 60,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        CyberColors.secondary.withValues(
-                                          alpha: 0.2,
-                                        ),
-                                        CyberColors.primary.withValues(
-                                          alpha: 0.2,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  child: const Icon(
-                                    Icons.shield_rounded,
-                                    size: 32,
-                                    color: CyberColors.primary,
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              child: DailyGoalsCard(state: state),
             ),
           ),
           const SizedBox(height: 28),

@@ -6,6 +6,7 @@ import 'package:flutter/services.dart' show AssetBundle, rootBundle;
 import '../data/level_data.dart';
 import '../models/cyber_level.dart';
 import '../models/quiz_question.dart';
+import '../models/learning_activity.dart';
 import '../screens/result/result_screen.dart';
 import '../services/progress_store.dart';
 
@@ -14,11 +15,45 @@ class AppState extends ChangeNotifier {
   String username = "SecuriGo";
   int dailyXp = 40;
   final int dailyGoalXp = 100;
-  int streakDays = 3;
+  int _legacyStreakDays = 0;
+  int get streakDays => _activities.isEmpty
+      ? _legacyStreakDays
+      : activityStreak(_activities, DateTime.now());
+  set streakDays(int value) => _legacyStreakDays = value;
+  final List<LearningActivity> _activities = [];
+  List<LearningActivity> get activities => List.unmodifiable(_activities);
+  final Map<String, LearningActivity> _unsavedActivities = {};
+  bool accountDeletionStarted = false;
   int totalXp = 1260;
   int level = 5;
   int totalLessons = 0;
   int successfulLessons = 0;
+  int studySeconds = 0;
+  static const dailyGoalMinutes = 100;
+  int get studyMinutes => studySeconds ~/ 60;
+  double get dailyGoalProgress => studySeconds / (dailyGoalMinutes * 60);
+  int get completedCourseLevels =>
+      completedPracticeLevels.where((id) => id >= 1 && id <= 50).length;
+  double get courseProgress => completedCourseLevels / 50;
+
+  void recordStudySecond() {
+    if (studySeconds >= dailyGoalMinutes * 60) return;
+    studySeconds++;
+    if (studySeconds % 60 == 0) _notify();
+  }
+
+  void _syncPaths() {
+    for (final path in levels) {
+      final first = (path.id - 1) * 10 + 1;
+      final completed = completedPracticeLevels
+          .where((id) => id >= first && id < first + 10)
+          .length;
+      path.progress = completed / 10;
+      path.status = completed == 10
+          ? LevelStatus.completed
+          : LevelStatus.unlocked;
+    }
+  }
 
   // Levels
   final List<CyberLevel> levels = buildInitialLevels();
@@ -51,7 +86,7 @@ class AppState extends ChangeNotifier {
     successfulLessons = 0;
     completedPracticeLevels.clear();
     for (final item in levels) {
-      item.status = item.id == 1 ? LevelStatus.unlocked : LevelStatus.locked;
+      item.status = LevelStatus.unlocked;
       item.progress = 0;
     }
   }
@@ -59,6 +94,12 @@ class AppState extends ChangeNotifier {
   Future<void> loadProgress() async {
     if (_progressStore == null || _progressLoaded) return;
     final data = await _progressStore.load();
+    if (_progressStore case final ActivityStore store) {
+      final history = await store.loadActivities();
+      _activities
+        ..clear()
+        ..addAll(history);
+    }
     if (_disposed) return;
     if (data != null) {
       dailyXp = (data['dailyXp'] as num).toInt();
@@ -82,6 +123,7 @@ class AppState extends ChangeNotifier {
     } else {
       await _progressStore.save(_progressSnapshot());
     }
+    _syncPaths();
     _progressLoaded = true;
     _notify();
   }
@@ -96,17 +138,28 @@ class AppState extends ChangeNotifier {
     'successfulLessons': successfulLessons,
     'completedPracticeLevels': completedPracticeLevels.toList()..sort(),
     'levels': [
-      for (final item in levels)
+      // Keep the deployed v1 Firestore shape. All five paths are rebuilt from
+      // completedPracticeLevels on load, including the fifth path.
+      for (final item in levels.take(4))
         {'id': item.id, 'status': item.status.name, 'progress': item.progress},
     ],
   };
 
   void _queueSave() {
-    if (_progressStore == null || !_progressLoaded) return;
+    if (_progressStore == null || !_progressLoaded || accountDeletionStarted) {
+      return;
+    }
     final snapshot = _progressSnapshot();
+    final activitiesToSave = _unsavedActivities.values.toList();
     _pendingSave = _pendingSave.then((_) async {
       try {
         await _progressStore.save(snapshot);
+        if (_progressStore case final ActivityStore store) {
+          for (final activity in activitiesToSave) {
+            await store.saveActivity(activity);
+            _unsavedActivities.remove(activity.id);
+          }
+        }
         progressSaveError = null;
       } catch (error) {
         progressSaveError = error;
@@ -116,11 +169,18 @@ class AppState extends ChangeNotifier {
   }
 
   Future<void> saveProgress() async {
+    if (accountDeletionStarted) return;
     if (_progressStore == null) return;
     if (!_progressLoaded) throw StateError('Progress has not loaded yet');
     _queueSave();
     await _pendingSave;
     if (progressSaveError != null) throw progressSaveError!;
+  }
+
+  /// Freeze writes before erasing data so a queued save cannot recreate it.
+  Future<void> prepareAccountDeletion() async {
+    accountDeletionStarted = true;
+    await _pendingSave;
   }
 
   Future<void> signOut(Future<void> Function() signOutAccount) async {
@@ -163,7 +223,7 @@ class AppState extends ChangeNotifier {
             .map((q) => QuizQuestion.fromJson(q))
             .toList();
       }
-      final selectedLevel = activePracticeLevel ?? activeLevel?.id;
+      final selectedLevel = activePracticeLevel ?? _activeCourseLevel;
       if (selectedLevel != null) {
         currentLessonQuestions = _allQuestions[selectedLevel] ?? [];
       }
@@ -181,6 +241,7 @@ class AppState extends ChangeNotifier {
 
   // Current active lesson state
   CyberLevel? activeLevel;
+  int? _activeCourseLevel;
   int? activePracticeLevel;
   final Set<int> completedPracticeLevels = {};
 
@@ -195,11 +256,19 @@ class AppState extends ChangeNotifier {
 
   QuizQuestion get currentQuestion =>
       currentLessonQuestions[currentQuestionIndex];
+  int get currentSessionLevel => activePracticeLevel ?? _activeCourseLevel ?? 1;
 
   void startLesson(CyberLevel level) {
+    if (accountDeletionStarted) return;
     activePracticeLevel = null;
     activeLevel = level;
-    _setupLessonSession(level.id);
+    final first = (level.id - 1) * 10 + 1;
+    var next = first;
+    while (next < first + 9 && completedPracticeLevels.contains(next)) {
+      next++;
+    }
+    if (completedPracticeLevels.contains(next)) next = first;
+    _setupLessonSession(next);
   }
 
   bool isPracticeUnlocked(int level) =>
@@ -210,6 +279,7 @@ class AppState extends ChangeNotifier {
           completedPracticeLevels.contains(level - 1));
 
   void startPractice(int level) {
+    if (accountDeletionStarted) return;
     if (!isPracticeUnlocked(level)) return;
     activeLevel = null;
     activePracticeLevel = level;
@@ -217,6 +287,7 @@ class AppState extends ChangeNotifier {
   }
 
   void _setupLessonSession(int levelId) {
+    _activeCourseLevel = activeLevel != null ? levelId : null;
     currentLessonQuestions = _allQuestions[levelId] ?? [];
     currentQuestionIndex = 0;
     lives = 3;
@@ -258,25 +329,30 @@ class AppState extends ChangeNotifier {
   }
 
   void finishLesson(BuildContext context, {required bool completedSuccess}) {
+    if (accountDeletionStarted) return;
+    final now = DateTime.now().toUtc();
+    final activity = LearningActivity(
+      id: '${now.microsecondsSinceEpoch}_${totalLessons + 1}',
+      occurredAt: now,
+      level: currentSessionLevel,
+      practice: activePracticeLevel != null,
+      success: completedSuccess,
+      xp: completedSuccess ? sessionXpEarned : 0,
+      correct: sessionCorrectAnswers,
+      questions: currentLessonQuestions.length,
+    );
+    _activities.add(activity);
+    _unsavedActivities[activity.id] = activity;
     totalLessons++;
     if (completedSuccess) {
       successfulLessons++;
-      if (activePracticeLevel != null) {
-        completedPracticeLevels.add(activePracticeLevel!);
-      }
+      final completedLevel = activePracticeLevel ?? _activeCourseLevel;
+      if (completedLevel != null) completedPracticeLevels.add(completedLevel);
       dailyXp = math.min(dailyGoalXp, dailyXp + sessionXpEarned);
       totalXp += sessionXpEarned;
       level = 1 + totalXp ~/ 100;
 
-      // Unlock next level logic
-      if (activeLevel != null && activeLevel!.id <= levels.length) {
-        levels[activeLevel!.id - 1].status = LevelStatus.completed;
-        levels[activeLevel!.id - 1].progress = 1.0;
-
-        if (activeLevel!.id < levels.length) {
-          levels[activeLevel!.id].status = LevelStatus.unlocked;
-        }
-      }
+      _syncPaths();
     }
     _queueSave();
     notifyListeners();
@@ -307,18 +383,9 @@ class AppState extends ChangeNotifier {
     dailyXp = 40;
     totalXp = 1260;
 
-    if (levels.isNotEmpty) {
-      levels[0].status = LevelStatus.completed;
-      levels[0].progress = 1.0;
-    }
-    if (levels.length > 1) {
-      levels[1].status = LevelStatus.unlocked;
-      levels[1].progress = 0.75;
-    }
-    for (int i = 2; i < levels.length; i++) {
-      levels[i].status = LevelStatus.locked;
-      levels[i].progress = 0.0;
-    }
+    activeLevel = null;
+    _activeCourseLevel = null;
+    _syncPaths();
     notifyListeners();
   }
 }

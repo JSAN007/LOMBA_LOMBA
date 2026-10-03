@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../core/theme/cyber_colors.dart';
@@ -24,21 +24,23 @@ class CyberButton extends StatefulWidget {
   State<CyberButton> createState() => _CyberButtonState();
 }
 
-class _CyberButtonState extends State<CyberButton> with SingleTickerProviderStateMixin {
+class _CyberButtonState extends State<CyberButton>
+    with SingleTickerProviderStateMixin {
   late double _scale;
   late AnimationController _controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 100),
-      lowerBound: 0.0,
-      upperBound: 0.05,
-    )..addListener(() {
-        setState(() {});
-      });
+    _controller =
+        AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 100),
+          lowerBound: 0.0,
+          upperBound: 0.05,
+        )..addListener(() {
+          setState(() {});
+        });
   }
 
   @override
@@ -70,7 +72,15 @@ class _CyberButtonState extends State<CyberButton> with SingleTickerProviderStat
                 : LinearGradient(
                     colors: [
                       widget.glowColor,
-                       widget.glowColor.withValues(alpha: 1, red: widget.glowColor.r, green: widget.glowColor.g, blue: (widget.glowColor.b + 40.0 / 255.0).clamp(0.0, 1.0)),
+                      widget.glowColor.withValues(
+                        alpha: 1,
+                        red: widget.glowColor.r,
+                        green: widget.glowColor.g,
+                        blue: (widget.glowColor.b + 40.0 / 255.0).clamp(
+                          0.0,
+                          1.0,
+                        ),
+                      ),
                     ],
                   ),
             border: widget.isOutline
@@ -80,10 +90,10 @@ class _CyberButtonState extends State<CyberButton> with SingleTickerProviderStat
                 ? []
                 : [
                     BoxShadow(
-                       color: widget.glowColor.withValues(alpha: 0.3),
+                      color: widget.glowColor.withValues(alpha: 0.3),
                       blurRadius: 12,
                       offset: const Offset(0, 4),
-                    )
+                    ),
                   ],
           ),
           child: Center(
@@ -93,7 +103,9 @@ class _CyberButtonState extends State<CyberButton> with SingleTickerProviderStat
                 if (widget.icon != null) ...[
                   Icon(
                     widget.icon,
-                    color: widget.isOutline ? widget.glowColor : palette.onAccent,
+                    color: widget.isOutline
+                        ? widget.glowColor
+                        : palette.onAccent,
                     size: 22,
                   ),
                   const SizedBox(width: 8),
@@ -103,7 +115,9 @@ class _CyberButtonState extends State<CyberButton> with SingleTickerProviderStat
                   style: GoogleFonts.nunito(
                     fontSize: 16,
                     fontWeight: FontWeight.w800,
-                    color: widget.isOutline ? widget.glowColor : palette.onAccent,
+                    color: widget.isOutline
+                        ? widget.glowColor
+                        : palette.onAccent,
                     letterSpacing: 0.5,
                   ),
                 ),

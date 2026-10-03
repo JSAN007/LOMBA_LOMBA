@@ -54,14 +54,16 @@ class GlassNavBar extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: List.generate(items.length, (index) {
-                return _GlassNavItem(
-                  icon: items[index].icon,
-                  label: items[index].label,
-                  isActive: currentIndex == index,
-                  onTap: () {
-                    HapticFeedback.selectionClick();
-                    onTap(index);
-                  },
+                return Expanded(
+                  child: _GlassNavItem(
+                    icon: items[index].icon,
+                    label: items[index].label,
+                    isActive: currentIndex == index,
+                    onTap: () {
+                      HapticFeedback.selectionClick();
+                      onTap(index);
+                    },
+                  ),
                 );
               }),
             ),
@@ -170,14 +172,16 @@ class _GlassNavItemState extends State<_GlassNavItem>
                 AnimatedOpacity(
                   opacity: 1.0,
                   duration: const Duration(milliseconds: 200),
-                  child: Text(
-                    widget.label,
-                    style: GoogleFonts.nunito(
-                      fontSize: 10,
-                      fontWeight: widget.isActive
-                          ? FontWeight.w800
-                          : FontWeight.w600,
-                      color: color,
+                  child: FittedBox(
+                    child: Text(
+                      widget.label,
+                      style: GoogleFonts.nunito(
+                        fontSize: 10,
+                        fontWeight: widget.isActive
+                            ? FontWeight.w800
+                            : FontWeight.w600,
+                        color: color,
+                      ),
                     ),
                   ),
                 ),

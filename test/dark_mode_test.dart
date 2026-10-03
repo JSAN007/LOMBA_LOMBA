@@ -8,6 +8,7 @@ import 'package:cybernusa/screens/practice/practice_screen.dart';
 import 'package:cybernusa/screens/result/result_screen.dart';
 import 'package:cybernusa/screens/settings/settings_screen.dart';
 import 'package:cybernusa/state/app_state.dart';
+import 'package:cybernusa/models/cyber_level.dart';
 import 'package:cybernusa/state/app_state_provider.dart';
 import 'package:cybernusa/state/theme_controller.dart';
 import 'package:cybernusa/state/theme_provider.dart';
@@ -55,6 +56,8 @@ Future<void> _pump(
 }) async {
   final themeController = controller ?? ThemeController();
   final state = AppState(questionBundle: _ThemeQuestions());
+  // Snackbar checks use an explicitly locked path fixture.
+  if (child is HomeScreen) state.levels[2].status = LevelStatus.locked;
   if (child is LessonScreen) state.startLesson(state.levels.first);
   addTearDown(state.dispose);
   if (controller != null) {
@@ -354,16 +357,16 @@ void main() {
       await _pump(tester, ThemeMode.light, const HomeScreen());
       await tester.pump(const Duration(milliseconds: 600));
 
-      // "Social Engineering" is a locked level, so tapping it raises the
+      // "Menengah" is a locked level, so tapping it raises the
       // snackbar. It sits below the fold on a phone-sized window, so the
       // path list is scrolled to it first.
       await tester.scrollUntilVisible(
-        find.text('Social Engineering'),
+        find.text('Menengah'),
         200,
         scrollable: find.byType(Scrollable).last,
       );
       await tester.pump(const Duration(milliseconds: 300));
-      await tester.tap(find.text('Social Engineering'));
+      await tester.tap(find.text('Menengah'));
       await tester.pump(const Duration(milliseconds: 300));
 
       final snackBar = find.byType(SnackBar);
@@ -389,12 +392,12 @@ void main() {
       await tester.pump(const Duration(milliseconds: 600));
 
       await tester.scrollUntilVisible(
-        find.text('Social Engineering'),
+        find.text('Menengah'),
         200,
         scrollable: find.byType(Scrollable).last,
       );
       await tester.pump(const Duration(milliseconds: 300));
-      await tester.tap(find.text('Social Engineering'));
+      await tester.tap(find.text('Menengah'));
       await tester.pump(const Duration(milliseconds: 300));
 
       final width = tester.getSize(_visibleChip(tester)).width;
@@ -411,12 +414,12 @@ void main() {
         await tester.pump(const Duration(milliseconds: 600));
 
         await tester.scrollUntilVisible(
-          find.text('Social Engineering'),
+          find.text('Menengah'),
           200,
           scrollable: find.byType(Scrollable).last,
         );
         await tester.pump(const Duration(milliseconds: 300));
-        await tester.tap(find.text('Social Engineering'));
+        await tester.tap(find.text('Menengah'));
         await tester.pump(const Duration(milliseconds: 300));
 
         final element = tester.element(find.byType(SnackBar));

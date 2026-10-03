@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../../services/account_service.dart';
 import '../../state/app_state_provider.dart';
 import '../../state/app_state.dart';
+import '../../state/profile_controller.dart';
+import '../../models/user_profile.dart';
 import '../../services/progress_store.dart';
 import '../../components/auth/account_status.dart';
 import '../main_shell.dart';
@@ -39,12 +41,19 @@ class AccountSession extends StatefulWidget {
 class _AccountSessionState extends State<AccountSession> {
   Future<void>? _profile;
   late final AppState _state;
+  late final ProfileController _profileController;
 
   @override
   void initState() {
     super.initState();
     _state = AppState(progressStore: FirestoreProgressStore(widget.user.uid))
       ..username = widget.user.displayName ?? 'Pelajar';
+    _profileController = ProfileController(
+      initialProfile: UserProfile.account(
+        id: widget.user.uid,
+        username: widget.user.displayName ?? 'Pelajar',
+      ),
+    );
   }
 
   Future<void> _loadAccount() async {
@@ -55,6 +64,7 @@ class _AccountSessionState extends State<AccountSession> {
   @override
   void dispose() {
     _state.dispose();
+    _profileController.dispose();
     super.dispose();
   }
 
@@ -81,10 +91,13 @@ class _AccountSessionState extends State<AccountSession> {
         _state.username = widget.user.displayName ?? 'Pelajar';
         return AppStateProvider(
           notifier: _state,
-          child: Navigator(
-            onGenerateRoute: (settings) => MaterialPageRoute<void>(
-              settings: settings,
-              builder: (context) => const MainShell(),
+          child: ProfileProvider(
+            notifier: _profileController,
+            child: Navigator(
+              onGenerateRoute: (settings) => MaterialPageRoute<void>(
+                settings: settings,
+                builder: (context) => const MainShell(),
+              ),
             ),
           ),
         );

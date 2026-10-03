@@ -30,19 +30,21 @@ class SettingsScreen extends StatelessWidget {
           children: [
             SettingsSection(
               title: 'Appearance',
-              subtitle: 'Pilih tampilan aplikasi. Perubahan langsung diterapkan.',
+              subtitle:
+                  'Pilih tampilan aplikasi. Perubahan langsung diterapkan.',
               children: [
                 SwitchListTile.adaptive(
                   key: const Key('dark-mode-switch'),
                   value: controller.isDarkMode,
                   onChanged: (_) => controller.toggle(),
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 6,
+                  ),
                   secondary: AnimatedSwitcher(
                     duration: const Duration(milliseconds: 250),
-                    transitionBuilder: (child, animation) => ScaleTransition(
-                      scale: animation,
-                      child: child,
-                    ),
+                    transitionBuilder: (child, animation) =>
+                        ScaleTransition(scale: animation, child: child),
                     child: Icon(
                       controller.isDarkMode
                           ? Icons.dark_mode_rounded
@@ -208,9 +210,7 @@ class _InfoRow extends StatelessWidget {
             child: Icon(icon, size: 18, color: colorScheme.onSurface),
           ),
           const SizedBox(width: 14),
-          Expanded(
-            child: Text(label, style: theme.textTheme.bodyLarge),
-          ),
+          Expanded(child: Text(label, style: theme.textTheme.bodyLarge)),
           Text(value, style: theme.textTheme.bodySmall),
         ],
       ),

@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/theme/cyber_colors.dart';
@@ -14,7 +14,8 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
   late Animation<double> _opacityAnimation;
@@ -27,12 +28,16 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       duration: const Duration(milliseconds: 1500),
     );
 
-    _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOutBack),
-    );
+    _scaleAnimation = Tween<double>(
+      begin: 0.8,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
 
     _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: const Interval(0.0, 0.7, curve: Curves.easeIn)),
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0.0, 0.7, curve: Curves.easeIn),
+      ),
     );
 
     _controller.forward();
@@ -43,12 +48,14 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         Navigator.of(context).pushReplacement(
           PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-                AccountService.configured && AccountService.auth.currentUser != null
-                    ? const AuthGate()
-                    : const OnboardingScreen(),
-            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              return FadeTransition(opacity: animation, child: child);
-            },
+                AccountService.configured &&
+                    AccountService.auth.currentUser != null
+                ? const AuthGate()
+                : const OnboardingScreen(),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+                  return FadeTransition(opacity: animation, child: child);
+                },
             transitionDuration: const Duration(milliseconds: 600),
           ),
         );
@@ -76,7 +83,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             child: CustomPaint(
               painter: GridPainter(
                 color: CyberColors.primary.withValues(
-                  alpha: 0.04 *
+                  alpha:
+                      0.04 *
                       (palette.brightness == Brightness.dark ? 2.4 : 1.0),
                 ),
               ),
@@ -109,13 +117,18 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                                 CyberColors.secondary.withValues(alpha: 0.1),
                               ],
                             ),
-                            border: Border.all(color: CyberColors.primary.withValues(alpha: 0.6), width: 2.5),
+                            border: Border.all(
+                              color: CyberColors.primary.withValues(alpha: 0.6),
+                              width: 2.5,
+                            ),
                             boxShadow: [
                               BoxShadow(
-                                color: CyberColors.primary.withValues(alpha: 0.15),
+                                color: CyberColors.primary.withValues(
+                                  alpha: 0.15,
+                                ),
                                 blurRadius: 30,
                                 spreadRadius: 4,
-                              )
+                              ),
                             ],
                           ),
                           child: Icon(
@@ -163,7 +176,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     borderRadius: BorderRadius.circular(2),
                     child: LinearProgressIndicator(
                       backgroundColor: palette.border,
-                      valueColor: const AlwaysStoppedAnimation<Color>(CyberColors.primary),
+                      valueColor: const AlwaysStoppedAnimation<Color>(
+                        CyberColors.primary,
+                      ),
                     ),
                   ),
                 ),

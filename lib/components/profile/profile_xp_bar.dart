@@ -4,10 +4,7 @@ import '../../models/user_profile.dart';
 class ProfileXpBar extends StatelessWidget {
   final UserProfile profile;
 
-  const ProfileXpBar({
-    super.key,
-    required this.profile,
-  });
+  const ProfileXpBar({super.key, required this.profile});
 
   @override
   Widget build(BuildContext context) {
@@ -87,9 +84,7 @@ class ProfileXpBar extends StatelessWidget {
               height: 10,
               child: Stack(
                 children: [
-                  Container(
-                    color: colorScheme.surfaceContainerHighest,
-                  ),
+                  Container(color: colorScheme.surfaceContainerHighest),
                   AnimatedFractionallySizedBox(
                     duration: const Duration(milliseconds: 700),
                     curve: Curves.easeOutCubic,

@@ -11,6 +11,8 @@ class AppStateProvider extends InheritedNotifier<AppState> {
   });
 
   static AppState of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<AppStateProvider>()!.notifier!;
+    return context
+        .dependOnInheritedWidgetOfExactType<AppStateProvider>()!
+        .notifier!;
   }
 }

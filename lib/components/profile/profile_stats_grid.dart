@@ -4,48 +4,44 @@ import '../../models/user_profile.dart';
 class ProfileStatsGrid extends StatelessWidget {
   final UserProfile profile;
 
-  const ProfileStatsGrid({
-    super.key,
-    required this.profile,
-  });
+  const ProfileStatsGrid({super.key, required this.profile});
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
-        childAspectRatio: 1.25,
-      ),
-      children: [
-        _StatCard(
-          icon: Icons.sports_esports_outlined,
-          title: 'Total Matches',
-          value: profile.totalMatches.toString(),
-          subtitle: 'Played',
-        ),
-        _StatCard(
-          icon: Icons.emoji_events_outlined,
-          title: 'Wins',
-          value: profile.wins.toString(),
-          subtitle: 'Victories',
-        ),
-        _StatCard(
-          icon: Icons.trending_up_outlined,
-          title: 'Win Rate',
-          value: '${profile.winRate.toStringAsFixed(1)}%',
-          subtitle: 'Accuracy',
-        ),
-        _StatCard(
-          icon: Icons.stars_outlined,
-          title: 'Total Points',
-          value: _formatPoints(profile.totalPoints),
-          subtitle: 'Earned',
-        ),
-      ],
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final width = (constraints.maxWidth - 12) / 2;
+        return Wrap(
+          spacing: 12,
+          runSpacing: 12,
+          children: [
+            _StatCard(
+              icon: Icons.sports_esports_outlined,
+              title: 'Total Matches',
+              value: profile.totalMatches.toString(),
+              subtitle: 'Played',
+            ),
+            _StatCard(
+              icon: Icons.emoji_events_outlined,
+              title: 'Wins',
+              value: profile.wins.toString(),
+              subtitle: 'Victories',
+            ),
+            _StatCard(
+              icon: Icons.trending_up_outlined,
+              title: 'Win Rate',
+              value: '${profile.winRate.toStringAsFixed(1)}%',
+              subtitle: 'Accuracy',
+            ),
+            _StatCard(
+              icon: Icons.stars_outlined,
+              title: 'Total Points',
+              value: _formatPoints(profile.totalPoints),
+              subtitle: 'Earned',
+            ),
+          ].map((card) => SizedBox(width: width, child: card)).toList(),
+        );
+      },
     );
   }
 
@@ -98,8 +94,8 @@ class _StatCard extends StatelessWidget {
         ],
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
@@ -118,6 +114,7 @@ class _StatCard extends StatelessWidget {
               const Spacer(),
             ],
           ),
+          const SizedBox(height: 16),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

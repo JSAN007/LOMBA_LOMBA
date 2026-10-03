@@ -7,9 +7,9 @@ import '../models/quiz_question.dart';
 /// Reads the introductory question bank from the bundled lesson data.
 Future<List<QuizQuestion>> buildPhishingQuestions({AssetBundle? bundle}) async {
   final assetBundle = bundle ?? rootBundle;
-  final data = jsonDecode(
-    await assetBundle.loadString('assets/data/questions.json'),
-  ) as Map<String, dynamic>;
+  final data =
+      jsonDecode(await assetBundle.loadString('assets/data/questions.json'))
+          as Map<String, dynamic>;
   final levels = data['levels'] as List<dynamic>;
   final introductory = levels.cast<Map<String, dynamic>>().firstWhere(
     (level) => level['level'] == 1,

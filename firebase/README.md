@@ -1,5 +1,19 @@
 # Firebase SecuriGo
 
+## Upgrade riwayat streak dan hapus akun
+
+Publish **rules terbaru** dari `firebase/firestore.rules` di Firebase Console sebelum memakai upgrade ini. Rules menambahkan akses pemilik ke `profiles/{uid}/activities/{eventId}` serta izin menghapus progres dan profil sendiri dengan autentikasi ulang dalam 5 menit terakhir. Tidak ada akses ke data privat akun lain.
+
+Riwayat mencatat setiap sesi Learn/Practice yang selesai atau gagal: waktu UTC (ditampilkan WIB), level, mode, jawaban benar, jumlah soal, status, dan XP yang benar-benar diterima. Sesi lama sebelum fitur ini tidak bisa direkonstruksi. Kalender mendukung hari/minggu/bulan dan pemilihan tanggal. Streak dihitung dari hari aktivitas yang berurutan, dengan toleransi hari ini belum belajar. Riwayat tetap disimpan walaupun reset progres; reset bukan penghapusan akun.
+
+Hapus akun tersedia di Edit Profile. Pengguna harus memasukkan password dan mengonfirmasi tindakan permanen. Aplikasi reautentikasi, menunggu antrean save selesai, menghentikan write baru, menghapus seluruh aktivitas, hubungan pertemanan, progres, direktori pemain, dan profil, kemudian menghapus Firebase Auth user. Email dapat digunakan lagi hanya dengan registrasi baru. Firebase tidak otomatis menghapus subcollection saat dokumen induk dihapus, sehingga aplikasi membersihkannya secara eksplisit.
+
+Penghapusan Firestore dan Firebase Auth bukan transaksi lintas layanan. Jika ada kegagalan, identitas dipertahankan untuk retry dan layar meminta pengguna menuntaskan penghapusan; sebagian data bisa sudah terhapus. Jangan tutup aplikasi saat penghapusan berlangsung. Tidak ada password yang disimpan atau dicatat.
+
+Verifikasi online dengan **akun uji**, bukan akun utama: selesaikan sesi, logout/login, buka kalender dan pastikan riwayat sama; hapus akun dengan password salah (data harus utuh), kemudian password benar. Pastikan dokumen profil/progres/aktivitas/direktori dan pertemanan terkait hilang, login lama gagal, dan registrasi ulang email yang sama menghasilkan UID baru dengan 0 XP. Uji Rules Playground: akun B tidak boleh membaca/menghapus aktivitas atau profil A. Tes lokal tidak menggantikan verifikasi Firebase online.
+
+Referensi: [Firebase reauthentication dan delete user](https://firebase.google.com/docs/auth/flutter/manage-users), [penghapusan dokumen dan subcollection](https://firebase.google.com/docs/firestore/manage-data/delete-data).
+
 Aplikasi memakai Firebase Authentication untuk akun, `profiles/{uid}` untuk profil privat, dan `players/{uid}` untuk pencarian nama pemain. Email dan password tidak disalin ke direktori pemain.
 
 ## Aktifkan halaman Teman

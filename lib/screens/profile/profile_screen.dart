@@ -91,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen>
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 110),
               sliver: SliverToBoxAdapter(
                 child: FadeTransition(
                   opacity: _fadeAnimation,

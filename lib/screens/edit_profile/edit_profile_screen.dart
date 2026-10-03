@@ -4,6 +4,7 @@ import '../../data/avatar_presets.dart';
 import '../../state/profile_controller.dart';
 import '../../widgets/app_snack_bar.dart';
 import '../../widgets/avatar_pickers.dart';
+import '../../components/delete_account_section.dart';
 
 /// Edit Profile: change the display name, the bio, and the avatar preset.
 ///
@@ -218,6 +219,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ),
                   const SizedBox(height: 16),
                   _HintCard(avatarName: avatarPresetName(_avatarPreset)),
+                  const SizedBox(height: 24),
+                  const DeleteAccountSection(),
                 ],
               ),
             ),

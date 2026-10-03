@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/theme/cyber_colors.dart';
@@ -21,7 +21,7 @@ class OnboardingScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Spacer(flex: 2),
-              
+
               // Flat vector illustration - phone sized
               Container(
                 width: 180,
@@ -60,9 +60,9 @@ class OnboardingScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              
+
               const SizedBox(height: 40),
-              
+
               // Title
               Text(
                 'Welcome to SecuriGo.',
@@ -74,9 +74,9 @@ class OnboardingScreen extends StatelessWidget {
                   height: 1.2,
                 ),
               ),
-              
+
               const SizedBox(height: 12),
-              
+
               // Subtitle
               Text(
                 'Your Path to Cyber Mastery,\nfrom Beginner to Pro.',
@@ -88,9 +88,9 @@ class OnboardingScreen extends StatelessWidget {
                   height: 1.5,
                 ),
               ),
-              
+
               const Spacer(flex: 3),
-              
+
               // Get Started button
               SizedBox(
                 width: double.infinity,
@@ -98,9 +98,7 @@ class OnboardingScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (context) => const AuthGate(),
-                      ),
+                      MaterialPageRoute(builder: (context) => const AuthGate()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -120,7 +118,7 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              
+
               const SizedBox(height: 20),
             ],
           ),

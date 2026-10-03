@@ -29,6 +29,7 @@ class _SecuriGoAppState extends State<SecuriGoApp> {
 
   @override
   void dispose() {
+    _appState.dispose();
     _themeController.dispose();
     _profileController.dispose();
     super.dispose();

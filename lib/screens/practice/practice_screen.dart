@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../state/app_state_provider.dart';
 import '../lesson/lesson_screen.dart';
+import '../../components/practice_header.dart';
 
 class PracticeScreen extends StatelessWidget {
   const PracticeScreen({super.key});
@@ -11,6 +12,12 @@ class PracticeScreen extends StatelessWidget {
     final state = AppStateProvider.of(context);
     final theme = Theme.of(context);
     const tiers = ['Awam', 'Dasar', 'Menengah', 'Lanjutan', 'Pro'];
+    void start(int level) {
+      state.startPractice(level);
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (_) => const LessonScreen()));
+    }
 
     return Scaffold(
       appBar: AppBar(title: const Text('Practice')),
@@ -20,13 +27,9 @@ class PracticeScreen extends StatelessWidget {
         separatorBuilder: (context, index) => const SizedBox(height: 12),
         itemBuilder: (context, index) {
           if (index == 0) {
-            return Text(
-              '50 level · Awam hingga Pro\n'
-              'Mulai langsung di level 1, 11, 21, 31, atau 41. '
-              'Selesaikan latihan untuk membuka level berikutnya.\n'
-              'Latihan menggunakan bank soal phishing yang tersedia. '
-              'Progres tersimpan selama aplikasi berjalan.',
-              style: theme.textTheme.bodyMedium,
+            return PracticeHeader(
+              completed: state.completedCourseLevels,
+              onStartPath: start,
             );
           }
           final unlocked = state.isPracticeUnlocked(index);
@@ -65,16 +68,7 @@ class PracticeScreen extends StatelessWidget {
               trailing: unlocked
                   ? const Icon(Icons.chevron_right_rounded)
                   : null,
-              onTap: unlocked
-                  ? () {
-                      state.startPractice(index);
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const LessonScreen(),
-                        ),
-                      );
-                    }
-                  : null,
+              onTap: unlocked ? () => start(index) : null,
             ),
           );
         },

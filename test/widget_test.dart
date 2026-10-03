@@ -7,7 +7,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:cybernusa/app.dart';  
+import 'package:cybernusa/app.dart';
 
 void main() {
   testWidgets('SecuriGo smoke test', (WidgetTester tester) async {
@@ -23,7 +23,10 @@ void main() {
 
     // Verify onboarding screen elements.
     expect(find.text('Welcome to SecuriGo.'), findsOneWidget);
-    expect(find.text('Your Path to Cyber Mastery,\nfrom Beginner to Pro.'), findsOneWidget);
+    expect(
+      find.text('Your Path to Cyber Mastery,\nfrom Beginner to Pro.'),
+      findsOneWidget,
+    );
     expect(find.text('Get Started'), findsOneWidget);
   });
 }

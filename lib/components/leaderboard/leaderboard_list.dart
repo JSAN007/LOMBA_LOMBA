@@ -5,10 +5,7 @@ import 'leaderboard_list_item.dart';
 class LeaderboardList extends StatelessWidget {
   final List<LeaderboardEntry> entries;
 
-  const LeaderboardList({
-    super.key,
-    required this.entries,
-  });
+  const LeaderboardList({super.key, required this.entries});
 
   @override
   Widget build(BuildContext context) {

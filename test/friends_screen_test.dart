@@ -26,7 +26,10 @@ void main() {
       const PlayerSummary(id: 'me', name: 'Jovan', isCurrentUser: true),
     ]);
     await tester.pump();
-    expect(find.descendant(of: find.byType(ListTile), matching: find.text('Jovan')), findsOneWidget);
+    expect(
+      find.descendant(of: find.byType(ListTile), matching: find.text('Jovan')),
+      findsOneWidget,
+    );
     expect(find.text('Kamu · Pemain SecuriGo'), findsOneWidget);
     await tester.pumpWidget(const SizedBox.shrink());
   });

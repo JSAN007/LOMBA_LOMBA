@@ -260,6 +260,7 @@ class _ActionTile extends StatelessWidget {
     );
   }
 }
+
 /// One contact channel inside the expanded Help & Support panel.
 class _SupportRow extends StatelessWidget {
   final SupportContact contact;

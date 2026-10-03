@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../models/leaderboard_entry.dart';
+import 'leaderboard_avatar.dart';
 
 class LeaderboardSelfRank extends StatelessWidget {
   final LeaderboardEntry currentUser;
@@ -46,12 +47,7 @@ class LeaderboardSelfRank extends StatelessWidget {
           const SizedBox(width: 8),
           Hero(
             tag: 'profile_avatar_self_${currentUser.userId}',
-            child: CircleAvatar(
-              radius: 18,
-              backgroundColor: colorScheme.surface,
-              backgroundImage: NetworkImage(currentUser.avatarUrl),
-              onBackgroundImageError: (_, _) {},
-            ),
+            child: LeaderboardAvatar(entry: currentUser, radius: 18),
           ),
           const SizedBox(width: 8),
           Expanded(
@@ -67,7 +63,7 @@ class LeaderboardSelfRank extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           Text(
-            '${_formatPoints(currentUser.points)} pts',
+            '${currentUser.points} pts',
             style: textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w700,
               color: colorScheme.onPrimaryContainer,
@@ -76,15 +72,5 @@ class LeaderboardSelfRank extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  String _formatPoints(int points) {
-    if (points >= 1000000) {
-      return '${(points / 1000000).toStringAsFixed(1)}M';
-    }
-    if (points >= 1000) {
-      return '${(points / 1000).toStringAsFixed(0)}K';
-    }
-    return points.toString();
   }
 }

@@ -3,11 +3,11 @@ import '../../models/leaderboard_entry.dart';
 import '../../components/leaderboard/leaderboard_podium.dart';
 import '../../components/leaderboard/leaderboard_list.dart';
 import '../../components/leaderboard/leaderboard_self_rank.dart';
+import '../../state/app_state_provider.dart';
+import '../../state/profile_controller.dart';
 
 class LeaderboardScreen extends StatefulWidget {
-  const LeaderboardScreen({
-    super.key,
-  });
+  const LeaderboardScreen({super.key});
 
   @override
   State<LeaderboardScreen> createState() => _LeaderboardScreenState();
@@ -20,15 +20,20 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
   late final Animation<double> _fadeAnimation;
   late final Animation<Offset> _slideAnimation;
 
-  final List<LeaderboardEntry> _allEntries = LeaderboardEntry.dummyTopList();
+  List<LeaderboardEntry>? _demoEntries;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _demoEntries ??= LeaderboardEntry.demoOpponents(
+      initialUserPoints: AppStateProvider.of(context).totalXp,
+    );
+  }
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(
-      length: 3,
-      vsync: this,
-    );
+    _tabController = TabController(length: 3, vsync: this);
 
     _fadeController = AnimationController(
       vsync: this,
@@ -38,15 +43,10 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
       parent: _fadeController,
       curve: Curves.easeOutCubic,
     );
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.08),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: _fadeController,
-        curve: Curves.easeOutCubic,
-      ),
-    );
+    _slideAnimation =
+        Tween<Offset>(begin: const Offset(0, 0.08), end: Offset.zero).animate(
+          CurvedAnimation(parent: _fadeController, curve: Curves.easeOutCubic),
+        );
 
     _fadeController.forward();
   }
@@ -58,48 +58,40 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
     super.dispose();
   }
 
-  List<LeaderboardEntry> get _top3 {
-    final sorted = List<LeaderboardEntry>.from(_allEntries)
-      ..sort((a, b) => a.rank.compareTo(b.rank));
-    if (sorted.length >= 3) {
-      return sorted.sublist(0, 3);
-    }
-    return List<LeaderboardEntry>.from(sorted);
-  }
-
-  List<LeaderboardEntry> get _restList {
-    final sorted = List<LeaderboardEntry>.from(_allEntries)
-      ..sort((a, b) => a.rank.compareTo(b.rank));
-    if (sorted.length <= 3) {
-      return List<LeaderboardEntry>.from(sorted);
-    }
-    return sorted.sublist(3);
-  }
-
-  LeaderboardEntry? get _currentUser {
-    for (final e in _allEntries) {
-      if (e.isCurrentUser) {
-        return e;
-      }
-    }
-    return null;
-  }
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
-    final currentUser = _currentUser;
+    final state = AppStateProvider.of(context);
+    final profileController = context
+        .dependOnInheritedWidgetOfExactType<ProfileProvider>()
+        ?.notifier;
+    final profile = profileController?.profile;
+    final entries = LeaderboardEntry.rankEntries([
+      ..._demoEntries!,
+      LeaderboardEntry(
+        userId: profile?.id ?? 'current-user',
+        username: profileController?.hasUserEdits == true
+            ? profile!.username
+            : state.username,
+        avatarUrl: profile?.avatarUrl ?? '',
+        avatarPreset: profile?.avatarPreset ?? 0,
+        rank: 0,
+        points: state.totalXp,
+        wins: state.successfulLessons,
+        matches: state.totalLessons,
+        isCurrentUser: true,
+      ),
+    ]);
+    final currentUser = entries.singleWhere((entry) => entry.isCurrentUser);
 
     return Scaffold(
       backgroundColor: colorScheme.surfaceContainerLowest,
       appBar: AppBar(
         title: Text(
           'Leaderboard',
-          style: textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.w700,
-          ),
+          style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
         ),
         centerTitle: true,
         elevation: 0,
@@ -150,7 +142,17 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 16),
+              child: Text(
+                'Demo · Lawan simulasi, XP kamu asli.\n'
+                'Selesaikan latihan untuk naik peringkat.',
+                textAlign: TextAlign.center,
+                style: textTheme.bodySmall?.copyWith(
+                  color: colorScheme.onSurfaceVariant,
+                ),
+              ),
+            ),
             Expanded(
               child: FadeTransition(
                 opacity: _fadeAnimation,
@@ -159,33 +161,32 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
                   child: TabBarView(
                     controller: _tabController,
                     children: [
-                      _buildLeaderboardListView(),
-                      _buildLeaderboardListView(),
-                      _buildLeaderboardListView(),
+                      _buildLeaderboardListView(entries),
+                      _buildLeaderboardListView(entries),
+                      _buildLeaderboardListView(entries),
                     ],
                   ),
                 ),
               ),
             ),
-            if (currentUser != null)
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 8, 20, 16),
-                child: LeaderboardSelfRank(currentUser: currentUser),
-              ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 8, 20, 100),
+              child: LeaderboardSelfRank(currentUser: currentUser),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildLeaderboardListView() {
+  Widget _buildLeaderboardListView(List<LeaderboardEntry> entries) {
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          LeaderboardPodium(top3: _top3),
+          LeaderboardPodium(top3: entries.take(3).toList()),
           const SizedBox(height: 16),
-          LeaderboardList(entries: _restList),
+          LeaderboardList(entries: entries.skip(3).toList()),
           const SizedBox(height: 88),
         ],
       ),

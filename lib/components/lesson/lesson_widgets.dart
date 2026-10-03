@@ -38,7 +38,7 @@ class LessonHeader extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              'MISI ${state.activePracticeLevel ?? state.activeLevel?.id ?? 1}',
+              'MISI ${state.currentSessionLevel}',
               style: theme.textTheme.labelLarge?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
                 letterSpacing: 1.6,

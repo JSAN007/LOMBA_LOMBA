@@ -34,10 +34,7 @@ class SettingsSection extends StatelessWidget {
           const SizedBox(height: 4),
         ],
         if (subtitle != null) ...[
-          Text(
-            subtitle!,
-            style: theme.textTheme.bodySmall,
-          ),
+          Text(subtitle!, style: theme.textTheme.bodySmall),
           const SizedBox(height: 12),
         ] else
           const SizedBox(height: 12),

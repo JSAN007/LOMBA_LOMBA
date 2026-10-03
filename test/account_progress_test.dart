@@ -15,7 +15,7 @@ class EmptyQuestions extends Fake implements AssetBundle {
       jsonEncode({
         'levels': [
           {
-            'level': 4,
+            'level': 41,
             'questions': [
               {
                 'id': 1,
@@ -81,8 +81,9 @@ void main() {
       expect(store.document!['successfulLessons'], 1);
       final resumed = account(store);
       await resumed.loadProgress();
-      expect(resumed.levels.last.status, LevelStatus.completed);
-      expect(resumed.levels.last.progress, 1);
+      expect(resumed.levels.last.status, LevelStatus.unlocked);
+      expect(resumed.levels.last.progress, 0.1);
+      expect(resumed.completedPracticeLevels, {41});
       expect(resumed.totalXp, 20);
       await tester.pumpWidget(const SizedBox.shrink());
       state.dispose();
@@ -129,8 +130,8 @@ void main() {
       expect(secondLogin.successfulLessons, 8);
       expect(secondLogin.completedPracticeLevels, {1, 2, 11});
       expect(secondLogin.isPracticeUnlocked(12), isTrue);
-      expect(secondLogin.levels.first.status, LevelStatus.completed);
-      expect(secondLogin.levels.first.progress, 1);
+      expect(secondLogin.levels.first.status, LevelStatus.unlocked);
+      expect(secondLogin.levels.first.progress, 0.2);
       secondLogin.dispose();
       accountB.dispose();
     },

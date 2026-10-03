@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/theme/cyber_colors.dart';
 import '../../models/leaderboard_entry.dart';
+import 'leaderboard_avatar.dart';
 
 class LeaderboardPodiumItem extends StatelessWidget {
   final LeaderboardEntry entry;
@@ -75,20 +76,11 @@ class LeaderboardPodiumItem extends StatelessWidget {
                     ),
                     child: Hero(
                       tag: entry.isCurrentUser
-                          ? 'profile_avatar_self_${entry.userId}'
+                          ? 'profile_avatar_self_podium_${entry.userId}'
                           : 'lb_avatar_${entry.userId}_$tier',
-                      child: CircleAvatar(
+                      child: LeaderboardAvatar(
+                        entry: entry,
                         radius: tier == 1 ? 26 : 23,
-                        backgroundColor: colorScheme.surfaceContainerHighest,
-                        backgroundImage: entry.avatarUrl.isEmpty
-                            ? null
-                            : NetworkImage(entry.avatarUrl),
-                        child: entry.avatarUrl.isEmpty
-                            ? Icon(
-                                Icons.person_outline_rounded,
-                                color: colorScheme.primary,
-                              )
-                            : null,
                       ),
                     ),
                   ),
@@ -123,7 +115,7 @@ class LeaderboardPodiumItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '${_formatPoints(entry.points)} pts',
+                    '${entry.points} pts',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: textTheme.bodySmall?.copyWith(
@@ -147,13 +139,5 @@ class LeaderboardPodiumItem extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String _formatPoints(int points) {
-    if (points >= 1000000) {
-      return '${(points / 1000000).toStringAsFixed(1)}M';
-    }
-    if (points >= 1000) return '${(points / 1000).toStringAsFixed(0)}K';
-    return points.toString();
   }
 }

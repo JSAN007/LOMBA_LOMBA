@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/theme/cyber_colors.dart';
 import '../../models/leaderboard_entry.dart';
+import 'leaderboard_avatar.dart';
 
 class LeaderboardListItem extends StatelessWidget {
   final LeaderboardEntry entry;
@@ -72,12 +73,7 @@ class LeaderboardListItem extends StatelessWidget {
             tag: entry.isCurrentUser
                 ? 'profile_avatar_self_list_${entry.userId}'
                 : 'lb_avatar_${entry.userId}_${entry.rank}',
-            child: CircleAvatar(
-              radius: 22,
-              backgroundColor: colorScheme.surfaceContainerHighest,
-              backgroundImage: NetworkImage(entry.avatarUrl),
-              onBackgroundImageError: (_, _) {},
-            ),
+            child: LeaderboardAvatar(entry: entry, radius: 22),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -110,7 +106,7 @@ class LeaderboardListItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                _formatPoints(entry.points),
+                '${entry.points}',
                 style: textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.w800,
                   color: colorScheme.onSurface,
@@ -129,15 +125,5 @@ class LeaderboardListItem extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  String _formatPoints(int points) {
-    if (points >= 1000000) {
-      return '${(points / 1000000).toStringAsFixed(1)}M';
-    }
-    if (points >= 1000) {
-      return '${(points / 1000).toStringAsFixed(0)}K';
-    }
-    return points.toString();
   }
 }
