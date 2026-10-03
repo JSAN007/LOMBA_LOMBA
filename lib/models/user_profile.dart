@@ -46,6 +46,24 @@ class UserProfile {
   double get xpProgress =>
       xpToNext <= 0 ? 1.0 : (xpCurrent / xpToNext).clamp(0.0, 1.0);
 
+  factory UserProfile.account({required String id, required String username}) =>
+      UserProfile(
+        id: id,
+        username: username,
+        avatarUrl: '',
+        coverUrl: '',
+        bio: 'Belajar lebih aman, satu langkah setiap hari.',
+        level: 1,
+        xpCurrent: 0,
+        xpToNext: 100,
+        globalRank: 0,
+        totalMatches: 0,
+        wins: 0,
+        winRate: 0,
+        totalPoints: 0,
+        badges: const [],
+      );
+
   factory UserProfile.dummy() {
     final unlockedBadges = [
       ProfileBadge(

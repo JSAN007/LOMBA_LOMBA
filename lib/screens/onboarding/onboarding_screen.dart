@@ -2,7 +2,7 @@
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/theme/cyber_colors.dart';
-import '../main_shell.dart';
+import '../auth/auth_gate.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -99,7 +99,7 @@ class OnboardingScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (context) => const MainShell(),
+                        builder: (context) => const AuthGate(),
                       ),
                     );
                   },

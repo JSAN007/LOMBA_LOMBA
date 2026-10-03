@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import '../../services/account_service.dart';
 
 import '../../screens/settings/settings_screen.dart';
 
 class ProfileActionList extends StatelessWidget {
-  const ProfileActionList({
-    super.key,
-  });
+  const ProfileActionList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +30,22 @@ class ProfileActionList extends StatelessWidget {
       ),
       child: Column(
         children: [
+          _ActionTile(
+            icon: Icons.logout_rounded,
+            title: 'Keluar dari akun',
+            subtitle: 'Sampai jumpa di sesi belajar berikutnya',
+            onTap: () async {
+              try {
+                await AccountService.auth.signOut();
+              } catch (_) {
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Gagal keluar. Coba lagi.')),
+                  );
+                }
+              }
+            },
+          ),
           _ActionTile(
             icon: Icons.person_outline,
             title: 'Edit Profile',
@@ -122,14 +137,12 @@ class _ActionTile extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.8),
+                  color: colorScheme.surfaceContainerHighest.withValues(
+                    alpha: 0.8,
+                  ),
                   borderRadius: BorderRadius.circular(999),
                 ),
-                child: Icon(
-                  icon,
-                  size: 20,
-                  color: colorScheme.onSurface,
-                ),
+                child: Icon(icon, size: 20, color: colorScheme.onSurface),
               ),
               const SizedBox(width: 14),
               Expanded(

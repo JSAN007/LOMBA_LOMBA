@@ -4,10 +4,7 @@ import '../../models/user_profile.dart';
 class ProfileHeader extends StatelessWidget {
   final UserProfile profile;
 
-  const ProfileHeader({
-    super.key,
-    required this.profile,
-  });
+  const ProfileHeader({super.key, required this.profile});
 
   @override
   Widget build(BuildContext context) {
@@ -25,28 +22,29 @@ class ProfileHeader extends StatelessWidget {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Image.network(
-                  profile.coverUrl,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) {
-                    return Container(
-                      color: colorScheme.surfaceContainerHighest,
-                    );
-                  },
-                  loadingBuilder: (context, child, loadingProgress) {
-                    if (loadingProgress == null) {
-                      return child;
-                    }
-                    return Container(
-                      color: colorScheme.surfaceContainerHighest,
-                      alignment: Alignment.center,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: colorScheme.primary,
-                      ),
-                    );
-                  },
-                ),
+                if (profile.coverUrl.isNotEmpty)
+                  Image.network(
+                    profile.coverUrl,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        color: colorScheme.surfaceContainerHighest,
+                      );
+                    },
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) {
+                        return child;
+                      }
+                      return Container(
+                        color: colorScheme.surfaceContainerHighest,
+                        alignment: Alignment.center,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: colorScheme.primary,
+                        ),
+                      );
+                    },
+                  ),
                 DecoratedBox(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -84,8 +82,16 @@ class ProfileHeader extends StatelessWidget {
               child: CircleAvatar(
                 radius: 48,
                 backgroundColor: colorScheme.surfaceContainerHighest,
-                backgroundImage: NetworkImage(profile.avatarUrl),
-                onBackgroundImageError: (_, _) {},
+                backgroundImage: profile.avatarUrl.isEmpty
+                    ? null
+                    : NetworkImage(profile.avatarUrl),
+                child: profile.avatarUrl.isEmpty
+                    ? Icon(
+                        Icons.person_outline_rounded,
+                        size: 44,
+                        color: colorScheme.primary,
+                      )
+                    : null,
               ),
             ),
           ),
@@ -177,11 +183,7 @@ class _HeaderIconButton extends StatelessWidget {
           message: tooltip,
           child: Padding(
             padding: const EdgeInsets.all(8),
-            child: Icon(
-              icon,
-              size: 20,
-              color: colorScheme.onSurface,
-            ),
+            child: Icon(icon, size: 20, color: colorScheme.onSurface),
           ),
         ),
       ),

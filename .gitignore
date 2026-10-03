@@ -45,3 +45,4 @@ app.*.map.json
 /android/app/release
 .agents/
 .opencode/skills/
+firebase/config.local.json
