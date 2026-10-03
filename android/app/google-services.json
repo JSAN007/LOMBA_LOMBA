@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "47179927094",
+    "project_id": "lomba-b1608",
+    "storage_bucket": "lomba-b1608.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47179927094:android:c5486cc357bd193aab9297",
+        "android_client_info": {
+          "package_name": "com.example.cybernusa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHOHXI56OWYeGbX2dVe66lqW0yTdAzfy4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

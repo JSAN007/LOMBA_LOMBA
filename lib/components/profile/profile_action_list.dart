@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../services/account_service.dart';
+import '../../state/app_state_provider.dart';
+
 import '../../screens/edit_profile/edit_profile_screen.dart';
 import '../../screens/help/help_support_screen.dart';
 import '../../screens/settings/settings_screen.dart';
@@ -33,6 +36,29 @@ class ProfileActionList extends StatelessWidget {
       ),
       child: Column(
         children: [
+          _ActionTile(
+            icon: Icons.logout_rounded,
+            title: AppStateProvider.of(context).isSigningOut
+                ? 'Menyimpan progres…'
+                : 'Keluar dari akun',
+            subtitle: 'Sampai jumpa di sesi belajar berikutnya',
+            onTap: () async {
+              final state = AppStateProvider.of(context);
+              try {
+                await state.signOut(AccountService.auth.signOut);
+              } catch (_) {
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        'Progres belum tersimpan. Periksa koneksi lalu coba keluar lagi.',
+                      ),
+                    ),
+                  );
+                }
+              }
+            },
+          ),
           _ActionTile(
             icon: Icons.person_outline,
             title: 'Edit Profile',
@@ -234,7 +260,6 @@ class _ActionTile extends StatelessWidget {
     );
   }
 }
-
 /// One contact channel inside the expanded Help & Support panel.
 class _SupportRow extends StatelessWidget {
   final SupportContact contact;

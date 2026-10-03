@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../core/theme/cyber_colors.dart';
 
-/// A single achievement badge.
-///
-/// [levelRequired] is the level the badge is awarded at, so one badge per ten
-/// levels across the fifty level campaign.
 class ProfileBadge {
   final String name;
   final String tier;
@@ -68,25 +64,35 @@ class UserProfile {
   bool get usesPresetAvatar => avatarPreset >= 0;
 
   UserProfile copyWith({
+    String? id,
     String? username,
     String? bio,
     String? avatarUrl,
     int? avatarPreset,
+    int? level,
+    double? xpCurrent,
+    double? xpToNext,
+    int? globalRank,
+    int? totalMatches,
+    int? wins,
+    double? winRate,
+    int? totalPoints,
+    List<ProfileBadge>? badges,
   }) {
     return UserProfile(
-      id: id,
+      id: id ?? this.id,
       username: username ?? this.username,
       avatarUrl: avatarUrl ?? this.avatarUrl,
       bio: bio ?? this.bio,
-      level: level,
-      xpCurrent: xpCurrent,
-      xpToNext: xpToNext,
-      globalRank: globalRank,
-      totalMatches: totalMatches,
-      wins: wins,
-      winRate: winRate,
-      totalPoints: totalPoints,
-      badges: badges,
+      level: level ?? this.level,
+      xpCurrent: xpCurrent ?? this.xpCurrent,
+      xpToNext: xpToNext ?? this.xpToNext,
+      globalRank: globalRank ?? this.globalRank,
+      totalMatches: totalMatches ?? this.totalMatches,
+      wins: wins ?? this.wins,
+      winRate: winRate ?? this.winRate,
+      totalPoints: totalPoints ?? this.totalPoints,
+      badges: badges ?? this.badges,
       avatarPreset: avatarPreset ?? this.avatarPreset,
     );
   }
@@ -94,11 +100,36 @@ class UserProfile {
   double get xpProgress =>
       xpToNext <= 0 ? 1.0 : (xpCurrent / xpToNext).clamp(0.0, 1.0);
 
-  /// Levels completed inside a badge's ten level band, 0..1.
   double badgeProgress(ProfileBadge badge) {
     final bandStart = badge.levelRequired - 9;
     final completed = (level - bandStart + 1).clamp(0, 10);
     return completed / 10;
+  }
+
+  factory UserProfile.account({
+    required String id,
+    required String username,
+    int level = 1,
+    int totalXp = 0,
+    int totalLessons = 0,
+    int successfulLessons = 0,
+  }) {
+    return UserProfile(
+      id: id,
+      username: username,
+      avatarUrl: '',
+      bio: 'Belajar lebih aman, satu langkah setiap hari.',
+      level: level,
+      xpCurrent: (totalXp % 100).toDouble(),
+      xpToNext: 100,
+      globalRank: 0,
+      totalMatches: totalLessons,
+      wins: successfulLessons,
+      winRate: totalLessons == 0 ? 0 : successfulLessons / totalLessons * 100,
+      totalPoints: totalXp,
+      badges: buildBadges(currentLevel: level),
+      avatarPreset: 0,
+    );
   }
 
   factory UserProfile.dummy() {
@@ -121,8 +152,6 @@ class UserProfile {
   }
 }
 
-/// The five achievement badges: one awarded per ten levels of the fifty level
-/// campaign, so clearing every level unlocks all of them.
 List<ProfileBadge> buildBadges({int currentLevel = 27}) {
   final definitions = <ProfileBadge>[
     const ProfileBadge(
@@ -149,7 +178,7 @@ List<ProfileBadge> buildBadges({int currentLevel = 27}) {
       name: 'Firewall Knight',
       tier: 'Gold',
       description:
-          'Capai level 30 dan habiskan seluruh bank soal phishing dengan skorminimal.',
+          'Capai level 30 dan habiskan seluruh bank soal phishing dengan skor minimal.',
       requirement: 'Clear levels 21 - 30',
       levelRequired: 30,
       icon: Icons.shield_moon_rounded,

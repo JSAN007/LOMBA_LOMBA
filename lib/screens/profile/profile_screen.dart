@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import '../../components/profile/profile_header.dart';
-import '../../components/profile/profile_xp_bar.dart';
-import '../../components/profile/profile_stats_grid.dart';
-import '../../components/profile/profile_badges.dart';
+
 import '../../components/profile/profile_action_list.dart';
+import '../../components/profile/profile_badges.dart';
+import '../../components/profile/profile_header.dart';
+import '../../components/profile/profile_stats_grid.dart';
+import '../../components/profile/profile_xp_bar.dart';
+import '../../models/user_profile.dart';
+import '../../services/account_service.dart';
+import '../../state/app_state_provider.dart';
 import '../../state/profile_controller.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -34,7 +38,6 @@ class _ProfileScreenState extends State<ProfileScreen>
         Tween<Offset>(begin: const Offset(0, 0.08), end: Offset.zero).animate(
           CurvedAnimation(parent: _fadeController, curve: Curves.easeOutCubic),
         );
-
     _fadeController.forward();
   }
 
@@ -44,11 +47,36 @@ class _ProfileScreenState extends State<ProfileScreen>
     super.dispose();
   }
 
+  UserProfile _profile(BuildContext context) {
+    final controller = ProfileProvider.of(context);
+    final editable = controller.profile;
+    if (!AccountService.configured) return editable;
+
+    final state = AppStateProvider.of(context);
+    final user = AccountService.auth.currentUser;
+    final wins = state.successfulLessons;
+    final matches = state.totalLessons;
+    return editable.copyWith(
+      id: user?.uid ?? editable.id,
+      username: controller.hasUserEdits
+          ? editable.username
+          : user?.displayName ?? state.username,
+      level: state.level,
+      xpCurrent: (state.totalXp % 100).toDouble(),
+      xpToNext: 100,
+      globalRank: 0,
+      totalMatches: matches,
+      wins: wins,
+      winRate: matches == 0 ? 0 : wins / matches * 100,
+      totalPoints: state.totalXp,
+      badges: buildBadges(currentLevel: state.level),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
-    final profile = ProfileProvider.of(context).profile;
+    final colorScheme = Theme.of(context).colorScheme;
+    final profile = _profile(context);
 
     return Scaffold(
       backgroundColor: colorScheme.surfaceContainerLowest,

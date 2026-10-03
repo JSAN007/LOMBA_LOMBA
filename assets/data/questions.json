@@ -1,0 +1,3254 @@
+{
+  "levels": [
+    {
+      "level": 1,
+      "questions": [
+        {
+          "id": 1,
+          "question": "Manakah password yang paling aman jika kamu menggunakan platform Facebook?",
+          "options": [
+            "password123",
+            "facebook123",
+            "P@ssw0rd123!",
+            "tanggal lahir"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Password aman menggunakan kombinasi huruf, angka, dan karakter spesial."
+        },
+        {
+          "id": 2,
+          "question": "Kamu menerima email dari admin@paypal-update.com meminta password lamamu. Apa tindakanmu?",
+          "options": [
+            "Abaikan dan hapus",
+            "Forward ke teman",
+            "Balas segera",
+            "Klik link di dalamnya"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Pihak resmi tidak pernah meminta informasi sensitif via email tak terduga."
+        },
+        {
+          "id": 3,
+          "question": "Saat mendaftar di Facebook, sebaiknya kamu menggunakan Autentikasi Dua Faktor (2FA) berupa...",
+          "options": [
+            "Menulis sandi di kertas",
+            "Aplikasi Authenticator (OTP)",
+            "Pertanyaan keamanan 'Siapa nama hewan peliharaan?'",
+            "Hanya password"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Aplikasi Authenticator jauh lebih aman daripada sekadar password atau pertanyaan keamanan."
+        },
+        {
+          "id": 4,
+          "question": "Data mana yang sebaiknya TIDAK kamu bagikan secara publik di profil Facebook mu?",
+          "options": [
+            "Hobi",
+            "Nomor Induk Kependudukan (NIK)",
+            "Foto makanan",
+            "Film favorit"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "NIK dapat disalahgunakan untuk penipuan identitas atau meminjam pinjol ilegal."
+        },
+        {
+          "id": 5,
+          "question": "Ciri utama dari website phishing yang menargetkan bank adalah...",
+          "options": [
+            "Desainnya jelek",
+            "URL domainnya sedikit berbeda (typo)",
+            "Loadingnya lambat",
+            "Berada di halaman 1 Google"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Website phishing sering menggunakan nama domain yang sangat mirip dengan aslinya (typosquatting)."
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "questions": [
+        {
+          "id": 6,
+          "question": "Manakah password yang paling aman jika kamu menggunakan platform Instagram?",
+          "options": [
+            "P@ssw0rd123!",
+            "instagram123",
+            "password123",
+            "tanggal lahir"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Password aman menggunakan kombinasi huruf, angka, dan karakter spesial."
+        },
+        {
+          "id": 7,
+          "question": "Kamu menerima email dari support@bca-verify.net meminta nomor kartu kredit. Apa tindakanmu?",
+          "options": [
+            "Klik link di dalamnya",
+            "Balas segera",
+            "Forward ke teman",
+            "Abaikan dan hapus"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Pihak resmi tidak pernah meminta informasi sensitif via email tak terduga."
+        },
+        {
+          "id": 8,
+          "question": "Saat mendaftar di Instagram, sebaiknya kamu menggunakan Autentikasi Dua Faktor (2FA) berupa...",
+          "options": [
+            "Aplikasi Authenticator (OTP)",
+            "Pertanyaan keamanan 'Siapa nama hewan peliharaan?'",
+            "Hanya password",
+            "Menulis sandi di kertas"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Aplikasi Authenticator jauh lebih aman daripada sekadar password atau pertanyaan keamanan."
+        },
+        {
+          "id": 9,
+          "question": "Data mana yang sebaiknya TIDAK kamu bagikan secara publik di profil Instagram mu?",
+          "options": [
+            "Nomor Induk Kependudukan (NIK)",
+            "Film favorit",
+            "Hobi",
+            "Foto makanan"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "NIK dapat disalahgunakan untuk penipuan identitas atau meminjam pinjol ilegal."
+        },
+        {
+          "id": 10,
+          "question": "Ciri utama dari website phishing yang menargetkan media sosial adalah...",
+          "options": [
+            "URL domainnya sedikit berbeda (typo)",
+            "Desainnya jelek",
+            "Loadingnya lambat",
+            "Berada di halaman 1 Google"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Website phishing sering menggunakan nama domain yang sangat mirip dengan aslinya (typosquatting)."
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "questions": [
+        {
+          "id": 11,
+          "question": "Manakah password yang paling aman jika kamu menggunakan platform WhatsApp?",
+          "options": [
+            "whatsapp123",
+            "password123",
+            "tanggal lahir",
+            "P@ssw0rd123!"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Password aman menggunakan kombinasi huruf, angka, dan karakter spesial."
+        },
+        {
+          "id": 12,
+          "question": "Kamu menerima email dari security@facebook-login.org meminta kode OTP. Apa tindakanmu?",
+          "options": [
+            "Abaikan dan hapus",
+            "Forward ke teman",
+            "Balas segera",
+            "Klik link di dalamnya"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Pihak resmi tidak pernah meminta informasi sensitif via email tak terduga."
+        },
+        {
+          "id": 13,
+          "question": "Saat mendaftar di WhatsApp, sebaiknya kamu menggunakan Autentikasi Dua Faktor (2FA) berupa...",
+          "options": [
+            "Aplikasi Authenticator (OTP)",
+            "Pertanyaan keamanan 'Siapa nama hewan peliharaan?'",
+            "Hanya password",
+            "Menulis sandi di kertas"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Aplikasi Authenticator jauh lebih aman daripada sekadar password atau pertanyaan keamanan."
+        },
+        {
+          "id": 14,
+          "question": "Data mana yang sebaiknya TIDAK kamu bagikan secara publik di profil Twitter mu?",
+          "options": [
+            "Film favorit",
+            "Hobi",
+            "Nomor Induk Kependudukan (NIK)",
+            "Foto makanan"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "NIK dapat disalahgunakan untuk penipuan identitas atau meminjam pinjol ilegal."
+        },
+        {
+          "id": 15,
+          "question": "Ciri utama dari website phishing yang menargetkan email adalah...",
+          "options": [
+            "Berada di halaman 1 Google",
+            "Loadingnya lambat",
+            "Desainnya jelek",
+            "URL domainnya sedikit berbeda (typo)"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Website phishing sering menggunakan nama domain yang sangat mirip dengan aslinya (typosquatting)."
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "questions": [
+        {
+          "id": 16,
+          "question": "Manakah password yang paling aman jika kamu menggunakan platform Google?",
+          "options": [
+            "password123",
+            "P@ssw0rd123!",
+            "tanggal lahir",
+            "google123"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Password aman menggunakan kombinasi huruf, angka, dan karakter spesial."
+        },
+        {
+          "id": 17,
+          "question": "Kamu menerima email dari info@netflix-billing.com meminta PIN ATM. Apa tindakanmu?",
+          "options": [
+            "Forward ke teman",
+            "Klik link di dalamnya",
+            "Balas segera",
+            "Abaikan dan hapus"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Pihak resmi tidak pernah meminta informasi sensitif via email tak terduga."
+        },
+        {
+          "id": 18,
+          "question": "Saat mendaftar di Google, sebaiknya kamu menggunakan Autentikasi Dua Faktor (2FA) berupa...",
+          "options": [
+            "Aplikasi Authenticator (OTP)",
+            "Pertanyaan keamanan 'Siapa nama hewan peliharaan?'",
+            "Menulis sandi di kertas",
+            "Hanya password"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Aplikasi Authenticator jauh lebih aman daripada sekadar password atau pertanyaan keamanan."
+        },
+        {
+          "id": 19,
+          "question": "Data mana yang sebaiknya TIDAK kamu bagikan secara publik di profil LinkedIn mu?",
+          "options": [
+            "Hobi",
+            "Film favorit",
+            "Foto makanan",
+            "Nomor Induk Kependudukan (NIK)"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "NIK dapat disalahgunakan untuk penipuan identitas atau meminjam pinjol ilegal."
+        },
+        {
+          "id": 20,
+          "question": "Ciri utama dari website phishing yang menargetkan e-commerce adalah...",
+          "options": [
+            "URL domainnya sedikit berbeda (typo)",
+            "Berada di halaman 1 Google",
+            "Desainnya jelek",
+            "Loadingnya lambat"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Website phishing sering menggunakan nama domain yang sangat mirip dengan aslinya (typosquatting)."
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "questions": [
+        {
+          "id": 21,
+          "question": "Manakah password yang paling aman jika kamu menggunakan platform Twitter?",
+          "options": [
+            "password123",
+            "twitter123",
+            "P@ssw0rd123!",
+            "tanggal lahir"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Password aman menggunakan kombinasi huruf, angka, dan karakter spesial."
+        },
+        {
+          "id": 22,
+          "question": "Kamu menerima email dari alert@google-security.net meminta foto KTP. Apa tindakanmu?",
+          "options": [
+            "Balas segera",
+            "Forward ke teman",
+            "Abaikan dan hapus",
+            "Klik link di dalamnya"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Pihak resmi tidak pernah meminta informasi sensitif via email tak terduga."
+        },
+        {
+          "id": 23,
+          "question": "Saat mendaftar di Twitter, sebaiknya kamu menggunakan Autentikasi Dua Faktor (2FA) berupa...",
+          "options": [
+            "Aplikasi Authenticator (OTP)",
+            "Hanya password",
+            "Menulis sandi di kertas",
+            "Pertanyaan keamanan 'Siapa nama hewan peliharaan?'"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Aplikasi Authenticator jauh lebih aman daripada sekadar password atau pertanyaan keamanan."
+        },
+        {
+          "id": 24,
+          "question": "Data mana yang sebaiknya TIDAK kamu bagikan secara publik di profil TikTok mu?",
+          "options": [
+            "Nomor Induk Kependudukan (NIK)",
+            "Film favorit",
+            "Foto makanan",
+            "Hobi"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "NIK dapat disalahgunakan untuk penipuan identitas atau meminjam pinjol ilegal."
+        },
+        {
+          "id": 25,
+          "question": "Ciri utama dari website phishing yang menargetkan game online adalah...",
+          "options": [
+            "URL domainnya sedikit berbeda (typo)",
+            "Berada di halaman 1 Google",
+            "Desainnya jelek",
+            "Loadingnya lambat"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Website phishing sering menggunakan nama domain yang sangat mirip dengan aslinya (typosquatting)."
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "questions": [
+        {
+          "id": 26,
+          "question": "Manakah password yang paling aman jika kamu menggunakan platform LinkedIn?",
+          "options": [
+            "linkedin123",
+            "tanggal lahir",
+            "P@ssw0rd123!",
+            "password123"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Password aman menggunakan kombinasi huruf, angka, dan karakter spesial."
+        },
+        {
+          "id": 27,
+          "question": "Kamu menerima email dari admin@tokopedia-promo.com meminta nama ibu kandung. Apa tindakanmu?",
+          "options": [
+            "Abaikan dan hapus",
+            "Klik link di dalamnya",
+            "Forward ke teman",
+            "Balas segera"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Pihak resmi tidak pernah meminta informasi sensitif via email tak terduga."
+        },
+        {
+          "id": 28,
+          "question": "Saat mendaftar di LinkedIn, sebaiknya kamu menggunakan Autentikasi Dua Faktor (2FA) berupa...",
+          "options": [
+            "Aplikasi Authenticator (OTP)",
+            "Hanya password",
+            "Pertanyaan keamanan 'Siapa nama hewan peliharaan?'",
+            "Menulis sandi di kertas"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Aplikasi Authenticator jauh lebih aman daripada sekadar password atau pertanyaan keamanan."
+        },
+        {
+          "id": 29,
+          "question": "Data mana yang sebaiknya TIDAK kamu bagikan secara publik di profil Discord mu?",
+          "options": [
+            "Hobi",
+            "Foto makanan",
+            "Film favorit",
+            "Nomor Induk Kependudukan (NIK)"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "NIK dapat disalahgunakan untuk penipuan identitas atau meminjam pinjol ilegal."
+        },
+        {
+          "id": 30,
+          "question": "Ciri utama dari website phishing yang menargetkan dompet digital adalah...",
+          "options": [
+            "Loadingnya lambat",
+            "Berada di halaman 1 Google",
+            "Desainnya jelek",
+            "URL domainnya sedikit berbeda (typo)"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Website phishing sering menggunakan nama domain yang sangat mirip dengan aslinya (typosquatting)."
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "questions": [
+        {
+          "id": 31,
+          "question": "Manakah password yang paling aman jika kamu menggunakan platform TikTok?",
+          "options": [
+            "tiktok123",
+            "P@ssw0rd123!",
+            "password123",
+            "tanggal lahir"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Password aman menggunakan kombinasi huruf, angka, dan karakter spesial."
+        },
+        {
+          "id": 32,
+          "question": "Kamu menerima email dari cs@shopee-pay.net meminta CVV kartu. Apa tindakanmu?",
+          "options": [
+            "Klik link di dalamnya",
+            "Balas segera",
+            "Forward ke teman",
+            "Abaikan dan hapus"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Pihak resmi tidak pernah meminta informasi sensitif via email tak terduga."
+        },
+        {
+          "id": 33,
+          "question": "Saat mendaftar di TikTok, sebaiknya kamu menggunakan Autentikasi Dua Faktor (2FA) berupa...",
+          "options": [
+            "Menulis sandi di kertas",
+            "Pertanyaan keamanan 'Siapa nama hewan peliharaan?'",
+            "Aplikasi Authenticator (OTP)",
+            "Hanya password"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Aplikasi Authenticator jauh lebih aman daripada sekadar password atau pertanyaan keamanan."
+        },
+        {
+          "id": 34,
+          "question": "Data mana yang sebaiknya TIDAK kamu bagikan secara publik di profil Snapchat mu?",
+          "options": [
+            "Nomor Induk Kependudukan (NIK)",
+            "Foto makanan",
+            "Film favorit",
+            "Hobi"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "NIK dapat disalahgunakan untuk penipuan identitas atau meminjam pinjol ilegal."
+        },
+        {
+          "id": 35,
+          "question": "Ciri utama dari website phishing yang menargetkan aplikasi chat adalah...",
+          "options": [
+            "URL domainnya sedikit berbeda (typo)",
+            "Berada di halaman 1 Google",
+            "Desainnya jelek",
+            "Loadingnya lambat"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Website phishing sering menggunakan nama domain yang sangat mirip dengan aslinya (typosquatting)."
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "questions": [
+        {
+          "id": 36,
+          "question": "Manakah password yang paling aman jika kamu menggunakan platform Shopee?",
+          "options": [
+            "shopee123",
+            "tanggal lahir",
+            "password123",
+            "P@ssw0rd123!"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Password aman menggunakan kombinasi huruf, angka, dan karakter spesial."
+        },
+        {
+          "id": 37,
+          "question": "Kamu menerima email dari no-reply@instagram-badge.com meminta kode verifikasi email. Apa tindakanmu?",
+          "options": [
+            "Balas segera",
+            "Klik link di dalamnya",
+            "Abaikan dan hapus",
+            "Forward ke teman"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Pihak resmi tidak pernah meminta informasi sensitif via email tak terduga."
+        },
+        {
+          "id": 38,
+          "question": "Saat mendaftar di Shopee, sebaiknya kamu menggunakan Autentikasi Dua Faktor (2FA) berupa...",
+          "options": [
+            "Pertanyaan keamanan 'Siapa nama hewan peliharaan?'",
+            "Menulis sandi di kertas",
+            "Aplikasi Authenticator (OTP)",
+            "Hanya password"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Aplikasi Authenticator jauh lebih aman daripada sekadar password atau pertanyaan keamanan."
+        },
+        {
+          "id": 39,
+          "question": "Data mana yang sebaiknya TIDAK kamu bagikan secara publik di profil Telegram mu?",
+          "options": [
+            "Hobi",
+            "Nomor Induk Kependudukan (NIK)",
+            "Film favorit",
+            "Foto makanan"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "NIK dapat disalahgunakan untuk penipuan identitas atau meminjam pinjol ilegal."
+        },
+        {
+          "id": 40,
+          "question": "Ciri utama dari website phishing yang menargetkan situs pemerintah adalah...",
+          "options": [
+            "Berada di halaman 1 Google",
+            "Loadingnya lambat",
+            "Desainnya jelek",
+            "URL domainnya sedikit berbeda (typo)"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Website phishing sering menggunakan nama domain yang sangat mirip dengan aslinya (typosquatting)."
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "questions": [
+        {
+          "id": 41,
+          "question": "Manakah password yang paling aman jika kamu menggunakan platform Gojek?",
+          "options": [
+            "password123",
+            "gojek123",
+            "P@ssw0rd123!",
+            "tanggal lahir"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Password aman menggunakan kombinasi huruf, angka, dan karakter spesial."
+        },
+        {
+          "id": 42,
+          "question": "Kamu menerima email dari verify@whatsapp-web.net meminta password email. Apa tindakanmu?",
+          "options": [
+            "Abaikan dan hapus",
+            "Balas segera",
+            "Klik link di dalamnya",
+            "Forward ke teman"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Pihak resmi tidak pernah meminta informasi sensitif via email tak terduga."
+        },
+        {
+          "id": 43,
+          "question": "Saat mendaftar di Gojek, sebaiknya kamu menggunakan Autentikasi Dua Faktor (2FA) berupa...",
+          "options": [
+            "Aplikasi Authenticator (OTP)",
+            "Menulis sandi di kertas",
+            "Pertanyaan keamanan 'Siapa nama hewan peliharaan?'",
+            "Hanya password"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Aplikasi Authenticator jauh lebih aman daripada sekadar password atau pertanyaan keamanan."
+        },
+        {
+          "id": 44,
+          "question": "Data mana yang sebaiknya TIDAK kamu bagikan secara publik di profil Reddit mu?",
+          "options": [
+            "Nomor Induk Kependudukan (NIK)",
+            "Foto makanan",
+            "Hobi",
+            "Film favorit"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "NIK dapat disalahgunakan untuk penipuan identitas atau meminjam pinjol ilegal."
+        },
+        {
+          "id": 45,
+          "question": "Ciri utama dari website phishing yang menargetkan forum adalah...",
+          "options": [
+            "Desainnya jelek",
+            "Berada di halaman 1 Google",
+            "URL domainnya sedikit berbeda (typo)",
+            "Loadingnya lambat"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Website phishing sering menggunakan nama domain yang sangat mirip dengan aslinya (typosquatting)."
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "questions": [
+        {
+          "id": 46,
+          "question": "Manakah password yang paling aman jika kamu menggunakan platform Netflix?",
+          "options": [
+            "tanggal lahir",
+            "P@ssw0rd123!",
+            "netflix123",
+            "password123"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Password aman menggunakan kombinasi huruf, angka, dan karakter spesial."
+        },
+        {
+          "id": 47,
+          "question": "Kamu menerima email dari support@apple-icloud.org meminta tanggal lahir. Apa tindakanmu?",
+          "options": [
+            "Klik link di dalamnya",
+            "Balas segera",
+            "Abaikan dan hapus",
+            "Forward ke teman"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Pihak resmi tidak pernah meminta informasi sensitif via email tak terduga."
+        },
+        {
+          "id": 48,
+          "question": "Saat mendaftar di Netflix, sebaiknya kamu menggunakan Autentikasi Dua Faktor (2FA) berupa...",
+          "options": [
+            "Pertanyaan keamanan 'Siapa nama hewan peliharaan?'",
+            "Aplikasi Authenticator (OTP)",
+            "Menulis sandi di kertas",
+            "Hanya password"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Aplikasi Authenticator jauh lebih aman daripada sekadar password atau pertanyaan keamanan."
+        },
+        {
+          "id": 49,
+          "question": "Data mana yang sebaiknya TIDAK kamu bagikan secara publik di profil Pinterest mu?",
+          "options": [
+            "Nomor Induk Kependudukan (NIK)",
+            "Foto makanan",
+            "Film favorit",
+            "Hobi"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "NIK dapat disalahgunakan untuk penipuan identitas atau meminjam pinjol ilegal."
+        },
+        {
+          "id": 50,
+          "question": "Ciri utama dari website phishing yang menargetkan situs streaming adalah...",
+          "options": [
+            "Loadingnya lambat",
+            "Berada di halaman 1 Google",
+            "URL domainnya sedikit berbeda (typo)",
+            "Desainnya jelek"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Website phishing sering menggunakan nama domain yang sangat mirip dengan aslinya (typosquatting)."
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "questions": [
+        {
+          "id": 51,
+          "question": "Saat menggunakan WiFi publik di kafe, aktivitas apa yang paling berisiko?",
+          "options": [
+            "Membaca berita",
+            "Menonton YouTube",
+            "Membuka m-Banking",
+            "Bermain game offline"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "WiFi publik sangat rentan terhadap penyadapan lalu lintas jaringan (sniffing)."
+        },
+        {
+          "id": 52,
+          "question": "Jenis malware yang menyandera file dan meminta tebusan disebut...",
+          "options": [
+            "Firewall",
+            "Router",
+            "Antivirus",
+            "Ransomware"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Itulah definisi dari Ransomware."
+        },
+        {
+          "id": 53,
+          "question": "Seorang penyerang menelpon sebagai IT support palsu. Ini adalah contoh dari...",
+          "options": [
+            "Hacking Jaringan",
+            "Programming",
+            "Vishing (Voice Phishing)",
+            "Kriptografi"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Vishing (Voice Phishing) adalah salah satu teknik Social Engineering."
+        },
+        {
+          "id": 54,
+          "question": "Kamu melihat peringatan virus acak muncul saat mengunjungi sebuah situs. Langkah pertama adalah...",
+          "options": [
+            "Install aplikasi yang disarankan",
+            "Masukkan email",
+            "Tutup tab/browser",
+            "Klik tombol 'Bersihkan Sekarang'"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Itu biasanya pop-up scareware. Jangan pernah mengklik peringatan palsu."
+        },
+        {
+          "id": 55,
+          "question": "Mengapa menggunakan VPN saat di jaringan publik kafe itu penting?",
+          "options": [
+            "Membersihkan virus",
+            "Mengenksripsi koneksi dari penyadap",
+            "Mendapat akses VIP",
+            "Mempercepat internet"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "VPN membuat terowongan terenkripsi sehingga trafik tidak bisa dibaca oleh peretas di jaringan yang sama."
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "questions": [
+        {
+          "id": 56,
+          "question": "Saat menggunakan WiFi publik di bandara, aktivitas apa yang paling berisiko?",
+          "options": [
+            "Membaca berita",
+            "Membuka m-Banking",
+            "Bermain game offline",
+            "Menonton YouTube"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "WiFi publik sangat rentan terhadap penyadapan lalu lintas jaringan (sniffing)."
+        },
+        {
+          "id": 57,
+          "question": "Jenis malware yang menyembunyikan diri dalam program yang tampak sah disebut...",
+          "options": [
+            "Firewall",
+            "Antivirus",
+            "Trojan",
+            "Router"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Itulah definisi dari Trojan."
+        },
+        {
+          "id": 58,
+          "question": "Seorang penyerang mengirim SMS berisi link undian palsu. Ini adalah contoh dari...",
+          "options": [
+            "Programming",
+            "Hacking Jaringan",
+            "Smishing",
+            "Kriptografi"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Smishing adalah salah satu teknik Social Engineering."
+        },
+        {
+          "id": 59,
+          "question": "Kamu melihat peringatan virus acak muncul saat mengunjungi sebuah situs. Langkah pertama adalah...",
+          "options": [
+            "Install aplikasi yang disarankan",
+            "Klik tombol 'Bersihkan Sekarang'",
+            "Tutup tab/browser",
+            "Masukkan email"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Itu biasanya pop-up scareware. Jangan pernah mengklik peringatan palsu."
+        },
+        {
+          "id": 60,
+          "question": "Mengapa menggunakan VPN saat di jaringan publik bandara itu penting?",
+          "options": [
+            "Membersihkan virus",
+            "Mempercepat internet",
+            "Mengenksripsi koneksi dari penyadap",
+            "Mendapat akses VIP"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "VPN membuat terowongan terenkripsi sehingga trafik tidak bisa dibaca oleh peretas di jaringan yang sama."
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "questions": [
+        {
+          "id": 61,
+          "question": "Saat menggunakan WiFi publik di stasiun, aktivitas apa yang paling berisiko?",
+          "options": [
+            "Menonton YouTube",
+            "Membaca berita",
+            "Bermain game offline",
+            "Membuka m-Banking"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "WiFi publik sangat rentan terhadap penyadapan lalu lintas jaringan (sniffing)."
+        },
+        {
+          "id": 62,
+          "question": "Jenis malware yang menggandakan diri melalui jaringan tanpa interaksi user disebut...",
+          "options": [
+            "Antivirus",
+            "Router",
+            "Worm",
+            "Firewall"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Itulah definisi dari Worm."
+        },
+        {
+          "id": 63,
+          "question": "Seorang penyerang berpura-pura menjadi CEO perusahaan via email. Ini adalah contoh dari...",
+          "options": [
+            "Hacking Jaringan",
+            "Programming",
+            "Kriptografi",
+            "Whaling"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Whaling adalah salah satu teknik Social Engineering."
+        },
+        {
+          "id": 64,
+          "question": "Kamu melihat peringatan virus acak muncul saat mengunjungi sebuah situs. Langkah pertama adalah...",
+          "options": [
+            "Masukkan email",
+            "Tutup tab/browser",
+            "Klik tombol 'Bersihkan Sekarang'",
+            "Install aplikasi yang disarankan"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Itu biasanya pop-up scareware. Jangan pernah mengklik peringatan palsu."
+        },
+        {
+          "id": 65,
+          "question": "Mengapa menggunakan VPN saat di jaringan publik stasiun itu penting?",
+          "options": [
+            "Mengenksripsi koneksi dari penyadap",
+            "Membersihkan virus",
+            "Mempercepat internet",
+            "Mendapat akses VIP"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "VPN membuat terowongan terenkripsi sehingga trafik tidak bisa dibaca oleh peretas di jaringan yang sama."
+        }
+      ]
+    },
+    {
+      "level": 14,
+      "questions": [
+        {
+          "id": 66,
+          "question": "Saat menggunakan WiFi publik di hotel, aktivitas apa yang paling berisiko?",
+          "options": [
+            "Menonton YouTube",
+            "Membuka m-Banking",
+            "Bermain game offline",
+            "Membaca berita"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "WiFi publik sangat rentan terhadap penyadapan lalu lintas jaringan (sniffing)."
+        },
+        {
+          "id": 67,
+          "question": "Jenis malware yang merekam ketikan keyboard disebut...",
+          "options": [
+            "Keylogger",
+            "Router",
+            "Antivirus",
+            "Firewall"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Itulah definisi dari Keylogger."
+        },
+        {
+          "id": 68,
+          "question": "Seorang penyerang meninggalkan flashdisk berisi malware di tempat parkir. Ini adalah contoh dari...",
+          "options": [
+            "Programming",
+            "Kriptografi",
+            "Hacking Jaringan",
+            "Baiting"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Baiting adalah salah satu teknik Social Engineering."
+        },
+        {
+          "id": 69,
+          "question": "Kamu melihat peringatan virus acak muncul saat mengunjungi sebuah situs. Langkah pertama adalah...",
+          "options": [
+            "Masukkan email",
+            "Klik tombol 'Bersihkan Sekarang'",
+            "Install aplikasi yang disarankan",
+            "Tutup tab/browser"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Itu biasanya pop-up scareware. Jangan pernah mengklik peringatan palsu."
+        },
+        {
+          "id": 70,
+          "question": "Mengapa menggunakan VPN saat di jaringan publik hotel itu penting?",
+          "options": [
+            "Membersihkan virus",
+            "Mempercepat internet",
+            "Mendapat akses VIP",
+            "Mengenksripsi koneksi dari penyadap"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "VPN membuat terowongan terenkripsi sehingga trafik tidak bisa dibaca oleh peretas di jaringan yang sama."
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "questions": [
+        {
+          "id": 71,
+          "question": "Saat menggunakan WiFi publik di taman kota, aktivitas apa yang paling berisiko?",
+          "options": [
+            "Membuka m-Banking",
+            "Menonton YouTube",
+            "Membaca berita",
+            "Bermain game offline"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "WiFi publik sangat rentan terhadap penyadapan lalu lintas jaringan (sniffing)."
+        },
+        {
+          "id": 72,
+          "question": "Jenis malware yang menampilkan iklan yang mengganggu terus-menerus disebut...",
+          "options": [
+            "Router",
+            "Firewall",
+            "Antivirus",
+            "Adware"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Itulah definisi dari Adware."
+        },
+        {
+          "id": 73,
+          "question": "Seorang penyerang mengikuti karyawan masuk ke ruang server tanpa kartu akses. Ini adalah contoh dari...",
+          "options": [
+            "Hacking Jaringan",
+            "Kriptografi",
+            "Tailgating",
+            "Programming"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Tailgating adalah salah satu teknik Social Engineering."
+        },
+        {
+          "id": 74,
+          "question": "Kamu melihat peringatan virus acak muncul saat mengunjungi sebuah situs. Langkah pertama adalah...",
+          "options": [
+            "Install aplikasi yang disarankan",
+            "Tutup tab/browser",
+            "Klik tombol 'Bersihkan Sekarang'",
+            "Masukkan email"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Itu biasanya pop-up scareware. Jangan pernah mengklik peringatan palsu."
+        },
+        {
+          "id": 75,
+          "question": "Mengapa menggunakan VPN saat di jaringan publik taman kota itu penting?",
+          "options": [
+            "Mempercepat internet",
+            "Mengenksripsi koneksi dari penyadap",
+            "Membersihkan virus",
+            "Mendapat akses VIP"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "VPN membuat terowongan terenkripsi sehingga trafik tidak bisa dibaca oleh peretas di jaringan yang sama."
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "questions": [
+        {
+          "id": 76,
+          "question": "Saat menggunakan WiFi publik di perpustakaan, aktivitas apa yang paling berisiko?",
+          "options": [
+            "Bermain game offline",
+            "Membaca berita",
+            "Menonton YouTube",
+            "Membuka m-Banking"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "WiFi publik sangat rentan terhadap penyadapan lalu lintas jaringan (sniffing)."
+        },
+        {
+          "id": 77,
+          "question": "Jenis malware yang memberikan akses kontrol penuh dari jarak jauh disebut...",
+          "options": [
+            "RAT (Remote Access Trojan)",
+            "Antivirus",
+            "Router",
+            "Firewall"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Itulah definisi dari RAT (Remote Access Trojan)."
+        },
+        {
+          "id": 78,
+          "question": "Seorang penyerang membuat profil LinkedIn palsu untuk merekrut karyawan. Ini adalah contoh dari...",
+          "options": [
+            "Programming",
+            "Kriptografi",
+            "Hacking Jaringan",
+            "Pretexting"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Pretexting adalah salah satu teknik Social Engineering."
+        },
+        {
+          "id": 79,
+          "question": "Kamu melihat peringatan virus acak muncul saat mengunjungi sebuah situs. Langkah pertama adalah...",
+          "options": [
+            "Klik tombol 'Bersihkan Sekarang'",
+            "Masukkan email",
+            "Install aplikasi yang disarankan",
+            "Tutup tab/browser"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Itu biasanya pop-up scareware. Jangan pernah mengklik peringatan palsu."
+        },
+        {
+          "id": 80,
+          "question": "Mengapa menggunakan VPN saat di jaringan publik perpustakaan itu penting?",
+          "options": [
+            "Mendapat akses VIP",
+            "Mengenksripsi koneksi dari penyadap",
+            "Mempercepat internet",
+            "Membersihkan virus"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "VPN membuat terowongan terenkripsi sehingga trafik tidak bisa dibaca oleh peretas di jaringan yang sama."
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "questions": [
+        {
+          "id": 81,
+          "question": "Saat menggunakan WiFi publik di kampus, aktivitas apa yang paling berisiko?",
+          "options": [
+            "Membuka m-Banking",
+            "Menonton YouTube",
+            "Membaca berita",
+            "Bermain game offline"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "WiFi publik sangat rentan terhadap penyadapan lalu lintas jaringan (sniffing)."
+        },
+        {
+          "id": 82,
+          "question": "Jenis malware yang menggunakan komputer korban untuk menambang kripto disebut...",
+          "options": [
+            "Antivirus",
+            "Firewall",
+            "Router",
+            "Cryptominer"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Itulah definisi dari Cryptominer."
+        },
+        {
+          "id": 83,
+          "question": "Seorang penyerang mengubah URL agar mirip dengan aslinya. Ini adalah contoh dari...",
+          "options": [
+            "Hacking Jaringan",
+            "Kriptografi",
+            "Programming",
+            "Typosquatting"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Typosquatting adalah salah satu teknik Social Engineering."
+        },
+        {
+          "id": 84,
+          "question": "Kamu melihat peringatan virus acak muncul saat mengunjungi sebuah situs. Langkah pertama adalah...",
+          "options": [
+            "Install aplikasi yang disarankan",
+            "Tutup tab/browser",
+            "Klik tombol 'Bersihkan Sekarang'",
+            "Masukkan email"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Itu biasanya pop-up scareware. Jangan pernah mengklik peringatan palsu."
+        },
+        {
+          "id": 85,
+          "question": "Mengapa menggunakan VPN saat di jaringan publik kampus itu penting?",
+          "options": [
+            "Membersihkan virus",
+            "Mengenksripsi koneksi dari penyadap",
+            "Mempercepat internet",
+            "Mendapat akses VIP"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "VPN membuat terowongan terenkripsi sehingga trafik tidak bisa dibaca oleh peretas di jaringan yang sama."
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "questions": [
+        {
+          "id": 86,
+          "question": "Saat menggunakan WiFi publik di mall, aktivitas apa yang paling berisiko?",
+          "options": [
+            "Bermain game offline",
+            "Menonton YouTube",
+            "Membaca berita",
+            "Membuka m-Banking"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "WiFi publik sangat rentan terhadap penyadapan lalu lintas jaringan (sniffing)."
+        },
+        {
+          "id": 87,
+          "question": "Jenis malware yang mengubah pengaturan DNS secara diam-diam disebut...",
+          "options": [
+            "Router",
+            "DNS Hijacker",
+            "Antivirus",
+            "Firewall"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Itulah definisi dari DNS Hijacker."
+        },
+        {
+          "id": 88,
+          "question": "Seorang penyerang mengaduk-aduk tempat sampah untuk mencari dokumen rahasia. Ini adalah contoh dari...",
+          "options": [
+            "Kriptografi",
+            "Hacking Jaringan",
+            "Dumpster Diving",
+            "Programming"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Dumpster Diving adalah salah satu teknik Social Engineering."
+        },
+        {
+          "id": 89,
+          "question": "Kamu melihat peringatan virus acak muncul saat mengunjungi sebuah situs. Langkah pertama adalah...",
+          "options": [
+            "Masukkan email",
+            "Tutup tab/browser",
+            "Klik tombol 'Bersihkan Sekarang'",
+            "Install aplikasi yang disarankan"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Itu biasanya pop-up scareware. Jangan pernah mengklik peringatan palsu."
+        },
+        {
+          "id": 90,
+          "question": "Mengapa menggunakan VPN saat di jaringan publik mall itu penting?",
+          "options": [
+            "Membersihkan virus",
+            "Mengenksripsi koneksi dari penyadap",
+            "Mendapat akses VIP",
+            "Mempercepat internet"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "VPN membuat terowongan terenkripsi sehingga trafik tidak bisa dibaca oleh peretas di jaringan yang sama."
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "questions": [
+        {
+          "id": 91,
+          "question": "Saat menggunakan WiFi publik di rumah sakit, aktivitas apa yang paling berisiko?",
+          "options": [
+            "Menonton YouTube",
+            "Bermain game offline",
+            "Membuka m-Banking",
+            "Membaca berita"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "WiFi publik sangat rentan terhadap penyadapan lalu lintas jaringan (sniffing)."
+        },
+        {
+          "id": 92,
+          "question": "Jenis malware yang merusak sektor boot hard drive disebut...",
+          "options": [
+            "Router",
+            "Firewall",
+            "Boot Sector Virus",
+            "Antivirus"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Itulah definisi dari Boot Sector Virus."
+        },
+        {
+          "id": 93,
+          "question": "Seorang penyerang melihat ketikan password dari belakang bahu. Ini adalah contoh dari...",
+          "options": [
+            "Programming",
+            "Hacking Jaringan",
+            "Shoulder Surfing",
+            "Kriptografi"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Shoulder Surfing adalah salah satu teknik Social Engineering."
+        },
+        {
+          "id": 94,
+          "question": "Kamu melihat peringatan virus acak muncul saat mengunjungi sebuah situs. Langkah pertama adalah...",
+          "options": [
+            "Install aplikasi yang disarankan",
+            "Tutup tab/browser",
+            "Masukkan email",
+            "Klik tombol 'Bersihkan Sekarang'"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Itu biasanya pop-up scareware. Jangan pernah mengklik peringatan palsu."
+        },
+        {
+          "id": 95,
+          "question": "Mengapa menggunakan VPN saat di jaringan publik rumah sakit itu penting?",
+          "options": [
+            "Mempercepat internet",
+            "Mengenksripsi koneksi dari penyadap",
+            "Mendapat akses VIP",
+            "Membersihkan virus"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "VPN membuat terowongan terenkripsi sehingga trafik tidak bisa dibaca oleh peretas di jaringan yang sama."
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "questions": [
+        {
+          "id": 96,
+          "question": "Saat menggunakan WiFi publik di restoran, aktivitas apa yang paling berisiko?",
+          "options": [
+            "Menonton YouTube",
+            "Membuka m-Banking",
+            "Membaca berita",
+            "Bermain game offline"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "WiFi publik sangat rentan terhadap penyadapan lalu lintas jaringan (sniffing)."
+        },
+        {
+          "id": 97,
+          "question": "Jenis malware yang mencuri cookie sesi dari browser disebut...",
+          "options": [
+            "Router",
+            "Firewall",
+            "Spyware",
+            "Antivirus"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Itulah definisi dari Spyware."
+        },
+        {
+          "id": 98,
+          "question": "Seorang penyerang menawarkan bantuan teknis yang tidak diminta. Ini adalah contoh dari...",
+          "options": [
+            "Programming",
+            "Kriptografi",
+            "Quid Pro Quo",
+            "Hacking Jaringan"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Quid Pro Quo adalah salah satu teknik Social Engineering."
+        },
+        {
+          "id": 99,
+          "question": "Kamu melihat peringatan virus acak muncul saat mengunjungi sebuah situs. Langkah pertama adalah...",
+          "options": [
+            "Klik tombol 'Bersihkan Sekarang'",
+            "Masukkan email",
+            "Tutup tab/browser",
+            "Install aplikasi yang disarankan"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Itu biasanya pop-up scareware. Jangan pernah mengklik peringatan palsu."
+        },
+        {
+          "id": 100,
+          "question": "Mengapa menggunakan VPN saat di jaringan publik restoran itu penting?",
+          "options": [
+            "Membersihkan virus",
+            "Mempercepat internet",
+            "Mengenksripsi koneksi dari penyadap",
+            "Mendapat akses VIP"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "VPN membuat terowongan terenkripsi sehingga trafik tidak bisa dibaca oleh peretas di jaringan yang sama."
+        }
+      ]
+    },
+    {
+      "level": 21,
+      "questions": [
+        {
+          "id": 101,
+          "question": "Protokol HTTP umumnya beroperasi pada port...",
+          "options": [
+            "80",
+            "8080",
+            "123",
+            "4444"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Port default untuk HTTP adalah 80."
+        },
+        {
+          "id": 102,
+          "question": "Konsep Confidentiality (Kerahasiaan) dalam keamanan informasi berfokus pada...",
+          "options": [
+            "mencegah data diakses oleh pihak tak berwenang",
+            "memperbarui hardware",
+            "meningkatkan kecepatan jaringan",
+            "menghapus akun lama"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Dalam CIA Triad, Confidentiality (Kerahasiaan) bertujuan mencegah data diakses oleh pihak tak berwenang."
+        },
+        {
+          "id": 103,
+          "question": "Algoritma enkripsi AES termasuk dalam kategori kriptografi...",
+          "options": [
+            "Hashing",
+            "Steganography",
+            "Encoding",
+            "Simetris"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "AES adalah algoritma Simetris."
+        },
+        {
+          "id": 104,
+          "question": "Tujuan/metode utama dari Packet Filtering adalah...",
+          "options": [
+            "mempercepat koneksi internet",
+            "mengelola password",
+            "menyaring trafik berdasarkan IP dan Port",
+            "mendeteksi virus lokal"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Packet Filtering bekerja dengan menyaring trafik berdasarkan IP dan Port."
+        },
+        {
+          "id": 105,
+          "question": "Untuk memverifikasi integritas .exe (Executable) yang diunduh, kita harus memeriksa nilai...",
+          "options": [
+            "Tanggal rilis",
+            "Hash (seperti SHA-256)",
+            "Nama pembuat",
+            "Ukuran byte"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Nilai hash memastikan file tidak diubah sediktpun sejak dirilis."
+        }
+      ]
+    },
+    {
+      "level": 22,
+      "questions": [
+        {
+          "id": 106,
+          "question": "Protokol HTTPS umumnya beroperasi pada port...",
+          "options": [
+            "123",
+            "443",
+            "8080",
+            "4444"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Port default untuk HTTPS adalah 443."
+        },
+        {
+          "id": 107,
+          "question": "Konsep Integrity (Integritas) dalam keamanan informasi berfokus pada...",
+          "options": [
+            "mencegah data diubah oleh pihak tak berwenang",
+            "meningkatkan kecepatan jaringan",
+            "memperbarui hardware",
+            "menghapus akun lama"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Dalam CIA Triad, Integrity (Integritas) bertujuan mencegah data diubah oleh pihak tak berwenang."
+        },
+        {
+          "id": 108,
+          "question": "Algoritma enkripsi RSA termasuk dalam kategori kriptografi...",
+          "options": [
+            "Hashing",
+            "Steganography",
+            "Encoding",
+            "Asimetris"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "RSA adalah algoritma Asimetris."
+        },
+        {
+          "id": 109,
+          "question": "Tujuan/metode utama dari Stateful Inspection adalah...",
+          "options": [
+            "mengelola password",
+            "mendeteksi virus lokal",
+            "melacak status koneksi aktif",
+            "mempercepat koneksi internet"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Stateful Inspection bekerja dengan melacak status koneksi aktif."
+        },
+        {
+          "id": 110,
+          "question": "Untuk memverifikasi integritas ISO (Disk Image) yang diunduh, kita harus memeriksa nilai...",
+          "options": [
+            "Tanggal rilis",
+            "Ukuran byte",
+            "Nama pembuat",
+            "Hash (seperti SHA-256)"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Nilai hash memastikan file tidak diubah sediktpun sejak dirilis."
+        }
+      ]
+    },
+    {
+      "level": 23,
+      "questions": [
+        {
+          "id": 111,
+          "question": "Protokol SSH umumnya beroperasi pada port...",
+          "options": [
+            "22",
+            "8080",
+            "4444",
+            "123"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Port default untuk SSH adalah 22."
+        },
+        {
+          "id": 112,
+          "question": "Konsep Availability (Ketersediaan) dalam keamanan informasi berfokus pada...",
+          "options": [
+            "menghapus akun lama",
+            "memastikan layanan selalu bisa diakses saat dibutuhkan",
+            "meningkatkan kecepatan jaringan",
+            "memperbarui hardware"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Dalam CIA Triad, Availability (Ketersediaan) bertujuan memastikan layanan selalu bisa diakses saat dibutuhkan."
+        },
+        {
+          "id": 113,
+          "question": "Algoritma enkripsi DES termasuk dalam kategori kriptografi...",
+          "options": [
+            "Hashing",
+            "Encoding",
+            "Steganography",
+            "Simetris"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "DES adalah algoritma Simetris."
+        },
+        {
+          "id": 114,
+          "question": "Tujuan/metode utama dari WAF (Web Application Firewall) adalah...",
+          "options": [
+            "mempercepat koneksi internet",
+            "mengelola password",
+            "melindungi web dari serangan layer 7 seperti SQLi",
+            "mendeteksi virus lokal"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "WAF (Web Application Firewall) bekerja dengan melindungi web dari serangan layer 7 seperti SQLi."
+        },
+        {
+          "id": 115,
+          "question": "Untuk memverifikasi integritas .pdf (Dokumen) yang diunduh, kita harus memeriksa nilai...",
+          "options": [
+            "Tanggal rilis",
+            "Hash (seperti SHA-256)",
+            "Ukuran byte",
+            "Nama pembuat"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Nilai hash memastikan file tidak diubah sediktpun sejak dirilis."
+        }
+      ]
+    },
+    {
+      "level": 24,
+      "questions": [
+        {
+          "id": 116,
+          "question": "Protokol FTP umumnya beroperasi pada port...",
+          "options": [
+            "21",
+            "4444",
+            "123",
+            "8080"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Port default untuk FTP adalah 21."
+        },
+        {
+          "id": 117,
+          "question": "Konsep Confidentiality (Kerahasiaan) dalam keamanan informasi berfokus pada...",
+          "options": [
+            "mencegah data diakses oleh pihak tak berwenang",
+            "menghapus akun lama",
+            "memperbarui hardware",
+            "meningkatkan kecepatan jaringan"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Dalam CIA Triad, Confidentiality (Kerahasiaan) bertujuan mencegah data diakses oleh pihak tak berwenang."
+        },
+        {
+          "id": 118,
+          "question": "Algoritma enkripsi ECC termasuk dalam kategori kriptografi...",
+          "options": [
+            "Steganography",
+            "Asimetris",
+            "Encoding",
+            "Hashing"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "ECC adalah algoritma Asimetris."
+        },
+        {
+          "id": 119,
+          "question": "Tujuan/metode utama dari NGFW (Next-Gen Firewall) adalah...",
+          "options": [
+            "mempercepat koneksi internet",
+            "menggabungkan DPI, IPS, dan kontrol aplikasi",
+            "mengelola password",
+            "mendeteksi virus lokal"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "NGFW (Next-Gen Firewall) bekerja dengan menggabungkan DPI, IPS, dan kontrol aplikasi."
+        },
+        {
+          "id": 120,
+          "question": "Untuk memverifikasi integritas .apk (Android Package) yang diunduh, kita harus memeriksa nilai...",
+          "options": [
+            "Hash (seperti SHA-256)",
+            "Nama pembuat",
+            "Tanggal rilis",
+            "Ukuran byte"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Nilai hash memastikan file tidak diubah sediktpun sejak dirilis."
+        }
+      ]
+    },
+    {
+      "level": 25,
+      "questions": [
+        {
+          "id": 121,
+          "question": "Protokol DNS umumnya beroperasi pada port...",
+          "options": [
+            "8080",
+            "53",
+            "4444",
+            "123"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Port default untuk DNS adalah 53."
+        },
+        {
+          "id": 122,
+          "question": "Konsep Integrity (Integritas) dalam keamanan informasi berfokus pada...",
+          "options": [
+            "memperbarui hardware",
+            "meningkatkan kecepatan jaringan",
+            "menghapus akun lama",
+            "mencegah data diubah oleh pihak tak berwenang"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Dalam CIA Triad, Integrity (Integritas) bertujuan mencegah data diubah oleh pihak tak berwenang."
+        },
+        {
+          "id": 123,
+          "question": "Algoritma enkripsi Blowfish termasuk dalam kategori kriptografi...",
+          "options": [
+            "Encoding",
+            "Steganography",
+            "Simetris",
+            "Hashing"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Blowfish adalah algoritma Simetris."
+        },
+        {
+          "id": 124,
+          "question": "Tujuan/metode utama dari Proxy Firewall adalah...",
+          "options": [
+            "mendeteksi virus lokal",
+            "mempercepat koneksi internet",
+            "bertindak sebagai perantara antara klien dan server",
+            "mengelola password"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Proxy Firewall bekerja dengan bertindak sebagai perantara antara klien dan server."
+        },
+        {
+          "id": 125,
+          "question": "Untuk memverifikasi integritas Firmware Update yang diunduh, kita harus memeriksa nilai...",
+          "options": [
+            "Hash (seperti SHA-256)",
+            "Nama pembuat",
+            "Ukuran byte",
+            "Tanggal rilis"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Nilai hash memastikan file tidak diubah sediktpun sejak dirilis."
+        }
+      ]
+    },
+    {
+      "level": 26,
+      "questions": [
+        {
+          "id": 126,
+          "question": "Protokol SMTP umumnya beroperasi pada port...",
+          "options": [
+            "25",
+            "4444",
+            "123",
+            "8080"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Port default untuk SMTP adalah 25."
+        },
+        {
+          "id": 127,
+          "question": "Konsep Availability (Ketersediaan) dalam keamanan informasi berfokus pada...",
+          "options": [
+            "meningkatkan kecepatan jaringan",
+            "menghapus akun lama",
+            "memperbarui hardware",
+            "memastikan layanan selalu bisa diakses saat dibutuhkan"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Dalam CIA Triad, Availability (Ketersediaan) bertujuan memastikan layanan selalu bisa diakses saat dibutuhkan."
+        },
+        {
+          "id": 128,
+          "question": "Algoritma enkripsi RC4 termasuk dalam kategori kriptografi...",
+          "options": [
+            "Hashing",
+            "Steganography",
+            "Simetris",
+            "Encoding"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "RC4 adalah algoritma Simetris."
+        },
+        {
+          "id": 129,
+          "question": "Tujuan/metode utama dari Packet Filtering adalah...",
+          "options": [
+            "mempercepat koneksi internet",
+            "mendeteksi virus lokal",
+            "menyaring trafik berdasarkan IP dan Port",
+            "mengelola password"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Packet Filtering bekerja dengan menyaring trafik berdasarkan IP dan Port."
+        },
+        {
+          "id": 130,
+          "question": "Untuk memverifikasi integritas .zip (Arsip) yang diunduh, kita harus memeriksa nilai...",
+          "options": [
+            "Tanggal rilis",
+            "Nama pembuat",
+            "Ukuran byte",
+            "Hash (seperti SHA-256)"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Nilai hash memastikan file tidak diubah sediktpun sejak dirilis."
+        }
+      ]
+    },
+    {
+      "level": 27,
+      "questions": [
+        {
+          "id": 131,
+          "question": "Protokol RDP umumnya beroperasi pada port...",
+          "options": [
+            "8080",
+            "3389",
+            "123",
+            "4444"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Port default untuk RDP adalah 3389."
+        },
+        {
+          "id": 132,
+          "question": "Konsep Confidentiality (Kerahasiaan) dalam keamanan informasi berfokus pada...",
+          "options": [
+            "meningkatkan kecepatan jaringan",
+            "mencegah data diakses oleh pihak tak berwenang",
+            "memperbarui hardware",
+            "menghapus akun lama"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Dalam CIA Triad, Confidentiality (Kerahasiaan) bertujuan mencegah data diakses oleh pihak tak berwenang."
+        },
+        {
+          "id": 133,
+          "question": "Algoritma enkripsi Diffie-Hellman termasuk dalam kategori kriptografi...",
+          "options": [
+            "Asimetris (Key Exchange)",
+            "Steganography",
+            "Encoding",
+            "Hashing"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Diffie-Hellman adalah algoritma Asimetris (Key Exchange)."
+        },
+        {
+          "id": 134,
+          "question": "Tujuan/metode utama dari Stateful Inspection adalah...",
+          "options": [
+            "melacak status koneksi aktif",
+            "mengelola password",
+            "mempercepat koneksi internet",
+            "mendeteksi virus lokal"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Stateful Inspection bekerja dengan melacak status koneksi aktif."
+        },
+        {
+          "id": 135,
+          "question": "Untuk memverifikasi integritas Source Code yang diunduh, kita harus memeriksa nilai...",
+          "options": [
+            "Nama pembuat",
+            "Hash (seperti SHA-256)",
+            "Ukuran byte",
+            "Tanggal rilis"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Nilai hash memastikan file tidak diubah sediktpun sejak dirilis."
+        }
+      ]
+    },
+    {
+      "level": 28,
+      "questions": [
+        {
+          "id": 136,
+          "question": "Protokol Telnet umumnya beroperasi pada port...",
+          "options": [
+            "4444",
+            "123",
+            "23",
+            "8080"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Port default untuk Telnet adalah 23."
+        },
+        {
+          "id": 137,
+          "question": "Konsep Integrity (Integritas) dalam keamanan informasi berfokus pada...",
+          "options": [
+            "memperbarui hardware",
+            "menghapus akun lama",
+            "meningkatkan kecepatan jaringan",
+            "mencegah data diubah oleh pihak tak berwenang"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Dalam CIA Triad, Integrity (Integritas) bertujuan mencegah data diubah oleh pihak tak berwenang."
+        },
+        {
+          "id": 138,
+          "question": "Algoritma enkripsi Twofish termasuk dalam kategori kriptografi...",
+          "options": [
+            "Simetris",
+            "Hashing",
+            "Steganography",
+            "Encoding"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Twofish adalah algoritma Simetris."
+        },
+        {
+          "id": 139,
+          "question": "Tujuan/metode utama dari WAF (Web Application Firewall) adalah...",
+          "options": [
+            "melindungi web dari serangan layer 7 seperti SQLi",
+            "mempercepat koneksi internet",
+            "mendeteksi virus lokal",
+            "mengelola password"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "WAF (Web Application Firewall) bekerja dengan melindungi web dari serangan layer 7 seperti SQLi."
+        },
+        {
+          "id": 140,
+          "question": "Untuk memverifikasi integritas Database Backup yang diunduh, kita harus memeriksa nilai...",
+          "options": [
+            "Ukuran byte",
+            "Hash (seperti SHA-256)",
+            "Nama pembuat",
+            "Tanggal rilis"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Nilai hash memastikan file tidak diubah sediktpun sejak dirilis."
+        }
+      ]
+    },
+    {
+      "level": 29,
+      "questions": [
+        {
+          "id": 141,
+          "question": "Protokol SMB umumnya beroperasi pada port...",
+          "options": [
+            "8080",
+            "4444",
+            "123",
+            "445"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Port default untuk SMB adalah 445."
+        },
+        {
+          "id": 142,
+          "question": "Konsep Availability (Ketersediaan) dalam keamanan informasi berfokus pada...",
+          "options": [
+            "menghapus akun lama",
+            "meningkatkan kecepatan jaringan",
+            "memperbarui hardware",
+            "memastikan layanan selalu bisa diakses saat dibutuhkan"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Dalam CIA Triad, Availability (Ketersediaan) bertujuan memastikan layanan selalu bisa diakses saat dibutuhkan."
+        },
+        {
+          "id": 143,
+          "question": "Algoritma enkripsi DSA termasuk dalam kategori kriptografi...",
+          "options": [
+            "Steganography",
+            "Hashing",
+            "Asimetris",
+            "Encoding"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "DSA adalah algoritma Asimetris."
+        },
+        {
+          "id": 144,
+          "question": "Tujuan/metode utama dari NGFW (Next-Gen Firewall) adalah...",
+          "options": [
+            "mendeteksi virus lokal",
+            "menggabungkan DPI, IPS, dan kontrol aplikasi",
+            "mengelola password",
+            "mempercepat koneksi internet"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "NGFW (Next-Gen Firewall) bekerja dengan menggabungkan DPI, IPS, dan kontrol aplikasi."
+        },
+        {
+          "id": 145,
+          "question": "Untuk memverifikasi integritas Script (.sh / .bat) yang diunduh, kita harus memeriksa nilai...",
+          "options": [
+            "Hash (seperti SHA-256)",
+            "Ukuran byte",
+            "Nama pembuat",
+            "Tanggal rilis"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Nilai hash memastikan file tidak diubah sediktpun sejak dirilis."
+        }
+      ]
+    },
+    {
+      "level": 30,
+      "questions": [
+        {
+          "id": 146,
+          "question": "Protokol POP3 umumnya beroperasi pada port...",
+          "options": [
+            "4444",
+            "110",
+            "123",
+            "8080"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Port default untuk POP3 adalah 110."
+        },
+        {
+          "id": 147,
+          "question": "Konsep Confidentiality (Kerahasiaan) dalam keamanan informasi berfokus pada...",
+          "options": [
+            "menghapus akun lama",
+            "memperbarui hardware",
+            "mencegah data diakses oleh pihak tak berwenang",
+            "meningkatkan kecepatan jaringan"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Dalam CIA Triad, Confidentiality (Kerahasiaan) bertujuan mencegah data diakses oleh pihak tak berwenang."
+        },
+        {
+          "id": 148,
+          "question": "Algoritma enkripsi ChaCha20 termasuk dalam kategori kriptografi...",
+          "options": [
+            "Steganography",
+            "Simetris",
+            "Hashing",
+            "Encoding"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "ChaCha20 adalah algoritma Simetris."
+        },
+        {
+          "id": 149,
+          "question": "Tujuan/metode utama dari Proxy Firewall adalah...",
+          "options": [
+            "bertindak sebagai perantara antara klien dan server",
+            "mendeteksi virus lokal",
+            "mengelola password",
+            "mempercepat koneksi internet"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Proxy Firewall bekerja dengan bertindak sebagai perantara antara klien dan server."
+        },
+        {
+          "id": 150,
+          "question": "Untuk memverifikasi integritas Konfigurasi (.json / .yaml) yang diunduh, kita harus memeriksa nilai...",
+          "options": [
+            "Hash (seperti SHA-256)",
+            "Nama pembuat",
+            "Ukuran byte",
+            "Tanggal rilis"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Nilai hash memastikan file tidak diubah sediktpun sejak dirilis."
+        }
+      ]
+    },
+    {
+      "level": 31,
+      "questions": [
+        {
+          "id": 151,
+          "question": "Kerentanan SQL Injection memungkinkan penyerang untuk...",
+          "options": [
+            "membersihkan log sistem",
+            "merusak hardware fisik",
+            "membaca atau memodifikasi database",
+            "meningkatkan kecepatan internet"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Eksploitasi SQL Injection pada dasarnya menyebabkan penyerang bisa membaca atau memodifikasi database."
+        },
+        {
+          "id": 152,
+          "question": "Perbedaan utama antara IDS dan IPS dalam merespons Malware Traffic adalah...",
+          "options": [
+            "IDS lebih cepat dari IPS",
+            "IPS secara aktif memblokir, IDS hanya memberi peringatan",
+            "Tidak ada bedanya",
+            "IDS memblokir, IPS membiarkan"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Intrusion Prevention System (IPS) melakukan tindakan preventif, IDS hanya deteksi."
+        },
+        {
+          "id": 153,
+          "question": "Serangan ARP Spoofing bekerja dengan cara...",
+          "options": [
+            "mengirim email phising",
+            "mengeksploitasi SQL",
+            "memetakan IP gateway ke MAC Address penyerang",
+            "mengenkripsi file"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Mekanisme utama ARP Spoofing adalah memetakan IP gateway ke MAC Address penyerang."
+        },
+        {
+          "id": 154,
+          "question": "Dalam model kontrol akses RBAC (Role-Based) (Access Control), hak akses ditentukan berdasarkan...",
+          "options": [
+            "jenis browser",
+            "jumlah kuota",
+            "peran atau jabatan dalam organisasi",
+            "kecepatan internet"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Model RBAC (Role-Based) sangat bergantung pada peran atau jabatan dalam organisasi."
+        },
+        {
+          "id": 155,
+          "question": "Teknik Polymorphism umumnya digunakan oleh malware untuk...",
+          "options": [
+            "Membuat backup",
+            "Memperbaiki sistem",
+            "Menghindari deteksi dari antivirus / EDR",
+            "Mempercantik antarmuka"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Polymorphism adalah teknik evasion (penghindaran deteksi)."
+        }
+      ]
+    },
+    {
+      "level": 32,
+      "questions": [
+        {
+          "id": 156,
+          "question": "Kerentanan Cross-Site Scripting (XSS) memungkinkan penyerang untuk...",
+          "options": [
+            "membersihkan log sistem",
+            "merusak hardware fisik",
+            "mengeksekusi script berbahaya di browser korban",
+            "meningkatkan kecepatan internet"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Eksploitasi Cross-Site Scripting (XSS) pada dasarnya menyebabkan penyerang bisa mengeksekusi script berbahaya di browser korban."
+        },
+        {
+          "id": 157,
+          "question": "Perbedaan utama antara IDS dan IPS dalam merespons DDoS adalah...",
+          "options": [
+            "IDS memblokir, IPS membiarkan",
+            "IPS secara aktif memblokir, IDS hanya memberi peringatan",
+            "Tidak ada bedanya",
+            "IDS lebih cepat dari IPS"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Intrusion Prevention System (IPS) melakukan tindakan preventif, IDS hanya deteksi."
+        },
+        {
+          "id": 158,
+          "question": "Serangan DNS Cache Poisoning bekerja dengan cara...",
+          "options": [
+            "mengenkripsi file",
+            "mengeksploitasi SQL",
+            "mengirim email phising",
+            "mengarahkan domain ke IP server palsu"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Mekanisme utama DNS Cache Poisoning adalah mengarahkan domain ke IP server palsu."
+        },
+        {
+          "id": 159,
+          "question": "Dalam model kontrol akses MAC (Mandatory) (Access Control), hak akses ditentukan berdasarkan...",
+          "options": [
+            "jenis browser",
+            "label klasifikasi keamanan dan clearance",
+            "jumlah kuota",
+            "kecepatan internet"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Model MAC (Mandatory) sangat bergantung pada label klasifikasi keamanan dan clearance."
+        },
+        {
+          "id": 160,
+          "question": "Teknik Metamorphism umumnya digunakan oleh malware untuk...",
+          "options": [
+            "Membuat backup",
+            "Menghindari deteksi dari antivirus / EDR",
+            "Memperbaiki sistem",
+            "Mempercantik antarmuka"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Metamorphism adalah teknik evasion (penghindaran deteksi)."
+        }
+      ]
+    },
+    {
+      "level": 33,
+      "questions": [
+        {
+          "id": 161,
+          "question": "Kerentanan Cross-Site Request Forgery (CSRF) memungkinkan penyerang untuk...",
+          "options": [
+            "membersihkan log sistem",
+            "merusak hardware fisik",
+            "meningkatkan kecepatan internet",
+            "memaksa korban melakukan aksi yang tidak diinginkan"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Eksploitasi Cross-Site Request Forgery (CSRF) pada dasarnya menyebabkan penyerang bisa memaksa korban melakukan aksi yang tidak diinginkan."
+        },
+        {
+          "id": 162,
+          "question": "Perbedaan utama antara IDS dan IPS dalam merespons Brute Force adalah...",
+          "options": [
+            "IDS lebih cepat dari IPS",
+            "IPS secara aktif memblokir, IDS hanya memberi peringatan",
+            "Tidak ada bedanya",
+            "IDS memblokir, IPS membiarkan"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Intrusion Prevention System (IPS) melakukan tindakan preventif, IDS hanya deteksi."
+        },
+        {
+          "id": 163,
+          "question": "Serangan SYN Flood bekerja dengan cara...",
+          "options": [
+            "menghabiskan resource server dengan koneksi setengah terbuka",
+            "mengenkripsi file",
+            "mengirim email phising",
+            "mengeksploitasi SQL"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Mekanisme utama SYN Flood adalah menghabiskan resource server dengan koneksi setengah terbuka."
+        },
+        {
+          "id": 164,
+          "question": "Dalam model kontrol akses DAC (Discretionary) (Access Control), hak akses ditentukan berdasarkan...",
+          "options": [
+            "jumlah kuota",
+            "kecepatan internet",
+            "jenis browser",
+            "kebijakan yang ditentukan oleh pemilik resource"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Model DAC (Discretionary) sangat bergantung pada kebijakan yang ditentukan oleh pemilik resource."
+        },
+        {
+          "id": 165,
+          "question": "Teknik Obfuscation umumnya digunakan oleh malware untuk...",
+          "options": [
+            "Menghindari deteksi dari antivirus / EDR",
+            "Mempercantik antarmuka",
+            "Memperbaiki sistem",
+            "Membuat backup"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Obfuscation adalah teknik evasion (penghindaran deteksi)."
+        }
+      ]
+    },
+    {
+      "level": 34,
+      "questions": [
+        {
+          "id": 166,
+          "question": "Kerentanan SSRF memungkinkan penyerang untuk...",
+          "options": [
+            "meningkatkan kecepatan internet",
+            "membersihkan log sistem",
+            "memaksa server mengakses jaringan internal",
+            "merusak hardware fisik"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Eksploitasi SSRF pada dasarnya menyebabkan penyerang bisa memaksa server mengakses jaringan internal."
+        },
+        {
+          "id": 167,
+          "question": "Perbedaan utama antara IDS dan IPS dalam merespons Port Scan adalah...",
+          "options": [
+            "IDS memblokir, IPS membiarkan",
+            "Tidak ada bedanya",
+            "IPS secara aktif memblokir, IDS hanya memberi peringatan",
+            "IDS lebih cepat dari IPS"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Intrusion Prevention System (IPS) melakukan tindakan preventif, IDS hanya deteksi."
+        },
+        {
+          "id": 168,
+          "question": "Serangan MAC Flooding bekerja dengan cara...",
+          "options": [
+            "mengeksploitasi SQL",
+            "mengenkripsi file",
+            "memenuhi tabel CAM switch agar menjadi hub",
+            "mengirim email phising"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Mekanisme utama MAC Flooding adalah memenuhi tabel CAM switch agar menjadi hub."
+        },
+        {
+          "id": 169,
+          "question": "Dalam model kontrol akses ABAC (Attribute-Based) (Access Control), hak akses ditentukan berdasarkan...",
+          "options": [
+            "jenis browser",
+            "kecepatan internet",
+            "kombinasi atribut user, resource, dan lingkungan",
+            "jumlah kuota"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Model ABAC (Attribute-Based) sangat bergantung pada kombinasi atribut user, resource, dan lingkungan."
+        },
+        {
+          "id": 170,
+          "question": "Teknik Packing umumnya digunakan oleh malware untuk...",
+          "options": [
+            "Membuat backup",
+            "Mempercantik antarmuka",
+            "Menghindari deteksi dari antivirus / EDR",
+            "Memperbaiki sistem"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Packing adalah teknik evasion (penghindaran deteksi)."
+        }
+      ]
+    },
+    {
+      "level": 35,
+      "questions": [
+        {
+          "id": 171,
+          "question": "Kerentanan Local File Inclusion (LFI) memungkinkan penyerang untuk...",
+          "options": [
+            "membersihkan log sistem",
+            "merusak hardware fisik",
+            "membaca file sensitif di server (/etc/passwd)",
+            "meningkatkan kecepatan internet"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Eksploitasi Local File Inclusion (LFI) pada dasarnya menyebabkan penyerang bisa membaca file sensitif di server (/etc/passwd)."
+        },
+        {
+          "id": 172,
+          "question": "Perbedaan utama antara IDS dan IPS dalam merespons Exploit Attempt adalah...",
+          "options": [
+            "IPS secara aktif memblokir, IDS hanya memberi peringatan",
+            "Tidak ada bedanya",
+            "IDS memblokir, IPS membiarkan",
+            "IDS lebih cepat dari IPS"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Intrusion Prevention System (IPS) melakukan tindakan preventif, IDS hanya deteksi."
+        },
+        {
+          "id": 173,
+          "question": "Serangan BGP Hijacking bekerja dengan cara...",
+          "options": [
+            "mengenkripsi file",
+            "mengirim email phising",
+            "mengeksploitasi SQL",
+            "membelokkan rute trafik internet global"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Mekanisme utama BGP Hijacking adalah membelokkan rute trafik internet global."
+        },
+        {
+          "id": 174,
+          "question": "Dalam model kontrol akses RuBAC (Rule-Based) (Access Control), hak akses ditentukan berdasarkan...",
+          "options": [
+            "kecepatan internet",
+            "jenis browser",
+            "aturan spesifik seperti jam akses atau lokasi",
+            "jumlah kuota"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Model RuBAC (Rule-Based) sangat bergantung pada aturan spesifik seperti jam akses atau lokasi."
+        },
+        {
+          "id": 175,
+          "question": "Teknik Rootkit hooking umumnya digunakan oleh malware untuk...",
+          "options": [
+            "Membuat backup",
+            "Mempercantik antarmuka",
+            "Memperbaiki sistem",
+            "Menghindari deteksi dari antivirus / EDR"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Rootkit hooking adalah teknik evasion (penghindaran deteksi)."
+        }
+      ]
+    },
+    {
+      "level": 36,
+      "questions": [
+        {
+          "id": 176,
+          "question": "Kerentanan Insecure Direct Object Reference (IDOR) memungkinkan penyerang untuk...",
+          "options": [
+            "meningkatkan kecepatan internet",
+            "merusak hardware fisik",
+            "membersihkan log sistem",
+            "mengakses data milik pengguna lain dengan memanipulasi ID"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Eksploitasi Insecure Direct Object Reference (IDOR) pada dasarnya menyebabkan penyerang bisa mengakses data milik pengguna lain dengan memanipulasi ID."
+        },
+        {
+          "id": 177,
+          "question": "Perbedaan utama antara IDS dan IPS dalam merespons Malware Traffic adalah...",
+          "options": [
+            "IDS lebih cepat dari IPS",
+            "IPS secara aktif memblokir, IDS hanya memberi peringatan",
+            "Tidak ada bedanya",
+            "IDS memblokir, IPS membiarkan"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Intrusion Prevention System (IPS) melakukan tindakan preventif, IDS hanya deteksi."
+        },
+        {
+          "id": 178,
+          "question": "Serangan ARP Spoofing bekerja dengan cara...",
+          "options": [
+            "mengenkripsi file",
+            "mengirim email phising",
+            "memetakan IP gateway ke MAC Address penyerang",
+            "mengeksploitasi SQL"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Mekanisme utama ARP Spoofing adalah memetakan IP gateway ke MAC Address penyerang."
+        },
+        {
+          "id": 179,
+          "question": "Dalam model kontrol akses RBAC (Role-Based) (Access Control), hak akses ditentukan berdasarkan...",
+          "options": [
+            "jenis browser",
+            "jumlah kuota",
+            "kecepatan internet",
+            "peran atau jabatan dalam organisasi"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Model RBAC (Role-Based) sangat bergantung pada peran atau jabatan dalam organisasi."
+        },
+        {
+          "id": 180,
+          "question": "Teknik Process Hollowing umumnya digunakan oleh malware untuk...",
+          "options": [
+            "Menghindari deteksi dari antivirus / EDR",
+            "Membuat backup",
+            "Mempercantik antarmuka",
+            "Memperbaiki sistem"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Process Hollowing adalah teknik evasion (penghindaran deteksi)."
+        }
+      ]
+    },
+    {
+      "level": 37,
+      "questions": [
+        {
+          "id": 181,
+          "question": "Kerentanan Command Injection memungkinkan penyerang untuk...",
+          "options": [
+            "membersihkan log sistem",
+            "meningkatkan kecepatan internet",
+            "mengeksekusi perintah OS langsung di server",
+            "merusak hardware fisik"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Eksploitasi Command Injection pada dasarnya menyebabkan penyerang bisa mengeksekusi perintah OS langsung di server."
+        },
+        {
+          "id": 182,
+          "question": "Perbedaan utama antara IDS dan IPS dalam merespons DDoS adalah...",
+          "options": [
+            "IDS memblokir, IPS membiarkan",
+            "IDS lebih cepat dari IPS",
+            "Tidak ada bedanya",
+            "IPS secara aktif memblokir, IDS hanya memberi peringatan"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Intrusion Prevention System (IPS) melakukan tindakan preventif, IDS hanya deteksi."
+        },
+        {
+          "id": 183,
+          "question": "Serangan DNS Cache Poisoning bekerja dengan cara...",
+          "options": [
+            "mengeksploitasi SQL",
+            "mengenkripsi file",
+            "mengirim email phising",
+            "mengarahkan domain ke IP server palsu"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Mekanisme utama DNS Cache Poisoning adalah mengarahkan domain ke IP server palsu."
+        },
+        {
+          "id": 184,
+          "question": "Dalam model kontrol akses MAC (Mandatory) (Access Control), hak akses ditentukan berdasarkan...",
+          "options": [
+            "kecepatan internet",
+            "jumlah kuota",
+            "jenis browser",
+            "label klasifikasi keamanan dan clearance"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Model MAC (Mandatory) sangat bergantung pada label klasifikasi keamanan dan clearance."
+        },
+        {
+          "id": 185,
+          "question": "Teknik DLL Injection umumnya digunakan oleh malware untuk...",
+          "options": [
+            "Membuat backup",
+            "Mempercantik antarmuka",
+            "Memperbaiki sistem",
+            "Menghindari deteksi dari antivirus / EDR"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "DLL Injection adalah teknik evasion (penghindaran deteksi)."
+        }
+      ]
+    },
+    {
+      "level": 38,
+      "questions": [
+        {
+          "id": 186,
+          "question": "Kerentanan XML External Entity (XXE) memungkinkan penyerang untuk...",
+          "options": [
+            "meningkatkan kecepatan internet",
+            "membaca file sistem menggunakan parsing XML yang rentan",
+            "merusak hardware fisik",
+            "membersihkan log sistem"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Eksploitasi XML External Entity (XXE) pada dasarnya menyebabkan penyerang bisa membaca file sistem menggunakan parsing XML yang rentan."
+        },
+        {
+          "id": 187,
+          "question": "Perbedaan utama antara IDS dan IPS dalam merespons Brute Force adalah...",
+          "options": [
+            "IDS lebih cepat dari IPS",
+            "IPS secara aktif memblokir, IDS hanya memberi peringatan",
+            "IDS memblokir, IPS membiarkan",
+            "Tidak ada bedanya"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Intrusion Prevention System (IPS) melakukan tindakan preventif, IDS hanya deteksi."
+        },
+        {
+          "id": 188,
+          "question": "Serangan SYN Flood bekerja dengan cara...",
+          "options": [
+            "mengirim email phising",
+            "mengeksploitasi SQL",
+            "mengenkripsi file",
+            "menghabiskan resource server dengan koneksi setengah terbuka"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Mekanisme utama SYN Flood adalah menghabiskan resource server dengan koneksi setengah terbuka."
+        },
+        {
+          "id": 189,
+          "question": "Dalam model kontrol akses DAC (Discretionary) (Access Control), hak akses ditentukan berdasarkan...",
+          "options": [
+            "kebijakan yang ditentukan oleh pemilik resource",
+            "jenis browser",
+            "kecepatan internet",
+            "jumlah kuota"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Model DAC (Discretionary) sangat bergantung pada kebijakan yang ditentukan oleh pemilik resource."
+        },
+        {
+          "id": 190,
+          "question": "Teknik Living off the Land (LotL) umumnya digunakan oleh malware untuk...",
+          "options": [
+            "Membuat backup",
+            "Memperbaiki sistem",
+            "Menghindari deteksi dari antivirus / EDR",
+            "Mempercantik antarmuka"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Living off the Land (LotL) adalah teknik evasion (penghindaran deteksi)."
+        }
+      ]
+    },
+    {
+      "level": 39,
+      "questions": [
+        {
+          "id": 191,
+          "question": "Kerentanan Directory Traversal memungkinkan penyerang untuk...",
+          "options": [
+            "merusak hardware fisik",
+            "meningkatkan kecepatan internet",
+            "mengakses direktori di luar root web",
+            "membersihkan log sistem"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Eksploitasi Directory Traversal pada dasarnya menyebabkan penyerang bisa mengakses direktori di luar root web."
+        },
+        {
+          "id": 192,
+          "question": "Perbedaan utama antara IDS dan IPS dalam merespons Port Scan adalah...",
+          "options": [
+            "Tidak ada bedanya",
+            "IDS lebih cepat dari IPS",
+            "IPS secara aktif memblokir, IDS hanya memberi peringatan",
+            "IDS memblokir, IPS membiarkan"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Intrusion Prevention System (IPS) melakukan tindakan preventif, IDS hanya deteksi."
+        },
+        {
+          "id": 193,
+          "question": "Serangan MAC Flooding bekerja dengan cara...",
+          "options": [
+            "mengenkripsi file",
+            "memenuhi tabel CAM switch agar menjadi hub",
+            "mengeksploitasi SQL",
+            "mengirim email phising"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Mekanisme utama MAC Flooding adalah memenuhi tabel CAM switch agar menjadi hub."
+        },
+        {
+          "id": 194,
+          "question": "Dalam model kontrol akses ABAC (Attribute-Based) (Access Control), hak akses ditentukan berdasarkan...",
+          "options": [
+            "jumlah kuota",
+            "kecepatan internet",
+            "jenis browser",
+            "kombinasi atribut user, resource, dan lingkungan"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Model ABAC (Attribute-Based) sangat bergantung pada kombinasi atribut user, resource, dan lingkungan."
+        },
+        {
+          "id": 195,
+          "question": "Teknik Anti-Debugging umumnya digunakan oleh malware untuk...",
+          "options": [
+            "Memperbaiki sistem",
+            "Mempercantik antarmuka",
+            "Menghindari deteksi dari antivirus / EDR",
+            "Membuat backup"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Anti-Debugging adalah teknik evasion (penghindaran deteksi)."
+        }
+      ]
+    },
+    {
+      "level": 40,
+      "questions": [
+        {
+          "id": 196,
+          "question": "Kerentanan Security Misconfiguration memungkinkan penyerang untuk...",
+          "options": [
+            "meningkatkan kecepatan internet",
+            "merusak hardware fisik",
+            "mengeksploitasi konfigurasi default atau error verbose",
+            "membersihkan log sistem"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Eksploitasi Security Misconfiguration pada dasarnya menyebabkan penyerang bisa mengeksploitasi konfigurasi default atau error verbose."
+        },
+        {
+          "id": 197,
+          "question": "Perbedaan utama antara IDS dan IPS dalam merespons Exploit Attempt adalah...",
+          "options": [
+            "Tidak ada bedanya",
+            "IDS lebih cepat dari IPS",
+            "IPS secara aktif memblokir, IDS hanya memberi peringatan",
+            "IDS memblokir, IPS membiarkan"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Intrusion Prevention System (IPS) melakukan tindakan preventif, IDS hanya deteksi."
+        },
+        {
+          "id": 198,
+          "question": "Serangan BGP Hijacking bekerja dengan cara...",
+          "options": [
+            "mengenkripsi file",
+            "mengirim email phising",
+            "membelokkan rute trafik internet global",
+            "mengeksploitasi SQL"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Mekanisme utama BGP Hijacking adalah membelokkan rute trafik internet global."
+        },
+        {
+          "id": 199,
+          "question": "Dalam model kontrol akses RuBAC (Rule-Based) (Access Control), hak akses ditentukan berdasarkan...",
+          "options": [
+            "kecepatan internet",
+            "aturan spesifik seperti jam akses atau lokasi",
+            "jenis browser",
+            "jumlah kuota"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Model RuBAC (Rule-Based) sangat bergantung pada aturan spesifik seperti jam akses atau lokasi."
+        },
+        {
+          "id": 200,
+          "question": "Teknik Fileless execution (in-memory) umumnya digunakan oleh malware untuk...",
+          "options": [
+            "Memperbaiki sistem",
+            "Mempercantik antarmuka",
+            "Menghindari deteksi dari antivirus / EDR",
+            "Membuat backup"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Fileless execution (in-memory) adalah teknik evasion (penghindaran deteksi)."
+        }
+      ]
+    },
+    {
+      "level": 41,
+      "questions": [
+        {
+          "id": 201,
+          "question": "Tahap Reconnaissance dalam Cyber Kill Chain melibatkan aktivitas...",
+          "options": [
+            "mengupdate OS",
+            "pengumpulan informasi target (OSINT)",
+            "membuat laporan tahunan",
+            "mengganti hardware server"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Tahap Reconnaissance berfokus pada pengumpulan informasi target (OSINT)."
+        },
+        {
+          "id": 202,
+          "question": "Dalam industri keamanan siber, alat 'Ghidra' sering digunakan untuk...",
+          "options": [
+            "disassembly dan dekompilasi binary",
+            "mengirim email spam",
+            "menulis dokumen teks",
+            "membuat grafis 3D"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Ghidra adalah standar industri untuk disassembly dan dekompilasi binary."
+        },
+        {
+          "id": 203,
+          "question": "Serangan Birthday Attack pada algoritma kriptografi bekerja dengan cara...",
+          "options": [
+            "mencuri password wifi",
+            "menghancurkan hard disk",
+            "mencari kolisi (collision) pada fungsi hash",
+            "menelpon korban"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Birthday Attack adalah teknik serangan kriptografi dimana penyerang mencari kolisi (collision) pada fungsi hash."
+        },
+        {
+          "id": 204,
+          "question": "Analisis log SIEM mendeteksi aktivitas anomali berupa: 'Login sukses dari dua benua berbeda dalam waktu 5 menit'. Ini dapat mengindikasikan...",
+          "options": [
+            "Koneksi internet sangat stabil",
+            "Jaringan beroperasi normal",
+            "Komputer sedang update",
+            "Kemungkinan Compromise atau Serangan aktif"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Aktivitas anomali seperti ini di SIEM memerlukan investigasi Incident Response segera."
+        },
+        {
+          "id": 205,
+          "question": "Mitigasi teknis yang paling efektif terhadap kerentanan Buffer Overflow meliputi...",
+          "options": [
+            "implementasi ASLR dan DEP/NX Bit",
+            "mengganti password tiap hari",
+            "mematikan komputer",
+            "menggunakan antivirus gratis"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Untuk mencegah Buffer Overflow, developer harus memastikan implementasi ASLR dan DEP/NX Bit."
+        }
+      ]
+    },
+    {
+      "level": 42,
+      "questions": [
+        {
+          "id": 206,
+          "question": "Tahap Weaponization dalam Cyber Kill Chain melibatkan aktivitas...",
+          "options": [
+            "mengganti hardware server",
+            "menggabungkan exploit dengan backdoor payload",
+            "mengupdate OS",
+            "membuat laporan tahunan"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Tahap Weaponization berfokus pada menggabungkan exploit dengan backdoor payload."
+        },
+        {
+          "id": 207,
+          "question": "Dalam industri keamanan siber, alat 'OllyDbg' sering digunakan untuk...",
+          "options": [
+            "debugging aplikasi 32-bit di Windows",
+            "membuat grafis 3D",
+            "menulis dokumen teks",
+            "mengirim email spam"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "OllyDbg adalah standar industri untuk debugging aplikasi 32-bit di Windows."
+        },
+        {
+          "id": 208,
+          "question": "Serangan Known-Plaintext Attack pada algoritma kriptografi bekerja dengan cara...",
+          "options": [
+            "menganalisis kriptografi saat sebagian plaintext sudah diketahui",
+            "mencuri password wifi",
+            "menghancurkan hard disk",
+            "menelpon korban"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Known-Plaintext Attack adalah teknik serangan kriptografi dimana penyerang menganalisis kriptografi saat sebagian plaintext sudah diketahui."
+        },
+        {
+          "id": 209,
+          "question": "Analisis log SIEM mendeteksi aktivitas anomali berupa: 'Trafik outbound SSH yang besar di luar jam kerja'. Ini dapat mengindikasikan...",
+          "options": [
+            "Koneksi internet sangat stabil",
+            "Kemungkinan Compromise atau Serangan aktif",
+            "Komputer sedang update",
+            "Jaringan beroperasi normal"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Aktivitas anomali seperti ini di SIEM memerlukan investigasi Incident Response segera."
+        },
+        {
+          "id": 210,
+          "question": "Mitigasi teknis yang paling efektif terhadap kerentanan Use-After-Free meliputi...",
+          "options": [
+            "menggunakan antivirus gratis",
+            "mematikan komputer",
+            "pengelolaan memori dinamis yang ketat dan garbage collection",
+            "mengganti password tiap hari"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Untuk mencegah Use-After-Free, developer harus memastikan pengelolaan memori dinamis yang ketat dan garbage collection."
+        }
+      ]
+    },
+    {
+      "level": 43,
+      "questions": [
+        {
+          "id": 211,
+          "question": "Tahap Delivery dalam Cyber Kill Chain melibatkan aktivitas...",
+          "options": [
+            "membuat laporan tahunan",
+            "mengupdate OS",
+            "mengganti hardware server",
+            "mengirimkan payload ke target (misal: email phishing)"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Tahap Delivery berfokus pada mengirimkan payload ke target (misal: email phishing)."
+        },
+        {
+          "id": 212,
+          "question": "Dalam industri keamanan siber, alat 'Wireshark' sering digunakan untuk...",
+          "options": [
+            "analisis paket jaringan tingkat lanjut",
+            "membuat grafis 3D",
+            "mengirim email spam",
+            "menulis dokumen teks"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Wireshark adalah standar industri untuk analisis paket jaringan tingkat lanjut."
+        },
+        {
+          "id": 213,
+          "question": "Serangan Chosen-Ciphertext Attack pada algoritma kriptografi bekerja dengan cara...",
+          "options": [
+            "menganalisis sistem dekripsi dengan menyuplai ciphertext khusus",
+            "menelpon korban",
+            "menghancurkan hard disk",
+            "mencuri password wifi"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Chosen-Ciphertext Attack adalah teknik serangan kriptografi dimana penyerang menganalisis sistem dekripsi dengan menyuplai ciphertext khusus."
+        },
+        {
+          "id": 214,
+          "question": "Analisis log SIEM mendeteksi aktivitas anomali berupa: 'Pembuatan akun admin baru secara tidak terduga'. Ini dapat mengindikasikan...",
+          "options": [
+            "Jaringan beroperasi normal",
+            "Kemungkinan Compromise atau Serangan aktif",
+            "Koneksi internet sangat stabil",
+            "Komputer sedang update"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Aktivitas anomali seperti ini di SIEM memerlukan investigasi Incident Response segera."
+        },
+        {
+          "id": 215,
+          "question": "Mitigasi teknis yang paling efektif terhadap kerentanan Format String Vulnerability meliputi...",
+          "options": [
+            "mematikan komputer",
+            "mengganti password tiap hari",
+            "menggunakan antivirus gratis",
+            "menghindari fungsi format seperti printf() dengan input eksternal"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Untuk mencegah Format String Vulnerability, developer harus memastikan menghindari fungsi format seperti printf() dengan input eksternal."
+        }
+      ]
+    },
+    {
+      "level": 44,
+      "questions": [
+        {
+          "id": 216,
+          "question": "Tahap Exploitation dalam Cyber Kill Chain melibatkan aktivitas...",
+          "options": [
+            "mengupdate OS",
+            "mengganti hardware server",
+            "membuat laporan tahunan",
+            "mengeksekusi exploit untuk memicu kerentanan"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Tahap Exploitation berfokus pada mengeksekusi exploit untuk memicu kerentanan."
+        },
+        {
+          "id": 217,
+          "question": "Dalam industri keamanan siber, alat 'Metasploit' sering digunakan untuk...",
+          "options": [
+            "framework eksploitasi",
+            "mengirim email spam",
+            "membuat grafis 3D",
+            "menulis dokumen teks"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Metasploit adalah standar industri untuk framework eksploitasi."
+        },
+        {
+          "id": 218,
+          "question": "Serangan Side-Channel Attack pada algoritma kriptografi bekerja dengan cara...",
+          "options": [
+            "mengeksploitasi informasi fisik (seperti konsumsi daya) dari perangkat",
+            "menelpon korban",
+            "menghancurkan hard disk",
+            "mencuri password wifi"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Side-Channel Attack adalah teknik serangan kriptografi dimana penyerang mengeksploitasi informasi fisik (seperti konsumsi daya) dari perangkat."
+        },
+        {
+          "id": 219,
+          "question": "Analisis log SIEM mendeteksi aktivitas anomali berupa: 'Akses ke banyak file secara berurutan dalam hitungan detik'. Ini dapat mengindikasikan...",
+          "options": [
+            "Kemungkinan Compromise atau Serangan aktif",
+            "Jaringan beroperasi normal",
+            "Komputer sedang update",
+            "Koneksi internet sangat stabil"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Aktivitas anomali seperti ini di SIEM memerlukan investigasi Incident Response segera."
+        },
+        {
+          "id": 220,
+          "question": "Mitigasi teknis yang paling efektif terhadap kerentanan Integer Overflow meliputi...",
+          "options": [
+            "mematikan komputer",
+            "menggunakan antivirus gratis",
+            "mengganti password tiap hari",
+            "validasi batas nilai dan tipe data yang sesuai"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Untuk mencegah Integer Overflow, developer harus memastikan validasi batas nilai dan tipe data yang sesuai."
+        }
+      ]
+    },
+    {
+      "level": 45,
+      "questions": [
+        {
+          "id": 221,
+          "question": "Tahap Installation dalam Cyber Kill Chain melibatkan aktivitas...",
+          "options": [
+            "mengupdate OS",
+            "mengganti hardware server",
+            "menginstal malware/backdoor untuk persistensi",
+            "membuat laporan tahunan"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Tahap Installation berfokus pada menginstal malware/backdoor untuk persistensi."
+        },
+        {
+          "id": 222,
+          "question": "Dalam industri keamanan siber, alat 'Radare2' sering digunakan untuk...",
+          "options": [
+            "mengirim email spam",
+            "membuat grafis 3D",
+            "reverse engineering berbasis command line",
+            "menulis dokumen teks"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Radare2 adalah standar industri untuk reverse engineering berbasis command line."
+        },
+        {
+          "id": 223,
+          "question": "Serangan Downgrade Attack pada algoritma kriptografi bekerja dengan cara...",
+          "options": [
+            "memaksa penggunaan protokol enkripsi versi lama yang rentan",
+            "menelpon korban",
+            "mencuri password wifi",
+            "menghancurkan hard disk"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Downgrade Attack adalah teknik serangan kriptografi dimana penyerang memaksa penggunaan protokol enkripsi versi lama yang rentan."
+        },
+        {
+          "id": 224,
+          "question": "Analisis log SIEM mendeteksi aktivitas anomali berupa: 'Koneksi ke IP yang masuk dalam daftar Threat Intelligence'. Ini dapat mengindikasikan...",
+          "options": [
+            "Kemungkinan Compromise atau Serangan aktif",
+            "Komputer sedang update",
+            "Koneksi internet sangat stabil",
+            "Jaringan beroperasi normal"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Aktivitas anomali seperti ini di SIEM memerlukan investigasi Incident Response segera."
+        },
+        {
+          "id": 225,
+          "question": "Mitigasi teknis yang paling efektif terhadap kerentanan Race Condition (TOC/TOU) meliputi...",
+          "options": [
+            "mematikan komputer",
+            "menggunakan antivirus gratis",
+            "penggunaan locks (mutex) atau operasi atomik",
+            "mengganti password tiap hari"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Untuk mencegah Race Condition (TOC/TOU), developer harus memastikan penggunaan locks (mutex) atau operasi atomik."
+        }
+      ]
+    },
+    {
+      "level": 46,
+      "questions": [
+        {
+          "id": 226,
+          "question": "Tahap Command and Control (C2) dalam Cyber Kill Chain melibatkan aktivitas...",
+          "options": [
+            "mengupdate OS",
+            "membuat laporan tahunan",
+            "membangun komunikasi dari sistem korban ke server penyerang",
+            "mengganti hardware server"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Tahap Command and Control (C2) berfokus pada membangun komunikasi dari sistem korban ke server penyerang."
+        },
+        {
+          "id": 227,
+          "question": "Dalam industri keamanan siber, alat 'Ghidra' sering digunakan untuk...",
+          "options": [
+            "disassembly dan dekompilasi binary",
+            "membuat grafis 3D",
+            "mengirim email spam",
+            "menulis dokumen teks"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Ghidra adalah standar industri untuk disassembly dan dekompilasi binary."
+        },
+        {
+          "id": 228,
+          "question": "Serangan Birthday Attack pada algoritma kriptografi bekerja dengan cara...",
+          "options": [
+            "menelpon korban",
+            "mencuri password wifi",
+            "menghancurkan hard disk",
+            "mencari kolisi (collision) pada fungsi hash"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Birthday Attack adalah teknik serangan kriptografi dimana penyerang mencari kolisi (collision) pada fungsi hash."
+        },
+        {
+          "id": 229,
+          "question": "Analisis log SIEM mendeteksi aktivitas anomali berupa: 'Login sukses dari dua benua berbeda dalam waktu 5 menit'. Ini dapat mengindikasikan...",
+          "options": [
+            "Jaringan beroperasi normal",
+            "Koneksi internet sangat stabil",
+            "Kemungkinan Compromise atau Serangan aktif",
+            "Komputer sedang update"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Aktivitas anomali seperti ini di SIEM memerlukan investigasi Incident Response segera."
+        },
+        {
+          "id": 230,
+          "question": "Mitigasi teknis yang paling efektif terhadap kerentanan Buffer Overflow meliputi...",
+          "options": [
+            "mematikan komputer",
+            "implementasi ASLR dan DEP/NX Bit",
+            "mengganti password tiap hari",
+            "menggunakan antivirus gratis"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Untuk mencegah Buffer Overflow, developer harus memastikan implementasi ASLR dan DEP/NX Bit."
+        }
+      ]
+    },
+    {
+      "level": 47,
+      "questions": [
+        {
+          "id": 231,
+          "question": "Tahap Actions on Objectives dalam Cyber Kill Chain melibatkan aktivitas...",
+          "options": [
+            "mengganti hardware server",
+            "membuat laporan tahunan",
+            "mencuri data (exfiltration) atau merusak sistem",
+            "mengupdate OS"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Tahap Actions on Objectives berfokus pada mencuri data (exfiltration) atau merusak sistem."
+        },
+        {
+          "id": 232,
+          "question": "Dalam industri keamanan siber, alat 'OllyDbg' sering digunakan untuk...",
+          "options": [
+            "menulis dokumen teks",
+            "mengirim email spam",
+            "debugging aplikasi 32-bit di Windows",
+            "membuat grafis 3D"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "OllyDbg adalah standar industri untuk debugging aplikasi 32-bit di Windows."
+        },
+        {
+          "id": 233,
+          "question": "Serangan Known-Plaintext Attack pada algoritma kriptografi bekerja dengan cara...",
+          "options": [
+            "menelpon korban",
+            "mencuri password wifi",
+            "menganalisis kriptografi saat sebagian plaintext sudah diketahui",
+            "menghancurkan hard disk"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Known-Plaintext Attack adalah teknik serangan kriptografi dimana penyerang menganalisis kriptografi saat sebagian plaintext sudah diketahui."
+        },
+        {
+          "id": 234,
+          "question": "Analisis log SIEM mendeteksi aktivitas anomali berupa: 'Trafik outbound SSH yang besar di luar jam kerja'. Ini dapat mengindikasikan...",
+          "options": [
+            "Jaringan beroperasi normal",
+            "Komputer sedang update",
+            "Kemungkinan Compromise atau Serangan aktif",
+            "Koneksi internet sangat stabil"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Aktivitas anomali seperti ini di SIEM memerlukan investigasi Incident Response segera."
+        },
+        {
+          "id": 235,
+          "question": "Mitigasi teknis yang paling efektif terhadap kerentanan Use-After-Free meliputi...",
+          "options": [
+            "menggunakan antivirus gratis",
+            "mematikan komputer",
+            "pengelolaan memori dinamis yang ketat dan garbage collection",
+            "mengganti password tiap hari"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Untuk mencegah Use-After-Free, developer harus memastikan pengelolaan memori dinamis yang ketat dan garbage collection."
+        }
+      ]
+    },
+    {
+      "level": 48,
+      "questions": [
+        {
+          "id": 236,
+          "question": "Tahap Reconnaissance dalam Cyber Kill Chain melibatkan aktivitas...",
+          "options": [
+            "pengumpulan informasi target (OSINT)",
+            "mengupdate OS",
+            "membuat laporan tahunan",
+            "mengganti hardware server"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Tahap Reconnaissance berfokus pada pengumpulan informasi target (OSINT)."
+        },
+        {
+          "id": 237,
+          "question": "Dalam industri keamanan siber, alat 'Wireshark' sering digunakan untuk...",
+          "options": [
+            "membuat grafis 3D",
+            "menulis dokumen teks",
+            "mengirim email spam",
+            "analisis paket jaringan tingkat lanjut"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Wireshark adalah standar industri untuk analisis paket jaringan tingkat lanjut."
+        },
+        {
+          "id": 238,
+          "question": "Serangan Chosen-Ciphertext Attack pada algoritma kriptografi bekerja dengan cara...",
+          "options": [
+            "mencuri password wifi",
+            "menelpon korban",
+            "menganalisis sistem dekripsi dengan menyuplai ciphertext khusus",
+            "menghancurkan hard disk"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Chosen-Ciphertext Attack adalah teknik serangan kriptografi dimana penyerang menganalisis sistem dekripsi dengan menyuplai ciphertext khusus."
+        },
+        {
+          "id": 239,
+          "question": "Analisis log SIEM mendeteksi aktivitas anomali berupa: 'Pembuatan akun admin baru secara tidak terduga'. Ini dapat mengindikasikan...",
+          "options": [
+            "Komputer sedang update",
+            "Kemungkinan Compromise atau Serangan aktif",
+            "Jaringan beroperasi normal",
+            "Koneksi internet sangat stabil"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Aktivitas anomali seperti ini di SIEM memerlukan investigasi Incident Response segera."
+        },
+        {
+          "id": 240,
+          "question": "Mitigasi teknis yang paling efektif terhadap kerentanan Format String Vulnerability meliputi...",
+          "options": [
+            "menghindari fungsi format seperti printf() dengan input eksternal",
+            "mengganti password tiap hari",
+            "menggunakan antivirus gratis",
+            "mematikan komputer"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Untuk mencegah Format String Vulnerability, developer harus memastikan menghindari fungsi format seperti printf() dengan input eksternal."
+        }
+      ]
+    },
+    {
+      "level": 49,
+      "questions": [
+        {
+          "id": 241,
+          "question": "Tahap Weaponization dalam Cyber Kill Chain melibatkan aktivitas...",
+          "options": [
+            "mengganti hardware server",
+            "mengupdate OS",
+            "menggabungkan exploit dengan backdoor payload",
+            "membuat laporan tahunan"
+          ],
+          "correctAnswerIndex": 2,
+          "explanation": "Tahap Weaponization berfokus pada menggabungkan exploit dengan backdoor payload."
+        },
+        {
+          "id": 242,
+          "question": "Dalam industri keamanan siber, alat 'Metasploit' sering digunakan untuk...",
+          "options": [
+            "membuat grafis 3D",
+            "framework eksploitasi",
+            "menulis dokumen teks",
+            "mengirim email spam"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Metasploit adalah standar industri untuk framework eksploitasi."
+        },
+        {
+          "id": 243,
+          "question": "Serangan Side-Channel Attack pada algoritma kriptografi bekerja dengan cara...",
+          "options": [
+            "mengeksploitasi informasi fisik (seperti konsumsi daya) dari perangkat",
+            "menghancurkan hard disk",
+            "mencuri password wifi",
+            "menelpon korban"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Side-Channel Attack adalah teknik serangan kriptografi dimana penyerang mengeksploitasi informasi fisik (seperti konsumsi daya) dari perangkat."
+        },
+        {
+          "id": 244,
+          "question": "Analisis log SIEM mendeteksi aktivitas anomali berupa: 'Akses ke banyak file secara berurutan dalam hitungan detik'. Ini dapat mengindikasikan...",
+          "options": [
+            "Komputer sedang update",
+            "Kemungkinan Compromise atau Serangan aktif",
+            "Jaringan beroperasi normal",
+            "Koneksi internet sangat stabil"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Aktivitas anomali seperti ini di SIEM memerlukan investigasi Incident Response segera."
+        },
+        {
+          "id": 245,
+          "question": "Mitigasi teknis yang paling efektif terhadap kerentanan Integer Overflow meliputi...",
+          "options": [
+            "validasi batas nilai dan tipe data yang sesuai",
+            "mengganti password tiap hari",
+            "menggunakan antivirus gratis",
+            "mematikan komputer"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Untuk mencegah Integer Overflow, developer harus memastikan validasi batas nilai dan tipe data yang sesuai."
+        }
+      ]
+    },
+    {
+      "level": 50,
+      "questions": [
+        {
+          "id": 246,
+          "question": "Tahap Delivery dalam Cyber Kill Chain melibatkan aktivitas...",
+          "options": [
+            "mengupdate OS",
+            "membuat laporan tahunan",
+            "mengganti hardware server",
+            "mengirimkan payload ke target (misal: email phishing)"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Tahap Delivery berfokus pada mengirimkan payload ke target (misal: email phishing)."
+        },
+        {
+          "id": 247,
+          "question": "Dalam industri keamanan siber, alat 'Radare2' sering digunakan untuk...",
+          "options": [
+            "membuat grafis 3D",
+            "reverse engineering berbasis command line",
+            "mengirim email spam",
+            "menulis dokumen teks"
+          ],
+          "correctAnswerIndex": 1,
+          "explanation": "Radare2 adalah standar industri untuk reverse engineering berbasis command line."
+        },
+        {
+          "id": 248,
+          "question": "Serangan Downgrade Attack pada algoritma kriptografi bekerja dengan cara...",
+          "options": [
+            "menghancurkan hard disk",
+            "mencuri password wifi",
+            "menelpon korban",
+            "memaksa penggunaan protokol enkripsi versi lama yang rentan"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Downgrade Attack adalah teknik serangan kriptografi dimana penyerang memaksa penggunaan protokol enkripsi versi lama yang rentan."
+        },
+        {
+          "id": 249,
+          "question": "Analisis log SIEM mendeteksi aktivitas anomali berupa: 'Koneksi ke IP yang masuk dalam daftar Threat Intelligence'. Ini dapat mengindikasikan...",
+          "options": [
+            "Koneksi internet sangat stabil",
+            "Jaringan beroperasi normal",
+            "Komputer sedang update",
+            "Kemungkinan Compromise atau Serangan aktif"
+          ],
+          "correctAnswerIndex": 3,
+          "explanation": "Aktivitas anomali seperti ini di SIEM memerlukan investigasi Incident Response segera."
+        },
+        {
+          "id": 250,
+          "question": "Mitigasi teknis yang paling efektif terhadap kerentanan Race Condition (TOC/TOU) meliputi...",
+          "options": [
+            "penggunaan locks (mutex) atau operasi atomik",
+            "mengganti password tiap hari",
+            "menggunakan antivirus gratis",
+            "mematikan komputer"
+          ],
+          "correctAnswerIndex": 0,
+          "explanation": "Untuk mencegah Race Condition (TOC/TOU), developer harus memastikan penggunaan locks (mutex) atau operasi atomik."
+        }
+      ]
+    }
+  ]
+}

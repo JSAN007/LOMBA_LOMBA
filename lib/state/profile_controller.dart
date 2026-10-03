@@ -6,11 +6,13 @@ import '../models/user_profile.dart';
 /// navigation instead of resetting every time Profile is rebuilt.
 class ProfileController extends ChangeNotifier {
   UserProfile _profile;
+  bool _hasUserEdits = false;
 
   ProfileController({UserProfile? initialProfile})
     : _profile = initialProfile ?? UserProfile.dummy();
 
   UserProfile get profile => _profile;
+  bool get hasUserEdits => _hasUserEdits;
 
   void updateProfile({
     required String username,
@@ -22,6 +24,7 @@ class ProfileController extends ChangeNotifier {
       bio: bio,
       avatarPreset: avatarPreset,
     );
+    _hasUserEdits = true;
     notifyListeners();
   }
 }

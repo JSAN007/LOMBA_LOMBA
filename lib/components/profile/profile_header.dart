@@ -4,11 +4,6 @@ import '../../models/user_profile.dart';
 import '../../widgets/avatar_pickers.dart';
 import 'profile_badges.dart';
 
-/// Cardless identity block: avatar, name, bio, then the badges already earned.
-///
-/// There is no cover banner, so the avatar sits in normal flow rather than
-/// overhanging the top of a card, and the sliver padding above it can stay
-/// small.
 class ProfileHeader extends StatelessWidget {
   final UserProfile profile;
 
@@ -19,9 +14,6 @@ class ProfileHeader extends StatelessWidget {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
-
-    // Only earned badges belong in the identity block. Locked ones stay in the
-    // achievements card below, where their requirements can be explained.
     final earned = profile.badges
         .where((badge) => badge.unlocked)
         .toList(growable: false);
@@ -46,8 +38,16 @@ class ProfileHeader extends StatelessWidget {
               : CircleAvatar(
                   radius: 40,
                   backgroundColor: colorScheme.surfaceContainerHighest,
-                  backgroundImage: NetworkImage(profile.avatarUrl),
-                  onBackgroundImageError: (_, _) {},
+                  backgroundImage: profile.avatarUrl.isEmpty
+                      ? null
+                      : NetworkImage(profile.avatarUrl),
+                  child: profile.avatarUrl.isEmpty
+                      ? Icon(
+                          Icons.person_outline_rounded,
+                          size: 36,
+                          color: colorScheme.primary,
+                        )
+                      : null,
                 ),
         ),
         const SizedBox(height: 16),
@@ -81,7 +81,6 @@ class ProfileHeader extends StatelessWidget {
   }
 }
 
-/// A horizontally scrollable row of earned badges, each in its own tier accent.
 class _EarnedBadgeStrip extends StatelessWidget {
   final List<ProfileBadge> badges;
 
@@ -94,8 +93,6 @@ class _EarnedBadgeStrip extends StatelessWidget {
       label: badges.length == 1
           ? '1 badge unlocked'
           : '${badges.length} badges unlocked',
-      // The chips carry their own labels, which would otherwise be read out
-      // one at a time on top of the summary.
       child: ExcludeSemantics(
         child: SizedBox(
           height: 78,
@@ -119,8 +116,6 @@ class _EarnedBadgeStrip extends StatelessWidget {
   }
 }
 
-/// One earned badge: name under a medallion. The whole chip is the tap target,
-/// so a small medallion is still an easy thing to hit.
 class _EarnedBadgeChip extends StatelessWidget {
   final ProfileBadge badge;
   final VoidCallback onTap;

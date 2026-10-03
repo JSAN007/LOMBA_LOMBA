@@ -70,7 +70,7 @@ class LeaderboardListItem extends StatelessWidget {
           const SizedBox(width: 8),
           Hero(
             tag: entry.isCurrentUser
-                ? 'profile_avatar_self_${entry.userId}'
+                ? 'profile_avatar_self_list_${entry.userId}'
                 : 'lb_avatar_${entry.userId}_${entry.rank}',
             child: CircleAvatar(
               radius: 22,

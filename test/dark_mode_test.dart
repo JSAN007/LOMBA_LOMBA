@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:cybernusa/core/theme/cyber_colors.dart';
 import 'package:cybernusa/core/theme/cyber_theme.dart';
 import 'package:cybernusa/screens/home/home_screen.dart';
@@ -40,6 +41,12 @@ final _screens = <(String, Widget Function())>[
 // which is a pre-existing layout issue unrelated to theming.
 
 /// Mounts [child] under the real theme for [mode], with the app's providers.
+class _ThemeQuestions extends Fake implements AssetBundle {
+  @override
+  Future<String> loadString(String key, {bool cache = true}) async =>
+      File('assets/data/questions.json').readAsStringSync();
+}
+
 Future<void> _pump(
   WidgetTester tester,
   ThemeMode mode,
@@ -47,6 +54,9 @@ Future<void> _pump(
   ThemeController? controller,
 }) async {
   final themeController = controller ?? ThemeController();
+  final state = AppState(questionBundle: _ThemeQuestions());
+  if (child is LessonScreen) state.startLesson(state.levels.first);
+  addTearDown(state.dispose);
   if (controller != null) {
     // Flip the controller into the requested mode.
     if ((mode == ThemeMode.dark) != themeController.isDarkMode) {
@@ -60,7 +70,7 @@ Future<void> _pump(
     ThemeProvider(
       notifier: themeController,
       child: AppStateProvider(
-        notifier: AppState(),
+        notifier: state,
         child: ListenableBuilder(
           listenable: themeController,
           builder: (context, _) => MaterialApp(
@@ -461,7 +471,12 @@ void main() {
           final state = AppStateProvider.of(
             tester.element(find.byType(LessonScreen)),
           );
-          state.answerQuestion(isCorrect);
+          final q = state.currentQuestion;
+          state.answerQuestion(
+            isCorrect
+                ? q.correctAnswerIndex
+                : (q.correctAnswerIndex + 1) % q.options.length,
+          );
 
           await tester.pump();
           await tester.pump(const Duration(milliseconds: 400));
